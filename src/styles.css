@@ -29,3 +29,11 @@ body {
 .w-auto {
   width: auto !important;
 }
+
+.flex{
+  display: flex;
+}
+
+.flex-inline{
+  display: inline-flex;
+}

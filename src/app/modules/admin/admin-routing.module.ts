@@ -3,13 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path : 'login',
+    path : 'auth',
     loadChildren : './modules/login/login.module#LoginModule'
   },
   {
     path : 'cms',
     loadChildren : './modules/cms/cms.module#CmsModule'
   },
+  {
+    path : '',
+    redirectTo : 'auth'
+  }
 ];
 
 @NgModule({
