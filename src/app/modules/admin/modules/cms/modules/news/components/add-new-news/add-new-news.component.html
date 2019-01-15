@@ -1,6 +1,19 @@
-<h1 class="page-title">Add new news</h1>
-
-<form>
+<header class="page-header">
+  <div class="row">
+    <div class="col">
+      <h1 class="page-title">Add news</h1>
+    </div>
+    <div class="col">
+      <div class="text-right">
+        <a [routerLink]="['/admin/cms/news/all-news']" mat-raised-button color="primary">All news</a>
+      </div>
+    </div>
+  </div>
+</header>
+<form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+  <!-- hidden fields start-->
+    <input type="hidden" formControlName="id">
+  <!-- hidden fields end -->
   <section class="row">
     <div class="col-8 admin-content">
       <mat-card>
@@ -9,11 +22,11 @@
         </mat-card-header>
         <mat-card-content>
           <mat-form-field>
-            <input type="text" placeholder="News title" matInput />
+            <input formControlName="title" autofocus type="text" placeholder="News title" matInput />
           </mat-form-field>
 
           <mat-form-field>
-            <textarea rows="10" placeholder="News content" matInput></textarea>
+            <textarea formControlName="content" rows="10" placeholder="News content" matInput></textarea>
           </mat-form-field>
 
         </mat-card-content>
@@ -24,7 +37,7 @@
         </mat-card-header>
         <mat-card-content>
           <mat-form-field>
-            <input type="url" placeholder="Canonical URL" matInput />
+            <input type="url" formControlName="canonicalUrl" placeholder="Canonical URL" matInput />
           </mat-form-field>
         </mat-card-content>
       </mat-card>
@@ -40,7 +53,7 @@
         </mat-expansion-panel-header>
         <div class="flex justify-content-between">
           <button type="button" mat-raised-button color="light">Save draft</button>
-          <button type="button" mat-raised-button color="primary">Publish</button>
+          <button type="submit" mat-raised-button color="primary">Publish</button>
         </div>
       </mat-expansion-panel>
 
@@ -74,12 +87,12 @@
         </mat-expansion-panel-header>
         <mat-form-field>
           <mat-chip-list #newsTag>
-            <mat-chip *ngFor="let tag of newsTags" [selectable]="selectable" [removable]="removable" (removed)="remove(tag)">
+            <mat-chip *ngFor="let tag of news.tags" [selectable]="tagControlProp.selectable" [removable]="tagControlProp.removable" (removed)="remove(tag)">
               {{tag}}
-              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              <mat-icon matChipRemove *ngIf="tagControlProp.removable">cancel</mat-icon>
             </mat-chip>
             <input placeholder="New tag..." [matChipInputFor]="newsTag" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+              [matChipInputAddOnBlur]="tagControlProp.addOnBlur" (matChipInputTokenEnd)="add($event)">
           </mat-chip-list>
         </mat-form-field>
       </mat-expansion-panel>

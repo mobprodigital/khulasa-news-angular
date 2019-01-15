@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material';
+import { NewsModel } from 'src/app/model/news.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-new-news',
@@ -10,21 +12,34 @@ import { MatChipInputEvent } from '@angular/material';
 export class AddNewNewsComponent implements OnInit {
 
 
-  visible = true;
-  selectable = true;
-  removable = true;
-  addOnBlur = true;
+  public tagControlProp = {
+    visible: true,
+    selectable: true,
+    removable: true,
+    addOnBlur: true,
+  }
+
   public coverImage: File = null;
   public thumbnailUrl: string | ArrayBuffer;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+  
   newsTags: string[] = ['world', 'politics', 'haryana', 'modi'];
 
+  public news: NewsModel = new NewsModel();
+  public newsForm: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder
+  ) {
+    this.newsForm = this.createForm();
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }
 
+  private createForm() {
+    return this.formBuilder.group(this.news);
+  }
 
   add(event: MatChipInputEvent): void {
     const input = event.input;
@@ -32,7 +47,7 @@ export class AddNewNewsComponent implements OnInit {
 
     // Add our fruit
     if ((value || '').trim()) {
-      this.newsTags.push(value.trim());
+      this.news.tags.push(value.trim());
     }
 
     // Reset the input value
@@ -42,10 +57,10 @@ export class AddNewNewsComponent implements OnInit {
   }
 
   remove(fruit: string): void {
-    const index = this.newsTags.indexOf(fruit);
+    const index = this.news.tags.indexOf(fruit);
 
     if (index >= 0) {
-      this.newsTags.splice(index, 1);
+      this.news.tags.splice(index, 1);
     }
   }
 
@@ -70,5 +85,10 @@ export class AddNewNewsComponent implements OnInit {
     }
   }
 
+
+  onSubmit() {
+    console.log(this.newsForm.value);
+    console.log(this.news);
+  }
 
 }

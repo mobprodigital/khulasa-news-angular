@@ -22,14 +22,17 @@ export class NavLeftSideComponent implements OnInit {
    * Insert menu items in menu list
    */
   public insertMenuItems(): void {
+
+    let baseFolder = '/admin/cms/';
+
     this.menuList.push(...[
       new AdminMenu('News', [
-        new AdminMenuItem('Add new', 'news/add-new'),
-        new AdminMenuItem('All news', 'news/all-news'),
+        new AdminMenuItem('Add new', baseFolder + 'news/add-new'),
+        new AdminMenuItem('All news', baseFolder + 'news/all-news'),
       ]),
       new AdminMenu('Media', [
-        new AdminMenuItem('Add new', 'media/add-new'),
-        new AdminMenuItem('All Media', 'media/all-media')
+        new AdminMenuItem('Add new', baseFolder + 'media/add-new'),
+        new AdminMenuItem('All Media', baseFolder + 'media/all-media')
       ]),
     ])
   }
