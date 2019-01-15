@@ -1,5 +1,8 @@
 export class NewsCategoryModel {
-    id: string;
-    name: string;
+    
     slug: string;
+    
+    constructor(public id: string, public name: string) {
+        this.slug = this.name.split(' ').join('-');
+    }
 }
