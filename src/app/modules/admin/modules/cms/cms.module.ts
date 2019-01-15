@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // material
-import { MatToolbarModule, MatIconModule } from '@angular/material';
+import { MatToolbarModule,MatExpansionModule, MatIconModule, MatMenuModule, MatButtonModule } from '@angular/material';
 
 import { CmsRoutingModule } from './cms-routing.module';
 import { CommonComponent } from './components/common/common.component';
@@ -16,7 +16,11 @@ import { NavLeftSideComponent } from './components/nav-left-side/nav-left-side.c
     CommonModule,
     CmsRoutingModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatExpansionModule,
+    
   ]
 })
 export class CmsModule { }

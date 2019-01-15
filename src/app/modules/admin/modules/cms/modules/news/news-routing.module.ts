@@ -9,6 +9,10 @@ const routes: Routes = [
     component: AddNewNewsComponent
   },
   {
+    path: 'edit/:id',
+    component: AddNewNewsComponent
+  },
+  {
     path: 'all-news',
     component: AllNewsComponent
   },
