@@ -6,7 +6,7 @@ export interface IFeturedImage {
     /**
      * Orignal image as uploaded
      */
-    orignal: string,
+    original: string,
     /**
      * size 1024*height 
      */

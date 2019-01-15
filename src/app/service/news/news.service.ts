@@ -44,7 +44,7 @@ export class NewsService {
       n.id = i.toString();
       n.title = 'Title ' + i.toString();
       n.content = 'Content ' + i.toString();
-      n.auther = 'Gyan';
+      n.author = 'Gyan';
       n.categories = [new NewsCategoryModel('cat' + i, 'Cat name ' + i),];
       n.createDate = new Date();
       n.published = true;

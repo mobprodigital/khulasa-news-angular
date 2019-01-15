@@ -639,3 +639,7 @@ header.page-header {
 .text-right {
   text-align: right !important;
 }
+
+table.mat-table {
+  width: 100%;
+}

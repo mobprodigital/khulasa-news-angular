@@ -10,12 +10,12 @@ export class NewsModel {
     categories: NewsCategoryModel[] = [];
     tags: string[] = [];
     featuredImage: IFeturedImage = {
-        orignal: '',
+        original: '',
         large: '',
         medium: '',
         small: ''
     };
-    auther: string = "";
+    author: string = "";
     createDate: Date | string = '';
     publishedDate: Date | string = '';
     canonicalUrl: string = ''

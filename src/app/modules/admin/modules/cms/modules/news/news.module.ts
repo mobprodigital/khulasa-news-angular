@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NewsRoutingModule } from './news-routing.module';
 import { AddNewNewsComponent } from './components/add-new-news/add-new-news.component';
 import { AllNewsComponent } from './components/all-news/all-news.component';
-import { MatCardModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatChipsModule, MatIconModule, MatButtonModule, MatExpansionModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatChipsModule, MatIconModule, MatButtonModule, MatExpansionModule, MatTableModule, MatPaginatorModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -20,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class NewsModule { }
