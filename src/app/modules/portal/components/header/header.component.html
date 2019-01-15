@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+<a href=""></a>
+
+      <img class="w-100" src="assets/images/logo/logo.png" alt="">
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-4 align-items-center flex flex-column justify-content-end">
+
+      <input class="align-self-end search-input" type="text" placeholder="Search">
+      <span class="align-self-end color-gray">
+        {{day}}/{{month}}/{{year}}
+      </span>
+    </div>
+  </div>
+</div>
+<div class="w-100">
+  <ul class="nav-menu ">
+    <li class="nav-item"> <a class="nav-link bg-skyBlue" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">Home</a></li>
+    <li class="nav-item"> <a class="nav-link bg-pink" [routerLink]="['/category' ,1]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">News</a></li>
+    <li class="nav-item"> <a class="nav-link bg-blue" [routerLink]="['/category' ,3]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">World</a></li>
+    <li class="nav-item"> <a class="nav-link bg-yello" [routerLink]="['/category' ,4]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">Business</a></li>
+    <li class="nav-item"> <a class="nav-link bg-red" [routerLink]="['/category' ,5]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">Sports</a></li>
+    <li class="nav-item"> <a class="nav-link  bg-cyan" [routerLink]="['/category' ,6]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">Video</a></li>
+    <li class="nav-item"> <a class="nav-link bg-tiger-orange" [routerLink]="['/category' ,7]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">LifeStyle</a></li>
+    <li class="nav-item"> <a class="nav-link bg-purple" [routerLink]="['/category' ,8]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">Entertainment</a></li>
+    <li class="nav-item"> <a class="nav-link bg-green" [routerLink]="['/category' ,9]" [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active">BazarReview</a></li>
+  </ul>
+</div>
+<i class="fa fa-search" aria-hidden="true"></i>

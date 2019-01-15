@@ -1,3 +1,82 @@
-body{
-    background-color: #ffffff
+.bg-pink {
+  background-color: #f30089;
+}
+
+.bg-orange {
+  background-color: #f3b206;
+}
+
+.bg-blue {
+  background-color: #004fe6;
+}
+
+.bg-cyan {
+  background-color: #07b2dc;
+}
+
+.bg-red {
+  background-color: #c3000b;
+}
+
+.bg-green {
+  background-color: #188e3d;
+}
+
+.bg-yello {
+  background-color: #cce70c;
+}
+
+.bg-purple {
+  background-color: #bb71ef;
+}
+
+.bg-skyBlue {
+  background-color: #32bcb8;
+}
+
+.bg-tiger-orange {
+  background-color: #ff6000;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  padding: 0px;
+  flex-wrap: nowrap;
+  overflow: auto;
+}
+
+.nav-item {
+  flex-grow: 1;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 10px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  border: solid .1px #fff;
+}
+
+.nav-link:hover {
+  background: #247367;
+}
+
+.active {
+  background: #436d67;
+  padding: 8px 10px;
+}
+.search-input
+{
+    width: 80%;
+    font-size: 18px;
+    padding: 4px 6px;
+    border-radius: 5px;
+    border: solid 2px #e3e3e3;
+}
+.color-gray
+{
+  color: #9c9c9c;
 }
