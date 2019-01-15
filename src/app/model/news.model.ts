@@ -1,4 +1,5 @@
 import { NewsCategoryModel } from './news-category.model';
+import { IFeturedImage } from '../interface/featured-image.interface';
 
 export class NewsModel {
     id: string = "";
@@ -8,9 +9,14 @@ export class NewsModel {
     published: boolean = false;
     categories: NewsCategoryModel[] = [];
     tags: string[] = [];
-    featuredImage: string = "";
+    featuredImage: IFeturedImage = {
+        orignal: '',
+        large: '',
+        medium: '',
+        small: ''
+    };
     auther: string = "";
     createDate: Date | string = '';
     publishedDate: Date | string = '';
-    canonicalUrl : string = ''
+    canonicalUrl: string = ''
 }
