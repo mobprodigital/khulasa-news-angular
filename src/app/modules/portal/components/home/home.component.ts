@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from 'src/app/service/news/news.service';
+import { NewsModel } from 'src/app/model/news.model';
+
 
 @Component({
   selector: 'app-home',
@@ -6,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
-
+  public newsList: NewsModel[] = [];
+  constructor(private newsService: NewsService,) {
+    this.getNews();
+  }
+  private getNews() {
+    this.newsService.getNews().then(newsData => this.newsList = newsData);
+  }
   ngOnInit() {
+
   }
 
 }

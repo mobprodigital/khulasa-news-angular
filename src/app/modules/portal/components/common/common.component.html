@@ -1,3 +1,23 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<div class="container-fluid margin-top-200">
+  <div class="row">
+    <aside class="col-1">
+      <app-ad [imgPath]="'assets/images/news/ad1.jpg'"></app-ad>
+    </aside>
+    <aside class="col-10">
+      <app-slider-template *ngIf="slider"></app-slider-template>
+      <div class="row">
+        <aside class="col-8">
+          <router-outlet></router-outlet>
+        </aside>
+        <aside class="col-4">
+          <app-right-side-bar></app-right-side-bar>
+        </aside>
+      </div>
+    </aside>
+    <aside class="col-1">
+      <app-ad [imgPath]="'assets/images/news/ad2.jpg'"></app-ad>
+    </aside>
+  </div>
+</div>
 <app-footer></app-footer>

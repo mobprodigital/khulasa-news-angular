@@ -1,4 +1,3 @@
-import { NewsCategoryModel } from './news-category.model';
 import { IFeturedImage } from '../interface/featured-image.interface';
 
 export class NewsModel {
@@ -7,15 +6,16 @@ export class NewsModel {
     slug: string = "";
     content: string = "";
     published: boolean = false;
-    categories: NewsCategoryModel[] = [];
+    /* array of ids of selected categories */
+    categories: number[] = [1, 2, 3];
     tags: string[] = [];
     featuredImage: IFeturedImage = {
-        orignal: '',
+        original: '',
         large: '',
         medium: '',
         small: ''
     };
-    auther: string = "";
+    author: string = "";
     createDate: Date | string = '';
     publishedDate: Date | string = '';
     canonicalUrl: string = ''

@@ -1,40 +1,37 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-<a href=""></a>
-
-      <img class="w-100" src="assets/images/logo/logo.png" alt="">
-    </div>
-    <div class="col-md-6"></div>
-    <div class="col-md-4 align-items-center flex flex-column justify-content-end">
-
-      <input class="align-self-end search-input" type="text" placeholder="Search">
-      <span class="align-self-end color-gray">
-        {{day}}/{{month}}/{{year}}
-      </span>
+<div id="header" class="sticky">
+  <div class="container-fluid " style="padding-top:20px">
+    <div class="row">
+      <div class="col-md-2">
+        <a href="">
+          <img class="w-100" src="assets/images/logo/logo.png" alt="">
+        </a>
+      </div>
+      <div class="col-md-7"></div>
+      <div class="col-md-3 align-items-center flex flex-column justify-content-end">
+        <form (ngSubmit)="check()" #searchForm="ngForm">
+          <div class="input-group mb-2">
+            <input [(ngModel)]="SearchTerm" [ngClass]="{'is-invalid' : (searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty))}"
+              #searchTerm="ngModel" name="searchTerm" required type="text" class="form-control" placeholder="Search" />
+            <div class="input-group-append">
+              <button [disabled]="searchForm.invalid" class="btn btn-outline-dark" type="submit"><i class="fa fa-search"
+                  aria-hidden="true"></i></button>
+            </div>
+            <div class="invalid-feedback" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">Enter search term</div>
+          </div>
+        </form>
+        <span class="align-self-end color-gray">
+          {{date}}
+        </span>
+      </div>
     </div>
   </div>
+  <div class="w-100">
+    <ul class="nav-menu ">
+      <li class="nav-item"> <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="nav-link-active">Home</a></li>
+
+      <li *ngFor="let cat of categoryList" class="nav-item"> <a class="nav-link" [routerLink]="['/category' ,cat.id]"
+          [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="nav-link-active">{{cat.name}}</a></li>
+    </ul>
+  </div>
 </div>
-<div class="w-100">
-  <ul class="nav-menu ">
-    <li class="nav-item"> <a class="nav-link bg-skyBlue" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">Home</a></li>
-    <li class="nav-item"> <a class="nav-link bg-pink" [routerLink]="['/category' ,1]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">News</a></li>
-    <li class="nav-item"> <a class="nav-link bg-blue" [routerLink]="['/category' ,3]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">World</a></li>
-    <li class="nav-item"> <a class="nav-link bg-yello" [routerLink]="['/category' ,4]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">Business</a></li>
-    <li class="nav-item"> <a class="nav-link bg-red" [routerLink]="['/category' ,5]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">Sports</a></li>
-    <li class="nav-item"> <a class="nav-link  bg-cyan" [routerLink]="['/category' ,6]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">Video</a></li>
-    <li class="nav-item"> <a class="nav-link bg-tiger-orange" [routerLink]="['/category' ,7]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">LifeStyle</a></li>
-    <li class="nav-item"> <a class="nav-link bg-purple" [routerLink]="['/category' ,8]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">Entertainment</a></li>
-    <li class="nav-item"> <a class="nav-link bg-green" [routerLink]="['/category' ,9]" [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="active">BazarReview</a></li>
-  </ul>
-</div>
-<i class="fa fa-search" aria-hidden="true"></i>
