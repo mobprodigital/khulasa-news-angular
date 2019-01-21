@@ -13,7 +13,8 @@
 
 <form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
   <!-- hidden fields start-->
-    <input type="hidden" formControlName="id">
+  <input type="hidden" formControlName="id">
+  <input type="hidden" formControlName="slug">
   <!-- hidden fields end -->
   <section class="row">
     <div class="col-8 admin-content">
@@ -24,6 +25,9 @@
         <mat-card-content>
           <mat-form-field>
             <input formControlName="title" autofocus type="text" placeholder="News title" matInput />
+            <mat-error *ngIf="newsForm.get('title').invalid">
+              Title is required
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -46,6 +50,7 @@
 
     <div class="col-4 admin-sidebar">
 
+      <!-- publish status -->
       <mat-expansion-panel [expanded]="true">
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -58,6 +63,7 @@
         </div>
       </mat-expansion-panel>
 
+      <!-- categories -->
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -65,21 +71,18 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div>
-          <div>
-            <mat-checkbox color="primary">All</mat-checkbox>
+
+          <div *ngFor="let catg of categoriesList; let i = index">
+            <mat-checkbox [checked]="catg.selected" (change)="setCategory($event, catg)"  color="primary">{{catg.name}}</mat-checkbox>
           </div>
           <div>
-            <mat-checkbox color="primary">World</mat-checkbox>
-          </div>
-          <div>
-            <mat-checkbox color="primary">Entertain</mat-checkbox>
-          </div>
-          <div>
-            <mat-checkbox color="primary">Policics</mat-checkbox>
+            <br>
+            <button mat-raised-button color="light" (click)="addNewCategory()" type="button">Add new</button>
           </div>
         </div>
       </mat-expansion-panel>
 
+      <!-- tags -->
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -88,17 +91,18 @@
         </mat-expansion-panel-header>
         <mat-form-field>
           <mat-chip-list #newsTag>
-            <mat-chip *ngFor="let tag of news.tags" [selectable]="tagControlProp.selectable" [removable]="tagControlProp.removable" (removed)="remove(tag)">
+            <mat-chip *ngFor="let tag of newsForm.get('tags').value" [selectable]="tagControlProp.selectable"
+              [removable]="tagControlProp.removable" (removed)="removeTag(tag)">
               {{tag}}
               <mat-icon matChipRemove *ngIf="tagControlProp.removable">cancel</mat-icon>
             </mat-chip>
             <input placeholder="New tag..." [matChipInputFor]="newsTag" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-              [matChipInputAddOnBlur]="tagControlProp.addOnBlur" (matChipInputTokenEnd)="add($event)">
+              [matChipInputAddOnBlur]="tagControlProp.addOnBlur" (matChipInputTokenEnd)="addTag($event)">
           </mat-chip-list>
         </mat-form-field>
       </mat-expansion-panel>
 
-
+      <!-- fetured image -->
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>

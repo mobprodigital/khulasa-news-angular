@@ -643,3 +643,8 @@ header.page-header {
 table.mat-table {
   width: 100%;
 }
+
+.dialog-title {
+  margin: 0 0 10px 0;
+  font-weight: 400;
+}

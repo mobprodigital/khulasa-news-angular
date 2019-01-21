@@ -8,8 +8,23 @@ import { NewsCategoryModel } from 'src/app/model/news-category.model';
 export class NewsService {
 
   private newsList: NewsModel[] = [];
+  public newsCategories: NewsCategoryModel[] = [
+    new NewsCategoryModel(1, 'World'),
+    new NewsCategoryModel(2, 'Top'),
+    new NewsCategoryModel(3, 'Entertain'),
+    new NewsCategoryModel(4, 'Sports'),
+    new NewsCategoryModel(5, 'India'),
+    new NewsCategoryModel(6, 'Local news'),
+  ];
+
   constructor() {
     this.feedNews();
+  }
+
+  public getNewsCategories(): Promise<NewsCategoryModel[]> {
+    return new Promise((resolve, reject) => {
+      resolve(this.newsCategories);
+    })
   }
 
 
@@ -45,8 +60,8 @@ export class NewsService {
       n.title = 'Title ' + i.toString();
       n.content = 'Content ' + i.toString();
       n.author = 'Gyan';
-      n.categories = [new NewsCategoryModel('cat' + i, 'Cat name ' + i),];
-      n.createDate = new Date();
+      n.categories = [1, 3, 5],
+        n.createDate = new Date();
       n.published = true;
       return n;
     }))
