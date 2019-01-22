@@ -103,7 +103,8 @@ export class NewsService {
       n.content = 'Content ' + i.toString();
       n.author = 'Gyan';
       n.categories = [Math.floor(Math.random() * 10) + 1, Math.floor(Math.random() * 10) + 1];
-      n.createDate = new Date();
+      let date = new Date();
+      n.createDate = `${date.getFullYear}/${(date.getMonth() + 1)/date.getDate()}`;
       n.published = true;
       n.featuredImage = {
         original: 'assets/images/news/default.jpg',
