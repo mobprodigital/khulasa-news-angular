@@ -25,10 +25,21 @@ export class NewsService {
     this.feedNews();
   }
 
-  public getNewsCategories(): Promise<NewsCategoryModel[]> {
+  public getNewsCategories(): Promise<NewsCategoryModel[]>;
+  public getNewsCategories(categoryId: number): Promise<NewsCategoryModel>;
+  public getNewsCategories(catOrUndefined?: undefined | number): Promise<NewsCategoryModel[] | NewsCategoryModel> {
     return new Promise((resolve, reject) => {
-      resolve(this.newsCategories);
-    })
+      let argsType = typeof catOrUndefined;
+      if (argsType === 'number') {
+        resolve(this.newsCategories.find(c => c.id === catOrUndefined));
+      }
+      else if (argsType === 'undefined') {
+        resolve(this.newsCategories);
+      }
+      else {
+        reject('Argument type mismatch');
+      }
+    });
   }
 
   public getNewsByid(newsId: string): Promise<NewsModel> {
@@ -63,6 +74,7 @@ export class NewsService {
     })
   }
 
+
   public getNews(): Promise<NewsModel[]>;
   public getNews(newsId: string): Promise<NewsModel>;
   public getNews(idOrUndefined?: undefined | string): Promise<NewsModel | NewsModel[]> {
@@ -84,7 +96,7 @@ export class NewsService {
 
 
   private feedNews() {
-    this.newsList.push(...Array.from({ length: 5 }, (_, i) => {
+    this.newsList.push(...Array.from({ length: 20 }, (_, i) => {
       let n = new NewsModel();
       n.id = i.toString();
       n.title = 'Title ' + i.toString();
@@ -93,6 +105,13 @@ export class NewsService {
       n.categories = [Math.floor(Math.random() * 10) + 1, Math.floor(Math.random() * 10) + 1];
       n.createDate = new Date();
       n.published = true;
+      n.featuredImage = {
+        original: 'assets/images/news/default.jpg',
+        large: 'assets/images/news/default.jpg',
+        medium: 'assets/images/news/default.jpg',
+        small: 'assets/images/news/default.jpg'
+
+      }
       return n;
     }))
   }

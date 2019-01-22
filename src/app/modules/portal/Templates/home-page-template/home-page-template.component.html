@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row" *ngIf="news.length > 0">
+    <div class="col-md-4 padding-lr-5" *ngFor=" let nws of news">
+      <a [routerLink]="['/news' ,nws.id]"> <img class="w-100 thumb" src="{{nws.featuredImage.small}}" alt=""></a>
+      <div class="home-title-container">
+        <div class="home-title-inner-container">
+          <a [routerLink]="['/news' ,nws.id]">
+            <h6 class="home-title">{{nws.title}}</h6>
+          </a>
+          <h4 class="fa-icon-home"><i class="fa fa-calendar" aria-hidden="true"> <span class="color-gray">
+                {{nws.createDate}}</span></i></h4>
+          <h4 class="fa-icon-home"><i class="fa fa-user" aria-hidden="true"><span class="color-gray">
+                {{nws.author}} </span></i></h4>
+          <h4 class="home-content">{{nws.content}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
