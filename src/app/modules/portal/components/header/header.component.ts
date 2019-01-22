@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   }
   private getCategory() {
-    this.categoryList = this.category.categoryList;
+    this.categoryList = this.category.newsCategories;
   }
 
   private getDate() {

@@ -49,6 +49,11 @@
   background-color: #188e3d;
 }
 
+.bg-green,
+.nav-menu>li:nth-child(11)>a.nav-link {
+  background-color: #74bb53;
+}
+
 
 .color-pink {
   color: #f30089;

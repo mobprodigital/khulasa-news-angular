@@ -9,31 +9,26 @@ import { NewsCategoryModel } from 'src/app/model/news-category.model';
   styleUrls: ['./news-archive.component.css']
 })
 export class NewsArchiveComponent implements OnInit {
-  newsCategoryId: string;
+  public newsCategoryId: number;
   public newsList: NewsModel[] = [];
-  public pageTitle: NewsCategoryModel;
+  public pageTitle: string = 'News';
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private newsService: NewsService) {
 
     this.getnewsId();
     this.getnews();
-    this.gettitle();
+
   }
   private getnewsId() {
     this.activatedRoute.params.subscribe(params => {
-      this.newsCategoryId = (params['id']);
+      this.newsCategoryId = parseInt(params['id']);
     })
   }
   private getnews() {
-    this.newsService.getNews().then(newsdata => this.newsList = newsdata)
+    this.newsService.getNewsByCategoryId(this.newsCategoryId).then(newsdata => this.newsList = newsdata);
+    this.newsService.getNewsCategories(this.newsCategoryId).then(cat => this.pageTitle = cat.name);
   }
-  private gettitle() {
-    this.router.events.subscribe(ev => {
-      if (ev instanceof NavigationEnd) {
-        this.pageTitle = this.newsService.newsNameById(this.newsCategoryId);
-      }
-    })
-  }
+
   ngOnInit() {
   }
 }
