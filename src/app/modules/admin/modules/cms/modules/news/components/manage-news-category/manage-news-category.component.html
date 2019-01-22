@@ -9,10 +9,13 @@
   </div>
 </header>
 
-<div *ngIf="dataSource">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-  </mat-form-field>
+
+<div class="bg-white" *ngIf="dataSource">
+  <div class="ml-4 mr-4 mt-4">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+  </div>
   <table mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="name">

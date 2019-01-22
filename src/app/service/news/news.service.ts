@@ -15,6 +15,10 @@ export class NewsService {
     new NewsCategoryModel(4, 'Sports'),
     new NewsCategoryModel(5, 'India'),
     new NewsCategoryModel(6, 'Local news'),
+    new NewsCategoryModel(7, 'Delhi'),
+    new NewsCategoryModel(8, 'Bollywood'),
+    new NewsCategoryModel(9, 'Crime'),
+    new NewsCategoryModel(10, 'International'),
   ];
 
   constructor() {
@@ -27,6 +31,37 @@ export class NewsService {
     })
   }
 
+  public getNewsByid(newsId: string): Promise<NewsModel> {
+    return new Promise((resolve, reject) => {
+      let newsFound = this.newsList.find(n => n.id === newsId);
+      if (newsFound) {
+        resolve(newsFound);
+      }
+      else {
+        reject('No news found of specified id');
+      }
+    })
+  }
+
+
+  public getAllNews = () => this.newsList;
+
+  public getNewsByCategoryId(categoryId: number): Promise<NewsModel[]> {
+    return new Promise((resolve, reject) => {
+      if (categoryId) {
+        let news: NewsModel[] = this.newsList.filter(n => n.categories.indexOf(categoryId) > -1);
+        if (news && news.length > 0) {
+          resolve(news);
+        }
+        else {
+          reject('No news found of this category');
+        }
+      }
+      else {
+        reject('No news found of this category');
+      }
+    })
+  }
 
   public getNews(): Promise<NewsModel[]>;
   public getNews(newsId: string): Promise<NewsModel>;
@@ -34,16 +69,10 @@ export class NewsService {
     return new Promise((resolve, reject) => {
       let argsType = typeof idOrUndefined;
       if (argsType === 'string') {
-        let newsFound = this.newsList.find(n => n.id === idOrUndefined);
-        if (newsFound) {
-          resolve(newsFound);
-        }
-        else {
-          reject('No news found of specified id');
-        }
+        this.getNewsByid(<string>idOrUndefined).then(n => resolve(n)).catch(err => reject(err));
       }
       else if (argsType === 'undefined') {
-        resolve(this.newsList);
+        resolve(this.getAllNews());
       }
       else {
         throw 'Args type mismatch';
@@ -53,6 +82,7 @@ export class NewsService {
   }
 
 
+
   private feedNews() {
     this.newsList.push(...Array.from({ length: 5 }, (_, i) => {
       let n = new NewsModel();
@@ -60,8 +90,8 @@ export class NewsService {
       n.title = 'Title ' + i.toString();
       n.content = 'Content ' + i.toString();
       n.author = 'Gyan';
-      n.categories = [1, 3, 5],
-        n.createDate = new Date();
+      n.categories = [Math.floor(Math.random() * 10) + 1, Math.floor(Math.random() * 10) + 1];
+      n.createDate = new Date();
       n.published = true;
       return n;
     }))

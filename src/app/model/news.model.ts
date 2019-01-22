@@ -1,4 +1,3 @@
-import { NewsCategoryModel } from './news-category.model';
 import { IFeturedImage } from '../interface/featured-image.interface';
 
 export class NewsModel {

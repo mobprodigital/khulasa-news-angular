@@ -59,7 +59,7 @@ export class ManageNewsCategoryComponent implements OnInit {
 
     const dialogRef = this.dialog.open(AddNewsCatDialogComponent, {
       width: '250px',
-      data: (cat ? cat : false)
+      data: (cat ? cat : false),
     });
 
     dialogRef.afterClosed().subscribe((newCategory: NewsCategoryModel) => {
