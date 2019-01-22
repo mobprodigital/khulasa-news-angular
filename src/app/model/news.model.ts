@@ -6,7 +6,7 @@ export class NewsModel {
     slug: string = "";
     content: string = "";
     published: boolean = false;
-    /* array of ids of selected categories */
+    /** array of ids of selected categories */
     categories: number[] = [1, 2, 3];
     tags: string[] = [];
     featuredImage: IFeturedImage = {

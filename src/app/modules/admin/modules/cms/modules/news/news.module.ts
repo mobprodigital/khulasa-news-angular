@@ -4,13 +4,21 @@ import { CommonModule } from '@angular/common';
 import { NewsRoutingModule } from './news-routing.module';
 import { AddNewNewsComponent } from './components/add-new-news/add-new-news.component';
 import { AllNewsComponent } from './components/all-news/all-news.component';
-import { MatCardModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatChipsModule, MatIconModule, MatButtonModule, MatExpansionModule } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatCheckboxModule, MatChipsModule, MatIconModule, MatButtonModule, MatExpansionModule, MatTableModule, MatPaginatorModule, MatDialogModule } from '@angular/material';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AddNewsCatDialogComponent } from './dialogs/add-news-cat-dialog/add-news-cat-dialog.component';
+import { ManageNewsCategoryComponent } from './components/manage-news-category/manage-news-category.component';
 
 @NgModule({
-  declarations: [AddNewNewsComponent, AllNewsComponent],
+  declarations: [
+    AddNewNewsComponent,
+    AllNewsComponent,
+    AddNewsCatDialogComponent,
+    ManageNewsCategoryComponent
+  ],
   imports: [
     CommonModule,
+    FormsModule,
     NewsRoutingModule,
     MatCardModule,
     MatFormFieldModule,
@@ -20,7 +28,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule,
+  ],
+  entryComponents: [AddNewsCatDialogComponent]
 })
 export class NewsModule { }

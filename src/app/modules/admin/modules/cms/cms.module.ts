@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // material
-import { MatToolbarModule,MatExpansionModule, MatIconModule, MatMenuModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatExpansionModule, MatIconModule, MatMenuModule, MatButtonModule, MatRippleModule } from '@angular/material';
 
 import { CmsRoutingModule } from './cms-routing.module';
 import { CommonComponent } from './components/common/common.component';
@@ -20,7 +20,7 @@ import { NavLeftSideComponent } from './components/nav-left-side/nav-left-side.c
     MatMenuModule,
     MatButtonModule,
     MatExpansionModule,
-    
+    MatRippleModule
   ]
 })
 export class CmsModule { }

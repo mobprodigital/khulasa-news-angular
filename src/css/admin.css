@@ -639,3 +639,12 @@ header.page-header {
 .text-right {
   text-align: right !important;
 }
+
+table.mat-table {
+  width: 100%;
+}
+
+.dialog-title {
+  margin: 0 0 10px 0;
+  font-weight: 400;
+}
