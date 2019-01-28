@@ -57,12 +57,18 @@ export class NewsService {
 
   public getAllNews = () => this.newsList;
 
-  public getNewsByCategoryId(categoryId: number): Promise<NewsModel[]> {
+  /**
+   * Get all news of a specified news category 
+   * @param categoryId id of the news category
+   * @param count (default = 10) number of news want to get
+   * @param from (default = 1) offset number from where want to get the news
+   */
+  public getNewsByCategoryId(categoryId: number, count: number = 10, from: number = 1): Promise<NewsModel[]> {
     return new Promise((resolve, reject) => {
       if (categoryId) {
         let news: NewsModel[] = this.newsList.filter(n => n.categories.indexOf(categoryId) > -1);
         if (news && news.length > 0) {
-          resolve(news);
+          resolve(news.slice(from - 1, (from -1) + count));
         }
         else {
           reject('No news found of this category');
@@ -95,8 +101,9 @@ export class NewsService {
 
 
 
+
   private feedNews() {
-    this.newsList.push(...Array.from({ length: 20 }, (_, i) => {
+    this.newsList.push(...Array.from({ length: 100 }, (_, i) => {
       let n = new NewsModel();
       n.id = i.toString();
       n.title = 'Title ' + i.toString();

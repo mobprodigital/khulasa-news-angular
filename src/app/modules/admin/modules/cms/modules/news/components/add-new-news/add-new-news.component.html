@@ -71,10 +71,11 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <div>
-
-          <div *ngFor="let catg of categoriesList; let i = index">
-            <mat-checkbox [checked]="catg.selected" (change)="setCategory($event, catg)"  color="primary">{{catg.name}}</mat-checkbox>
-          </div>
+          <section class="max-h-200">
+            <div *ngFor="let catg of categoriesList; let i = index">
+              <mat-checkbox [checked]="catg.selected" (change)="setCategory($event, catg)" color="primary">{{catg.name}}</mat-checkbox>
+            </div>
+          </section>
           <div>
             <br>
             <button mat-raised-button color="light" (click)="addNewCategory()" type="button">Add new</button>

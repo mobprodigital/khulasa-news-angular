@@ -1,0 +1,8 @@
+label.media-uploader {
+    border: dashed 3px gray;
+    width: 100%;
+    padding: 10px;
+}
+label.media-uploader > input[type="file"] {
+    display: none;
+}
