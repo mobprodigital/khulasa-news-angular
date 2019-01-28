@@ -8,17 +8,17 @@ import Swiper from 'swiper';
 })
 export class SliderTemplateComponent implements OnInit {
   constructor() {
-    
   }
   ngOnInit() {
-    var mySwiper = new Swiper('.swiper-container', { loop: true,autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    }, navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }, });
+    var mySwiper = new Swiper('.swiper-container', {
+      loop: true, autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      }, navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
     console.log(mySwiper);
   }
-
 }

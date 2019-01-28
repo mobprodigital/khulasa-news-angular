@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
   selector: 'app-common',
   templateUrl: './common.component.html',
   styleUrls: ['./common.component.css']
+  
 })
 export class CommonComponent implements OnInit {
   public slider: boolean = true;

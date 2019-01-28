@@ -7,7 +7,7 @@
         </a>
       </div>
       <div class="col-md-7"></div>
-      <div class="col-md-3 align-items-center flex flex-column justify-content-end">
+      <div class="col-md-3 flex flex-column justify-content-end">
         <form (ngSubmit)="check()" #searchForm="ngForm">
           <div class="input-group mb-2">
             <input [(ngModel)]="SearchTerm" [ngClass]="{'is-invalid' : (searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty))}"
@@ -19,7 +19,7 @@
             <div class="invalid-feedback" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">Enter search term</div>
           </div>
         </form>
-        <span class="align-self-end color-gray">
+        <span class="align-self-end color-gray current-date">
           {{date}}
         </span>
       </div>

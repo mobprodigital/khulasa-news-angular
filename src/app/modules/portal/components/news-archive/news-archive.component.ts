@@ -1,34 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { NewsService } from 'src/app/service/news/news.service';
 import { NewsModel } from 'src/app/model/news.model';
-import { NewsCategoryModel } from 'src/app/model/news-category.model';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-news-archive',
   templateUrl: './news-archive.component.html',
   styleUrls: ['./news-archive.component.css']
 })
-export class NewsArchiveComponent implements OnInit {
+export class NewsArchiveComponent implements OnInit, OnDestroy {
+
   public newsCategoryId: number;
   public newsList: NewsModel[] = [];
   public pageTitle: string = 'News';
+  private routeSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private newsService: NewsService) {
-
-    this.getnewsId();
-    this.getnews();
-
-  }
-  private getnewsId() {
-    this.activatedRoute.params.subscribe(params => {
-      this.newsCategoryId = parseInt(params['id']);
+    this.routeSubscription = this.router.events.subscribe(ev => {
+      if (ev instanceof NavigationEnd) {
+       this.getNewsCategoryId();
+       
+      }
     })
   }
-  private getnews() {
+
+  public getNewsByCategory() {
     this.newsService.getNewsByCategoryId(this.newsCategoryId).then(newsdata => this.newsList = newsdata);
     this.newsService.getNewsCategories(this.newsCategoryId).then(cat => this.pageTitle = cat.name);
   }
-
+  private getNewsCategoryId() {
+    let catId= parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    if(catId!=undefined && catId!=null){
+      this.newsCategoryId=catId;
+      this.getNewsByCategory();
+    }
+  }
   ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.routeSubscription.unsubscribe();
   }
 }

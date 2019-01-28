@@ -1,8 +1,10 @@
 <ng-container *ngIf="newsByCat && newsByCat.length > 0">
-  <div *ngFor="let cat of newsByCat">
-    <h4 class="home-news-title"><a class="color-blue" [routerLink]="['/category', cat.category.id]">{{cat.category.name}}</a></h4>
-    <div class="color-blue hr"></div>
+  <div class="home">
+  <div class="home-inner-div" *ngFor="let cat of newsByCat">
+    <h4 class="home-news-title"><a  [routerLink]="['/category', cat.category.id]">{{cat.category.name}}</a></h4>
+    <div class="hr a"></div>
     <div class="hr-2"></div>
     <app-home-page-template [news]="cat.news"></app-home-page-template>
   </div>
+</div>
 </ng-container>
