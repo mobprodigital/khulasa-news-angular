@@ -10,12 +10,12 @@ import { NewsModel } from 'src/app/model/news.model';
 export class LetestNewsTemplateComponent implements OnInit {
   @Input() categoryId: number;
   @Input() count: number;
+  @Input() categoryTitle: string;
   public newsList: NewsModel[] = [];
-  public title: string;
   public errorMsg: string;
   constructor(private newsService: NewsService) {
-  
-   }
+
+  }
 
 
   getNewsByCategoryId() {
@@ -25,15 +25,8 @@ export class LetestNewsTemplateComponent implements OnInit {
         .catch(err => this.errorMsg = err);
     }
   }
-  getNewsCategory() {
-    if(this.categoryId)
-    {
-      this.newsService.getNewsCategories(this.categoryId)
-      .then(title => this.title = title.name);
-    }
-  }
+
   ngOnInit() {
-    this.getNewsCategory();
     this.getNewsByCategoryId();
   }
 

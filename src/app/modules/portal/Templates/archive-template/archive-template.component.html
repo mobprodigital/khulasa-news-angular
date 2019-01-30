@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row" *ngIf="news.length > 0">
     <div class="col-md-6 margin-bottom-25" *ngFor="let nws of news">
-      <a [routerLink]="['/news' ,nws.id]"> <img class="w-100 thumb" src="{{nws.featuredImage.small}}" alt=""></a>
+      <a [routerLink]="['/news' ,nws.id]"> <img class="news-arcive-image thumb" src="{{nws.featuredImage.small}}" alt=""></a>
       <a [routerLink]="['/news' ,nws.id]">
         <h5 class="news-archive-title">{{nws.title}}</h5>
       </a>

@@ -3,28 +3,19 @@ import { NewsModel } from 'src/app/model/news.model';
 import { NewsCategoryModel } from 'src/app/model/news-category.model';
 import { HttpService } from '../http/http.service';
 import { HttpParams } from '@angular/common/http';
+import { promise } from 'protractor';
+import { resolve } from 'path';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  private newsList: NewsModel[] = [];
-  public newsCategories: NewsCategoryModel[] = [
-    new NewsCategoryModel(1, 'World'),
-    new NewsCategoryModel(2, 'Top'),
-    new NewsCategoryModel(3, 'Entertain'),
-    new NewsCategoryModel(4, 'Sports'),
-    new NewsCategoryModel(5, 'India'),
-    new NewsCategoryModel(6, 'Local news'),
-    new NewsCategoryModel(7, 'Delhi'),
-    new NewsCategoryModel(8, 'Bollywood'),
-    new NewsCategoryModel(9, 'Crime'),
-    new NewsCategoryModel(10, 'International'),
-  ];
+
+  private menuCategories: NewsCategoryModel[] = [];
 
   constructor(private httpService: HttpService) {
-    this.feedNews();
+
   }
 
   /**
@@ -60,20 +51,31 @@ export class NewsService {
     });
   }
 
-  public getNewsByid(newsId: string): Promise<NewsModel> {
+  /**
+   * get menu catgories
+   */
+  public getMenuCategories(): Promise<NewsCategoryModel[]> {
     return new Promise((resolve, reject) => {
-      let newsFound = this.newsList.find(n => n.id === newsId);
-      if (newsFound) {
-        resolve(newsFound);
+      if (this.menuCategories && this.menuCategories.length > 0) {
+        let cats = this.getLocalData('menu_cat');
+        if(cats){
+          let localCats = this.parseCategories(cats);
+          resolve(localCats);
+        }
       }
       else {
-        reject('No news found of specified id');
+        this.httpService.get('', new HttpParams().set('action', 'get_menu'))
+          .then((data: any[]) => {
+            let menu = this.parseCategories(data);
+            this.setLocalData('menu_cat', menu);
+            this.menuCategories = menu;
+            resolve(menu);
+          }).catch(err => {
+            reject(err);
+          })
       }
     })
   }
-
-
-  public getAllNews = () => this.newsList;
 
   /**
    * Get all news of a specified news category 
@@ -98,13 +100,17 @@ export class NewsService {
       count = typeof count === "undefined" ? 10 : count;
       from = typeof from === "undefined" ? 1 : from;
       if (categoryId) {
-        let news: NewsModel[] = this.newsList.filter(n => n.categories.indexOf(categoryId) > -1);
-        if (news && news.length > 0) {
-          resolve(news.slice(from - 1, (from - 1) + count));
-        }
-        else {
-          reject('No news found of this category');
-        }
+        this.httpService.get('', new HttpParams()
+          .set("action", "get_post_archive")
+          .set("categoryId", categoryId.toString())
+          .set("count", count.toString())
+          .set("from", from.toString())).then((news: any[]) => {
+            let newslist = this.parseNews(news);
+            resolve(newslist);
+          }).catch(err => {
+            reject(err);
+          })
+
       }
       else {
         reject('No news found of this category');
@@ -113,48 +119,31 @@ export class NewsService {
   }
 
 
-  public getNews(): Promise<NewsModel[]>;
-  public getNews(newsId: string): Promise<NewsModel>;
-  public getNews(idOrUndefined?: undefined | string): Promise<NewsModel | NewsModel[]> {
+  /**
+   * get news by id
+   * @param newsId news Id
+   */
+  public getNewsByNewsId(newsId: string): Promise<NewsModel> {
     return new Promise((resolve, reject) => {
-      let argsType = typeof idOrUndefined;
-      if (argsType === 'string') {
-        this.getNewsByid(<string>idOrUndefined).then(n => resolve(n)).catch(err => reject(err));
-      }
-      else if (argsType === 'undefined') {
-        resolve(this.getAllNews());
-      }
-      else {
-        throw 'Args type mismatch';
-      }
+      this.httpService.get('',
+        new HttpParams().set('action', 'get_single_post_by_id').set('postId', newsId.toString())
+      ).then((news: any) => {
+        let n = this.parseNews([news]);
+        resolve(n[0]);
+      })
+
     });
 
   }
 
 
-
-
-  private feedNews() {
-    this.newsList.push(...Array.from({ length: 100 }, (_, i) => {
-      let n = new NewsModel();
-      n.id = i.toString();
-      n.title = 'Title ' + i.toString();
-      n.content = 'Content ' + i.toString();
-      n.author = 'Gyan';
-      n.categories = [Math.floor(Math.random() * 10) + 1, Math.floor(Math.random() * 10) + 1];
-      let date = new Date();
-      n.createDate = `${date.getFullYear()}/${(date.getMonth() + 1)}/${date.getDate()}`;
-      n.published = true;
-      n.featuredImage = {
-        original: 'assets/images/news/default.jpg',
-        large: 'assets/images/news/default.jpg',
-        medium: 'assets/images/news/default.jpg',
-        small: 'assets/images/news/default.jpg'
-
-      }
-      return n;
-    }))
+  private async setLocalData(key: string, data: any) {
+    localStorage.setItem('ks_' + key, JSON.stringify(data))
   }
+  private getLocalData(key: string): any {
+    return localStorage.getItem('ks_' + key);
+  }
+
 
 
   private parseCategories(cats: any[]) {
@@ -168,4 +157,30 @@ export class NewsService {
     }
     return catArr;
   }
+
+  private parseNews(news: any[]) {
+    let newslist: NewsModel[] = [];
+    if (news && news.length > 0) {
+      newslist = news.map(n => {
+        let _newsls: NewsModel = new NewsModel();
+        _newsls.id = n.id;
+        _newsls.title = n.title;
+        _newsls.author = n.author;
+        _newsls.content = n.content;
+        _newsls.publishedDate = n.date;
+        _newsls.createDate = n.date;
+
+        // _newsls.categories=n.category;
+        _newsls.featuredImage.small = n.thumbnail;
+        _newsls.featuredImage.original = n.thumbnail;
+        _newsls.featuredImage.medium = n.thumbnail;
+        _newsls.featuredImage.large = n.thumbnail;
+        return _newsls;
+      })
+    }
+    return newslist;
+  }
+
+
+
 }

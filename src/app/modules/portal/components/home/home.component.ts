@@ -18,13 +18,13 @@ export class HomeComponent implements OnInit {
     news: NewsModel[]
   }[] = [];
   constructor(private newsService: NewsService, ) {
-    this.getNews();
+    // this.getNews();
   }
   private getNews() {
-    this.newsService.getNews().then(newsData => this.newsList = newsData);
+   
   }
   ngOnInit() {
-    this.getNewsByCat()
+    // this.getNewsByCat()
   }
 
   private async getNewsByCat() {

@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   }
   private getCategory() {
-    this.categoryService.getNewsCategories().then(cats => {
+    this.categoryService.getMenuCategories().then(cats => {
       let c = cats;
       this.categoryList = cats;
     });
