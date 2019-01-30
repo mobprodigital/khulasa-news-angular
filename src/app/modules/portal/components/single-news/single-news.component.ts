@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router,NavigationEnd } from '@angular/router';
 import { NewsService } from 'src/app/service/news/news.service';
 import { NewsModel } from 'src/app/model/news.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-single-news',
@@ -11,8 +12,16 @@ import { NewsModel } from 'src/app/model/news.model';
 export class SingleNewsComponent implements OnInit {
   public newsId: string = '';
   public news: NewsModel;
-  constructor(private activatedRouter: ActivatedRoute, private newsservice: NewsService) {
-    this.getNewsId()
+  private routeSubscription: Subscription;
+
+
+  constructor(private activatedRouter: ActivatedRoute, private newsservice: NewsService, private router:Router) {
+    this.routeSubscription = this.router.events.subscribe(ev => {
+      if (ev instanceof NavigationEnd) {
+       this.getNewsId();
+       
+      }
+    })
   }
   private getNews() {
     this.newsservice.getNews(this.newsId).then(newsdata => this.news = newsdata);
@@ -25,6 +34,9 @@ export class SingleNewsComponent implements OnInit {
     }
   }
   ngOnInit() {
+  }
+  ngOnDestroy(): void {
+    this.routeSubscription.unsubscribe();
   }
 
 }

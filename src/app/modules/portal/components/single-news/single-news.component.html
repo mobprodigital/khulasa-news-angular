@@ -1,12 +1,11 @@
 <div class="container-fluid">
   <div class="row" *ngIf="news">
     <div class="col-12">
-      <h4 > {{news.title}}</h4>
-      <h6>
-      <span class="fa-icon"><i class="fa fa-calendar" aria-hidden="true"> <span class="color-gray">
-        {{news.createDate}}</span></i></span>
-     <span class="fa-icon-padding  fa-icon"><i class="fa fa-user" aria-hidden="true"><span class="color-gray">
-        {{news.author}} </span></i></span></h6>
+      <h1 class="singal-news-title"> {{news.title}}</h1>
+      <h6 class="fa-icon font-style-normal color-gray">
+          <span>{{news.createDate}}</span>
+          <span class="fa-icon-padding ">{{news.author}} </span>
+        </h6>
         <div><img class="w-100" src="{{news.featuredImage.small}}" alt=""></div>
         <p class="news-ById-content">{{news.content}}</p>
     </div>

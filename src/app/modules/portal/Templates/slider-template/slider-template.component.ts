@@ -19,6 +19,5 @@ export class SliderTemplateComponent implements OnInit {
         prevEl: '.swiper-button-prev',
       },
     });
-    console.log(mySwiper);
   }
 }

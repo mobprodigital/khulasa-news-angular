@@ -15,8 +15,9 @@ import { NewsArchiveComponent } from './components/news-archive/news-archive.com
 import { HomePageTemplateComponent } from './Templates/home-page-template/home-page-template.component';
 import { ArchiveTemplateComponent } from './Templates/archive-template/archive-template.component';
 import { SliderTemplateComponent } from './templates/slider-template/slider-template.component';
+import { LetestNewsTemplateComponent } from './templates/letest-news-template/letest-news-template.component';
 @NgModule({
-  declarations: [CommonComponent, HeaderComponent, FooterComponent, HomeComponent, AdComponent, RightSideBarComponent, SingleNewsComponent, NewsArchiveComponent, HomePageTemplateComponent, ArchiveTemplateComponent, SliderTemplateComponent],
+  declarations: [CommonComponent, HeaderComponent, FooterComponent, HomeComponent, AdComponent, RightSideBarComponent, SingleNewsComponent, NewsArchiveComponent, HomePageTemplateComponent, ArchiveTemplateComponent, SliderTemplateComponent, LetestNewsTemplateComponent],
   imports: [
     CommonModule,
     PortalRoutingModule,

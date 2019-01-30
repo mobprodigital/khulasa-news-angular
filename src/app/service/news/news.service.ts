@@ -60,15 +60,29 @@ export class NewsService {
   /**
    * Get all news of a specified news category 
    * @param categoryId id of the news category
+   */
+  public getNewsByCategoryId(categoryId: number): Promise<NewsModel[]>;
+  /**
+   * Get all news of a specified news category 
+   * @param categoryId id of the news category
+   * @param count (default = 10) number of news want to get
+   */
+  public getNewsByCategoryId(categoryId: number, count: number): Promise<NewsModel[]>;
+  /**
+   * Get all news of a specified news category 
+   * @param categoryId id of the news category
    * @param count (default = 10) number of news want to get
    * @param from (default = 1) offset number from where want to get the news
    */
-  public getNewsByCategoryId(categoryId: number, count: number = 10, from: number = 1): Promise<NewsModel[]> {
+  public getNewsByCategoryId(categoryId: number, count: number, from: number): Promise<NewsModel[]>
+  public getNewsByCategoryId(categoryId: number, count?: number, from?: number): Promise<NewsModel[]> {
     return new Promise((resolve, reject) => {
+      count = typeof count === "undefined" ? 10 : count;
+      from = typeof from === "undefined" ? 1 : from;
       if (categoryId) {
         let news: NewsModel[] = this.newsList.filter(n => n.categories.indexOf(categoryId) > -1);
         if (news && news.length > 0) {
-          resolve(news.slice(from - 1, (from -1) + count));
+          resolve(news.slice(from - 1, (from - 1) + count));
         }
         else {
           reject('No news found of this category');

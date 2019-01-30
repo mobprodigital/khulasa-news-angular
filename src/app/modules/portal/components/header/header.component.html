@@ -1,23 +1,24 @@
-<div id="header" class="sticky">
+<header class="fixed">
   <div class="container-fluid " style="padding-top:20px">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3 col-sm-6 col-6 site-logo">
         <a href="">
-          <img class="w-100" src="assets/images/logo/logo.png" alt="">
+          <img class="logo-width" src="assets/images/logo/logo.png" alt="">
         </a>
       </div>
-      <div class="col-md-7"></div>
-      <div class="col-md-3 flex flex-column justify-content-end">
+      <div class="col-sm-6 d-none-col-sm"></div>
+      <div class="col-md-3 col-sm-6 col-6 flex flex-column justify-content-end">
         <form (ngSubmit)="check()" #searchForm="ngForm">
           <div class="input-group mb-2">
-            <input [(ngModel)]="SearchTerm" [ngClass]="{'is-invalid' : (searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty))}"
-              #searchTerm="ngModel" name="searchTerm" required type="text" class="form-control" placeholder="Search" />
+            <input [(ngModel)]="SearchTerm" #searchTerm="ngModel" name="searchTerm" required type="text" class="form-control"
+              placeholder="Search" />
             <div class="input-group-append">
-              <button [disabled]="searchForm.invalid" class="btn btn-outline-dark" type="submit"><i class="fa fa-search"
-                  aria-hidden="true"></i></button>
+              <button [disabled]="searchForm.invalid" class="btn-search btn-search-outline-dark" type="submit">
+                <img class="w-50" src="assets/images/icon/search.png" alt=""></button>
             </div>
-            <div class="invalid-feedback" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">Enter search term</div>
           </div>
+          <div class="color-red" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">Enter
+            search term</div>
         </form>
         <span class="align-self-end color-gray current-date">
           {{date}}
@@ -25,13 +26,12 @@
       </div>
     </div>
   </div>
-  <div class="w-100">
+  <nav class="w-100">
     <ul class="nav-menu ">
       <li class="nav-item"> <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
           routerLinkActive="nav-link-active">Home</a></li>
-
       <li *ngFor="let cat of categoryList" class="nav-item"> <a class="nav-link" [routerLink]="['/category' ,cat.id]"
           [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="nav-link-active">{{cat.name}}</a></li>
     </ul>
-  </div>
-</div>
+  </nav>
+</header>

@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row" *ngIf="news.length > 0">
     <div class="col-md-6 margin-bottom-25" *ngFor="let nws of news">
-     <a [routerLink]="['/news' ,nws.id]"> <img class="w-100 thumb" src="{{nws.featuredImage.small}}" alt=""></a>
-     <a [routerLink]="['/news' ,nws.id]"><h5 class="news-archive-title">{{nws.title}}</h5></a>
-     <h6>
-     <span class="fa-icon"><i class="fa fa-calendar" aria-hidden="true"> <span class="color-gray">
-            {{nws.createDate}}</span></i></span>
-      <span class="fa-icon-padding  fa-icon"><i class="fa fa-user" aria-hidden="true"><span class="color-gray">
-            {{nws.author}} </span></i></span></h6>
-      <h4 class="news-archive-content">{{nws.content}}</h4>
+      <a [routerLink]="['/news' ,nws.id]"> <img class="w-100 thumb" src="{{nws.featuredImage.small}}" alt=""></a>
+      <a [routerLink]="['/news' ,nws.id]">
+        <h5 class="news-archive-title">{{nws.title}}</h5>
+      </a>
+      <h6 class="fa-icon font-style-normal color-gray">
+        <span>{{nws.createDate}}</span>
+        <span class="fa-icon-padding ">{{nws.author}} </span>
+      </h6>
+      <p class="news-archive-content">{{nws.content}}</p>
     </div>
   </div>
 </div>
-
