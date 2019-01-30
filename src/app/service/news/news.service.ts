@@ -27,20 +27,31 @@ export class NewsService {
     this.feedNews();
   }
 
+  /**
+   * get all news categories
+   */
   public getNewsCategories(): Promise<NewsCategoryModel[]>;
+  /**
+   * get single catgeory by id
+   * @param categoryId Category id
+   */
   public getNewsCategories(categoryId: number): Promise<NewsCategoryModel>;
-  public getNewsCategories(catOrUndefined?: undefined | number): Promise<NewsCategoryModel[] | NewsCategoryModel> {
+  public getNewsCategories(args?: undefined | number): Promise<NewsCategoryModel[] | NewsCategoryModel> {
     return new Promise((resolve, reject) => {
-      let argsType = typeof catOrUndefined;
+      let argsType = typeof args;
       if (argsType === 'number') {
-        resolve(this.newsCategories.find(c => c.id === catOrUndefined));
+        this.httpService.get('', new HttpParams().set('action', 'get_category').set('catId', args.toString()))
+          .then((data: any) => {
+            let cats = this.parseCategories([data]);
+            resolve(cats[0]);
+          })
       }
       else if (argsType === 'undefined') {
         this.httpService.get('', new HttpParams().set('action', 'get_categories')).then((cats: any[]) => {
           let categories = this.parseCategories(cats);
           resolve(categories);
         }).catch(err => {
-
+          resolve(err);
         })
       }
       else {
