@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NewsModel } from 'src/app/model/news.model';
 import { NewsCategoryModel } from 'src/app/model/news-category.model';
+import { HttpService } from '../http/http.service';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +23,7 @@ export class NewsService {
     new NewsCategoryModel(10, 'International'),
   ];
 
-  constructor() {
+  constructor(private httpService: HttpService) {
     this.feedNews();
   }
 
@@ -34,7 +36,12 @@ export class NewsService {
         resolve(this.newsCategories.find(c => c.id === catOrUndefined));
       }
       else if (argsType === 'undefined') {
-        resolve(this.newsCategories);
+        this.httpService.get('', new HttpParams().set('action', 'get_categories')).then((cats: any[]) => {
+          let categories = this.parseCategories(cats);
+          resolve(categories);
+        }).catch(err => {
+
+        })
       }
       else {
         reject('Argument type mismatch');
@@ -68,7 +75,7 @@ export class NewsService {
       if (categoryId) {
         let news: NewsModel[] = this.newsList.filter(n => n.categories.indexOf(categoryId) > -1);
         if (news && news.length > 0) {
-          resolve(news.slice(from - 1, (from -1) + count));
+          resolve(news.slice(from - 1, (from - 1) + count));
         }
         else {
           reject('No news found of this category');
@@ -122,5 +129,18 @@ export class NewsService {
       }
       return n;
     }))
+  }
+
+
+  private parseCategories(cats: any[]) {
+    let catArr: NewsCategoryModel[] = [];
+    if (cats && cats.length > 0) {
+      catArr = cats.map(c => {
+        let _cat: NewsCategoryModel = new NewsCategoryModel(parseInt(c.categoryId), c.name);
+        _cat.slug = c.slug;
+        return _cat;
+      })
+    }
+    return catArr;
   }
 }

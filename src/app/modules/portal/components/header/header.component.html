@@ -16,7 +16,8 @@
               <button [disabled]="searchForm.invalid" class="btn btn-outline-dark" type="submit"><i class="fa fa-search"
                   aria-hidden="true"></i></button>
             </div>
-            <div class="invalid-feedback" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">Enter search term</div>
+            <div class="invalid-feedback" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">Enter
+              search term</div>
           </div>
         </form>
         <span class="align-self-end color-gray current-date">
@@ -29,9 +30,13 @@
     <ul class="nav-menu ">
       <li class="nav-item"> <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
           routerLinkActive="nav-link-active">Home</a></li>
+          
+      <ng-container *ngIf="categoryList && categoryList.length > 0">
 
-      <li *ngFor="let cat of categoryList" class="nav-item"> <a class="nav-link" [routerLink]="['/category' ,cat.id]"
-          [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="nav-link-active">{{cat.name}}</a></li>
+        <li *ngFor="let cat of categoryList" class="nav-item"> <a class="nav-link" [routerLink]="['/category' ,cat.id]"
+            [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="nav-link-active">{{cat.name}}</a></li>
+
+      </ng-container>
     </ul>
   </div>
 </div>
