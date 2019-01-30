@@ -58,7 +58,7 @@ export class NewsService {
     return new Promise((resolve, reject) => {
       if (this.menuCategories && this.menuCategories.length > 0) {
         let cats = this.getLocalData('menu_cat');
-        if(cats){
+        if (cats) {
           let localCats = this.parseCategories(cats);
           resolve(localCats);
         }
@@ -78,38 +78,49 @@ export class NewsService {
   }
 
   /**
+   * get all news 
+   */
+  public getNews(): Promise<NewsModel[]>;
+  /**
    * Get all news of a specified news category 
    * @param categoryId id of the news category
    */
-  public getNewsByCategoryId(categoryId: number): Promise<NewsModel[]>;
+  public getNews(categoryId: number): Promise<NewsModel[]>;
   /**
    * Get all news of a specified news category 
    * @param categoryId id of the news category
    * @param count (default = 10) number of news want to get
    */
-  public getNewsByCategoryId(categoryId: number, count: number): Promise<NewsModel[]>;
+  public getNews(categoryId: number, count: number): Promise<NewsModel[]>;
   /**
    * Get all news of a specified news category 
    * @param categoryId id of the news category
    * @param count (default = 10) number of news want to get
    * @param from (default = 1) offset number from where want to get the news
    */
-  public getNewsByCategoryId(categoryId: number, count: number, from: number): Promise<NewsModel[]>
-  public getNewsByCategoryId(categoryId: number, count?: number, from?: number): Promise<NewsModel[]> {
+  public getNews(categoryId: number, count: number, from: number): Promise<NewsModel[]>
+  public getNews(categoryId?: number, count?: number, from?: number): Promise<NewsModel[]> {
     return new Promise((resolve, reject) => {
+
       count = typeof count === "undefined" ? 10 : count;
       from = typeof from === "undefined" ? 1 : from;
+
+      let params = new HttpParams()
+        .set("action", "get_post_archive")
+        .set("count", count.toString())
+        .set("from", from.toString())
+
       if (categoryId) {
-        this.httpService.get('', new HttpParams()
-          .set("action", "get_post_archive")
-          .set("categoryId", categoryId.toString())
-          .set("count", count.toString())
-          .set("from", from.toString())).then((news: any[]) => {
-            let newslist = this.parseNews(news);
-            resolve(newslist);
-          }).catch(err => {
-            reject(err);
-          })
+        params = params.set("categoryId", categoryId.toString());
+      }
+
+      if (categoryId) {
+        this.httpService.get('', params).then((news: any[]) => {
+          let newslist = this.parseNews(news);
+          resolve(newslist);
+        }).catch(err => {
+          reject(err);
+        })
 
       }
       else {
@@ -133,7 +144,6 @@ export class NewsService {
       })
 
     });
-
   }
 
 

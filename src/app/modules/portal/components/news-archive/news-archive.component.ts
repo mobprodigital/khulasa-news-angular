@@ -25,7 +25,7 @@ export class NewsArchiveComponent implements OnInit, OnDestroy {
   }
 
   public getNewsByCategory() {
-    this.newsService.getNewsByCategoryId(this.newsCategoryId).then(newsdata => this.newsList = newsdata).catch(err => alert(err));
+    this.newsService.getNews(this.newsCategoryId).then(newsdata => this.newsList = newsdata).catch(err => alert(err));
     this.newsService.getNewsCategories(this.newsCategoryId).then(cat => this.pageTitle = cat.name).catch(err => alert(err));
   }
   private getNewsCategoryId() {

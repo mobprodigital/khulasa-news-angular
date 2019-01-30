@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     this.newsByCat = await Promise.all(this.homeCategory.map(async cid => {
       let newsData = await Promise.all([
         this.newsService.getNewsCategories(cid),
-        this.newsService.getNewsByCategoryId(cid),
+        this.newsService.getNews(cid),
       ]);
 
       return {

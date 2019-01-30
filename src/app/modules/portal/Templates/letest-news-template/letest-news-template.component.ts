@@ -20,7 +20,7 @@ export class LetestNewsTemplateComponent implements OnInit {
 
   getNewsByCategoryId() {
     if (this.categoryId) {
-      this.newsService.getNewsByCategoryId(this.categoryId, this.count)
+      this.newsService.getNews(this.categoryId, this.count)
         .then(data => this.newsList = data)
         .catch(err => this.errorMsg = err);
     }

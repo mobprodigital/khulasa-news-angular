@@ -41,7 +41,9 @@ export class AddNewNewsComponent implements OnInit {
   }
 
   private getNewsData() {
-   // this.categoriesList = this.newsService.newsCategories;
+    this.newsService.getNewsCategories().then(cats => {
+      this.categoriesList = cats;
+    });
   }
 
   ngOnInit() {
