@@ -2,6 +2,7 @@ label.media-uploader {
     border: dashed 3px gray;
     width: 100%;
     padding: 10px;
+    display: block;
 }
 label.media-uploader > input[type="file"] {
     display: none;

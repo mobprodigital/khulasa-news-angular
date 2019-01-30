@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NewsModel } from 'src/app/model/news.model';
 import { NewsCategoryModel } from 'src/app/model/news-category.model';
+import { HttpService } from '../http/http.service';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,20 +23,36 @@ export class NewsService {
     new NewsCategoryModel(10, 'International'),
   ];
 
-  constructor() {
+  constructor(private httpService: HttpService) {
     this.feedNews();
   }
 
+  /**
+   * get all news categories
+   */
   public getNewsCategories(): Promise<NewsCategoryModel[]>;
+  /**
+   * get single catgeory by id
+   * @param categoryId Category id
+   */
   public getNewsCategories(categoryId: number): Promise<NewsCategoryModel>;
-  public getNewsCategories(catOrUndefined?: undefined | number): Promise<NewsCategoryModel[] | NewsCategoryModel> {
+  public getNewsCategories(args?: undefined | number): Promise<NewsCategoryModel[] | NewsCategoryModel> {
     return new Promise((resolve, reject) => {
-      let argsType = typeof catOrUndefined;
+      let argsType = typeof args;
       if (argsType === 'number') {
-        resolve(this.newsCategories.find(c => c.id === catOrUndefined));
+        this.httpService.get('', new HttpParams().set('action', 'get_category').set('catId', args.toString()))
+          .then((data: any) => {
+            let cats = this.parseCategories([data]);
+            resolve(cats[0]);
+          })
       }
       else if (argsType === 'undefined') {
-        resolve(this.newsCategories);
+        this.httpService.get('', new HttpParams().set('action', 'get_categories')).then((cats: any[]) => {
+          let categories = this.parseCategories(cats);
+          resolve(categories);
+        }).catch(err => {
+          resolve(err);
+        })
       }
       else {
         reject('Argument type mismatch');
@@ -136,5 +154,18 @@ export class NewsService {
       }
       return n;
     }))
+  }
+
+
+  private parseCategories(cats: any[]) {
+    let catArr: NewsCategoryModel[] = [];
+    if (cats && cats.length > 0) {
+      catArr = cats.map(c => {
+        let _cat: NewsCategoryModel = new NewsCategoryModel(parseInt(c.categoryId), c.name);
+        _cat.slug = c.slug;
+        return _cat;
+      })
+    }
+    return catArr;
   }
 }

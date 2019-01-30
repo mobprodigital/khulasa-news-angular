@@ -18,20 +18,20 @@ export class NewsArchiveComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private newsService: NewsService) {
     this.routeSubscription = this.router.events.subscribe(ev => {
       if (ev instanceof NavigationEnd) {
-       this.getNewsCategoryId();
-       
+        this.getNewsCategoryId();
+
       }
     })
   }
 
   public getNewsByCategory() {
-    this.newsService.getNewsByCategoryId(this.newsCategoryId).then(newsdata => this.newsList = newsdata);
-    this.newsService.getNewsCategories(this.newsCategoryId).then(cat => this.pageTitle = cat.name);
+    this.newsService.getNewsByCategoryId(this.newsCategoryId).then(newsdata => this.newsList = newsdata).catch(err => alert(err));
+    this.newsService.getNewsCategories(this.newsCategoryId).then(cat => this.pageTitle = cat.name).catch(err => alert(err));
   }
   private getNewsCategoryId() {
-    let catId= parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
-    if(catId!=undefined && catId!=null){
-      this.newsCategoryId=catId;
+    let catId = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
+    if (catId != undefined && catId != null) {
+      this.newsCategoryId = catId;
       this.getNewsByCategory();
     }
   }

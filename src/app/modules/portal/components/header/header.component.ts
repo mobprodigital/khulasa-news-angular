@@ -14,13 +14,16 @@ export class HeaderComponent implements OnInit {
   public SearchTerm: string = '';
 
   d = new Date();
-  constructor(private category: NewsService) {
+  constructor(private categoryService: NewsService) {
     this.getDate();
     this.getCategory();
 
   }
   private getCategory() {
-    this.categoryList = this.category.newsCategories;
+    this.categoryService.getNewsCategories().then(cats => {
+      let c = cats;
+      this.categoryList = cats;
+    });
   }
 
   private getDate() {
