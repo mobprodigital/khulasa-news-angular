@@ -1,54 +1,54 @@
 .portal {
 
   $titleFontFamily: 'Open Sans', sans-serif;
-  $skyBlue:#32bcb8;
-  $pink:#f30089;
-  $orange:#f3b206;
-  $blue:#004fe6;
-  $red:#c3000b;
-  $yello:#cce70c;
-  $cyan:#07b2dc;
-  $tigerOrange:#ff6000;
-  $purple:#bb71ef;
-  $green:#188e3d;
-  $lightGreen:#74bb53;
-  $white:#fff;
- 
+  $skyBlue: #32bcb8;
+  $pink: #f30089;
+  $orange: #f3b206;
+  $blue: #004fe6;
+  $red: #c3000b;
+  $yello: #cce70c;
+  $cyan: #07b2dc;
+  $tigerOrange: #ff6000;
+  $purple: #bb71ef;
+  $green: #188e3d;
+  $lightGreen: #74bb53;
+  $white: #fff;
+
   font-family: 'Open Sans', sans-serif;
 
   .bg-skyBlue,
   .nav-menu>li:nth-child(1)>a.nav-link {
-    background-color:  $skyBlue;
+    background-color: $skyBlue;
   }
 
   .bg-pink,
   .nav-menu>li:nth-child(2)>a.nav-link {
-    background-color:  $pink;
+    background-color: $pink;
   }
 
   .bg-orange,
   .nav-menu>li:nth-child(3)>a.nav-link {
-    background-color:  $orange;
+    background-color: $orange;
   }
 
   .bg-blue,
   .nav-menu>li:nth-child(4)>a.nav-link {
-    background-color:  $blue
+    background-color: $blue
   }
 
   .bg-red,
   .nav-menu>li:nth-child(5)>a.nav-link {
-    background-color:  $red
+    background-color: $red
   }
 
   .bg-yello,
   .nav-menu>li:nth-child(6)>a.nav-link {
-    background-color:$yello;
+    background-color: $yello;
   }
 
   .bg-cyan,
   .nav-menu>li:nth-child(7)>a.nav-link {
-    background-color:  $cyan;
+    background-color: $cyan;
   }
 
   .bg-tiger-orange,
@@ -64,7 +64,7 @@
 
   .bg-green,
   .nav-menu>li:nth-child(10)>a.nav-link {
-    background-color:  $green;
+    background-color: $green;
   }
 
   .bg-light-green,
@@ -73,7 +73,7 @@
   }
 
   .color-skyBlue {
-    color:  $skyBlue;
+    color: $skyBlue;
   }
 
   .color-pink,
@@ -89,7 +89,7 @@
   div.home>div.home-inner-div:nth-child(2)>div.hr,
   div#newscatborder2,
   h4#newscatheading2 {
-    color:$orange;
+    color: $orange;
   }
 
   .color-blue,
@@ -133,7 +133,7 @@
   div.home>div.home-inner-div:nth-child(7)>div.hr,
   div#newscatborder7,
   h4#newscatheading7 {
-    color:$tigerOrange;
+    color: $tigerOrange;
   }
 
   .color-purple,
@@ -161,7 +161,7 @@
   }
 
   .color-white {
-    color:$white
+    color: $white
   }
 
 
@@ -191,7 +191,7 @@
 
   .nav-link:hover {
     background: #247367 !important;
-    color:$white;
+    color: $white;
   }
 
   .nav-link-active {
@@ -249,11 +249,12 @@
     right: 14px;
     bottom: 0;
   }
-  .news-arcive-image
-  {
+
+  .news-arcive-image {
     width: 100%;
     object-fit: cover;
     height: 200px;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
   }
 
   .singal-news-title {
@@ -264,14 +265,27 @@
     margin: 0px;
   }
 
+  .singal-news-content {
+
+    font-weight: lighter;
+    white-space: pre-line;
+    color: #3d3d3d;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: justify;
+  }
+
   .fa-icon {
     font-size: 12px;
     margin: 10px 0px;
   }
 
-  .fa-icon-home {
-    font-size: 14px;
+  .home-date-or-author {
+    font-size: 11px;
     margin: 5px 0px;
+    color: #9c9c9c;
+    font-style: normal;
+    font-weight: lighter;
   }
 
   .fa-icon-padding {
@@ -288,21 +302,23 @@
   }
 
   .home-title-inner-container {
-    padding: 15px;
+    padding: 10px;
     background-color: $white;
   }
 
   .home-title {
     margin: 0px 0px;
-    font-size: 22px;
+    font-size: 18px;
     text-transform: uppercase;
     overflow: hidden;
-    height: 60px;
+    height: 45px;
   }
 
   .home-title-link {
     color: #000000;
-    font-weight: 600;
+    font-weight: lighter;
+    letter-spacing: -1px;
+        word-spacing: 2px;
   }
 
   .home-title-link:hover {
@@ -313,12 +329,19 @@
 
   .home-content {
     color: #3d3d3d;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $titleFontFamily;
     font-size: 16px;
     line-height: 22px;
     font-weight: lighter;
     overflow: hidden;
-    height: 110px;
+    height: 90px;
+  }
+
+  .home-news-image {
+    width: 100%;
+    object-fit: cover;
+    height: 130px;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15)
   }
 
   .home-news-title {
@@ -356,11 +379,7 @@
     padding-top: 20px;
   }
 
-  .news-ById-content {
-    color: #3d3d3d;
-    font-size: 18px;
-    font-weight: lighter;
-  }
+
 
   .margin-bottom-25 {
     margin-bottom: 25px;
