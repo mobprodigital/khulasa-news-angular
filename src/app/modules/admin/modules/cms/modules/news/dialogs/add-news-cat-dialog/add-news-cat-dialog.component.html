@@ -1,24 +1,15 @@
-<h3 class="dialog-title">{{dialogTitle}}</h3>
-<!-- <form (ngSubmit)="catSubmit()" [formGroup]="catForm">
-  <mat-form-field>
-    <input formControlName="name" placeholder="Enter news category name" matInput />
-    <mat-error *ngIf="catForm.get('name').invalid && (catForm.get('name').touched || catForm.get('name').dirty)">
-      <span *ngIf="catForm.get('name').errors.required">Category name is required</span>
-    </mat-error>
-  </mat-form-field>
-  <br>
-  <button (click)="closeDialog()" type="button" mat-button color="primary">Cancel</button>
-  <button [disabled]="catForm.invalid" type="submit" mat-button color="primary">Submit</button>
-</form> -->
-
-<form (ngSubmit)="catSubmit()" #catForm="ngForm">
-  <mat-form-field>
-    <input #name="ngModel" name="name" [(ngModel)]="categoryModel.name" placeholder="Enter news category name" matInput required/>
-    <mat-error *ngIf="name.invalid && (name.touched || name.dirty)">
-      <span *ngIf="name.errors.required">Category name is required</span>
-    </mat-error>
-  </mat-form-field>
-  <br>
-  <button (click)="closeDialog()" type="button" mat-button color="primary">Cancel</button>
-  <button [disabled]="catForm.invalid" type="submit" mat-button color="primary">Submit</button>
-</form>
+<div class="admin">
+  <h3 class="dialog-title">{{dialogTitle}}</h3>
+  <form (ngSubmit)="catSubmit()" #catForm="ngForm">
+    <mat-form-field>
+      <input #name="ngModel" name="name" [(ngModel)]="categoryModel.name" placeholder="Enter news category name"
+        matInput required />
+      <mat-error *ngIf="name.invalid && (name.touched || name.dirty)">
+        <span *ngIf="name.errors.required">Category name is required</span>
+      </mat-error>
+    </mat-form-field>
+    <br>
+    <button (click)="closeDialog()" type="button" mat-button color="primary">Cancel</button>
+    <button [disabled]="catForm.invalid" type="submit" mat-button color="primary">Submit</button>
+  </form>
+</div>

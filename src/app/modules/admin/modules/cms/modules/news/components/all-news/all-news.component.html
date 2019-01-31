@@ -39,7 +39,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
       <td mat-cell *matCellDef="let row">
 
-        <a matTooltip="Edit portal" mat-icon-button color="primary" [routerLink]="['/panel/text/edit-text', row.textId]">
+        <a matTooltip="Edit portal" mat-icon-button color="primary" [routerLink]="['/admin/cms/news/edit', row.id]">
           <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
         </a> &nbsp;
         <a matTooltip="Delete portal" (click)="deleteNews(row.id)" mat-icon-button color="warn">

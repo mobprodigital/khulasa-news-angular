@@ -1,54 +1,45 @@
+@import 'css_vars.scss';
+
 .portal {
 
   $titleFontFamily: 'Open Sans', sans-serif;
-  $skyBlue:#32bcb8;
-  $pink:#f30089;
-  $orange:#f3b206;
-  $blue:#004fe6;
-  $red:#c3000b;
-  $yello:#cce70c;
-  $cyan:#07b2dc;
-  $tigerOrange:#ff6000;
-  $purple:#bb71ef;
-  $green:#188e3d;
-  $lightGreen:#74bb53;
-  $white:#fff;
- 
+
+
   font-family: 'Open Sans', sans-serif;
 
   .bg-skyBlue,
   .nav-menu>li:nth-child(1)>a.nav-link {
-    background-color:  $skyBlue;
+    background-color: $skyBlue;
   }
 
   .bg-pink,
   .nav-menu>li:nth-child(2)>a.nav-link {
-    background-color:  $pink;
+    background-color: $pink;
   }
 
   .bg-orange,
   .nav-menu>li:nth-child(3)>a.nav-link {
-    background-color:  $orange;
+    background-color: $orange;
   }
 
   .bg-blue,
   .nav-menu>li:nth-child(4)>a.nav-link {
-    background-color:  $blue
+    background-color: $blue
   }
 
   .bg-red,
   .nav-menu>li:nth-child(5)>a.nav-link {
-    background-color:  $red
+    background-color: $red
   }
 
   .bg-yello,
   .nav-menu>li:nth-child(6)>a.nav-link {
-    background-color:$yello;
+    background-color: $yello;
   }
 
   .bg-cyan,
   .nav-menu>li:nth-child(7)>a.nav-link {
-    background-color:  $cyan;
+    background-color: $cyan;
   }
 
   .bg-tiger-orange,
@@ -64,7 +55,7 @@
 
   .bg-green,
   .nav-menu>li:nth-child(10)>a.nav-link {
-    background-color:  $green;
+    background-color: $green;
   }
 
   .bg-light-green,
@@ -73,7 +64,7 @@
   }
 
   .color-skyBlue {
-    color:  $skyBlue;
+    color: $skyBlue;
   }
 
   .color-pink,
@@ -89,7 +80,7 @@
   div.home>div.home-inner-div:nth-child(2)>div.hr,
   div#newscatborder2,
   h4#newscatheading2 {
-    color:$orange;
+    color: $orange;
   }
 
   .color-blue,
@@ -133,7 +124,7 @@
   div.home>div.home-inner-div:nth-child(7)>div.hr,
   div#newscatborder7,
   h4#newscatheading7 {
-    color:$tigerOrange;
+    color: $tigerOrange;
   }
 
   .color-purple,
@@ -161,7 +152,7 @@
   }
 
   .color-white {
-    color:$white
+    color: $white
   }
 
 
@@ -191,7 +182,7 @@
 
   .nav-link:hover {
     background: #247367 !important;
-    color:$white;
+    color: $white;
   }
 
   .nav-link-active {
@@ -249,8 +240,8 @@
     right: 14px;
     bottom: 0;
   }
-  .news-arcive-image
-  {
+
+  .news-arcive-image {
     width: 100%;
     object-fit: cover;
     height: 200px;

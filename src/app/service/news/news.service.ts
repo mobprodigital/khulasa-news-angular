@@ -108,24 +108,19 @@ export class NewsService {
       let params = new HttpParams()
         .set("action", "get_post_archive")
         .set("count", count.toString())
-        .set("from", from.toString())
+        .set("from", from.toString());
 
       if (categoryId) {
         params = params.set("categoryId", categoryId.toString());
       }
 
-      if (categoryId) {
+      
         this.httpService.get('', params).then((news: any[]) => {
           let newslist = this.parseNews(news);
           resolve(newslist);
         }).catch(err => {
           reject(err);
         })
-
-      }
-      else {
-        reject('No news found of this category');
-      }
     })
   }
 
