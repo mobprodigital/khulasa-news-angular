@@ -22,11 +22,11 @@ export class AllNewsComponent implements OnInit {
   }
 
   public getAllNews() {
-   /*  this.newsService.getNewsByNewsId().then(news => {
+    this.newsService.getNews().then(news => {
       this.dataSource = new MatTableDataSource<NewsModel>(news);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    }).catch(err => alert(err)); */
+    }).catch(err => alert(err));
   }
 
   public applyFilter(filterValue: string) {
