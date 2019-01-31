@@ -1,4 +1,4 @@
-@import 'css_vars.scss';
+// @import 'css_vars.scss';
 
 .portal {
 
@@ -72,77 +72,95 @@
   }
 
   .color-pink,
-  a.news,a.News,
-  div.news,div.News,
-  h4.news,h4.News
-  {
+  a.news,
+  a.News,
+  div.news,
+  div.News,
+  h4.news,
+  h4.News {
     color: $pink;
   }
 
   .color-orange,
-  a.politics,a.Politics,
-  div.politics,div.Politics,
-  h4.politics,h4.Politics {
+  a.politics,
+  a.Politics,
+  div.politics,
+  div.Politics,
+  h4.politics,
+  h4.Politics {
     color: $orange;
   }
 
   .color-blue,
-  a.world,a.World,
-  div.world,div.World,
-  h4.world,h4.World {
+  a.world,
+  a.World,
+  div.world,
+  div.World,
+  h4.world,
+  h4.World {
     color: $blue;
   }
 
 
 
   .color-red,
-  a.business,a.Business, 
-  div.business,div.Business,
-  h4.business,h4.Business {
+  a.business,
+  a.Business,
+  div.business,
+  div.Business,
+  h4.business,
+  h4.Business {
     color: $red;
   }
 
 
   .color-yello,
-  a.sports,a.Sports, 
-  div.sports,div.Sports,
-  h4.sports,h4.Sports {
+  a.sports,
+  a.Sports,
+  div.sports,
+  div.Sports,
+  h4.sports,
+  h4.Sports {
     color: $yello;
   }
 
 
   .color-cyan,
-  a.videos,a.Videos, 
-  div.videos,div.Videos,
-  h4.videos,h4.Videos {
+  a.videos,
+  a.Videos,
+  div.videos,
+  div.Videos,
+  h4.videos,
+  h4.Videos {
     color: $cyan;
   }
 
   .color-tiger-orange,
   a[class*="ife"],
   div[class*="ife"],
-  h4[class*="ife"]{
+  h4[class*="ife"] {
     color: $tigerOrange;
   }
 
   .color-purple,
-  a.entertainment,a.Entertainment, 
-  div.entertainment,div.Entertainment,
-  h4.entertainment,h4.Entertainment
-   {
+  a.entertainment,
+  a.Entertainment,
+  div.entertainment,
+  div.Entertainment,
+  h4.entertainment,
+  h4.Entertainment {
     color: $purple;
   }
 
   .color-green,
   a[class*="azaar Review"],
   div[class*="azaar Review"],
-  h4[class*="azaar Review"]
-   {
+  h4[class*="azaar Review"] {
     color: $green;
   }
 
   .color-light-green,
-   a[class*="rime"],
+  a[class*="rime"],
   div[class*="rime"],
   h4[class*="rime"] {
     color: $lightGreen;
@@ -161,32 +179,42 @@
     overflow: auto;
     margin-bottom: 0px;
     box-shadow: 0px 2px 15px #888888;
-  }
 
-  .nav-item {
-    flex-grow: 1;
-  }
+    .nav-item {
+      flex-grow: 1;
 
-  .nav-link {
-    text-decoration: none;
-    color: $white;
-    padding: 10px 10px;
-    width: 100%;
-    text-align: center;
-    display: block;
-    border-right: solid 1px $white;
-  }
+      .nav-link {
+        text-decoration: none;
+        color: $white;
+        padding: 10px 10px;
+        width: 100%;
+        text-align: center;
+        display: block;
+        border-right: solid 1px $white;
+      }
 
-  .nav-link:hover {
-    background: #247367 !important;
-    color: $white;
-  }
+      .nav-link:hover {
+        background: #247367;
+        color: $white;
+      }
 
-  .nav-link-active {
+      .nav-link.nav-link-active {
 
-    background: #436d67 !important;
-    padding: 8px 10px;
+        background: #436d67;
+        position: relative;
+      }
 
+      .nav-link.nav-link-active:after {
+        content: '';
+        width: 100%;
+        position: absolute;
+        background-color: white;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        height: 3px;
+      }
+    }
   }
 
   .search-input {
@@ -198,7 +226,7 @@
   }
 
   .color-gray {
-    color: #9c9c9c;
+    color: $gray;
   }
 
   .news-archive-title {
@@ -409,9 +437,6 @@
     margin-top: 30px;
   }
 
-  .over-flow-auto {
-    overflow: auto;
-  }
 
   .float-rigth {
     float: rigth;
@@ -419,10 +444,6 @@
 
   .float-left {
     float: Left;
-  }
-
-  .flex {
-    display: flex
   }
 
   .flex-wrap-wrap {
@@ -458,17 +479,7 @@
     text-decoration: underline;
   }
 
-  .w-100 {
-    width: 100%;
-  }
 
-  .w-75 {
-    width: 75%;
-  }
-
-  .w-50 {
-    width: 50%;
-  }
 
   .font-style-normal {
     font-style: normal;
@@ -515,8 +526,8 @@
     background-color: transparent;
     border: 1px solid transparent;
     padding: 0px;
-   font-size: 1rem; 
-    line-height: 1.5; 
+    font-size: 1rem;
+    line-height: 1.5;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
