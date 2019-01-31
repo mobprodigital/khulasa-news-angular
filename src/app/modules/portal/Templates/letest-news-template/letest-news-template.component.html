@@ -1,9 +1,9 @@
-<h4 class="home-news-title color-orange">{{categoryTitle}}</h4>
-<div class="color-orange hr"></div>
+<h4 class="home-news-title {{categoryTitle}}">{{categoryTitle}}</h4>
+<div class="hr {{categoryTitle}}"></div>
 <div class="hr-2"></div>
 
 <p class="over-flow-auto" *ngFor="let nws of newsList">
     <a  [routerLink]="['/news', nws.id]"> <img class="float-left letest-news-img" src="{{nws.featuredImage.small}}" alt=""></a>
-      <span  ><a class="letest-news-title" [routerLink]="['/news', nws.id]">{{nws.title}} </a></span>
+      <a class="letest-news-title" [routerLink]="['/news', nws.id]">{{nws.title}} </a>
 </p>
 

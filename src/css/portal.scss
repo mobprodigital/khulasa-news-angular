@@ -3,7 +3,13 @@
 .portal {
 
   $titleFontFamily: 'Open Sans', sans-serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $titleFontFamily;
+
+  a:hover {
+    color: $blue;
+    text-decoration: underline;
+    outline: none;
+  }
 
   .bg-skyBlue,
   .nav-menu>li:nth-child(1)>a.nav-link {
@@ -66,86 +72,79 @@
   }
 
   .color-pink,
-  div.home>div.home-inner-div:nth-child(1)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(1)>div.hr,
-  div#newscatborder1,
-  h4#newscatheading1 {
+  a.news,a.News,
+  div.news,div.News,
+  h4.news,h4.News
+  {
     color: $pink;
   }
 
   .color-orange,
-  div.home>div.home-inner-div:nth-child(2)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(2)>div.hr,
-  div#newscatborder2,
-  h4#newscatheading2 {
+  a.politics,a.Politics,
+  div.politics,div.Politics,
+  h4.politics,h4.Politics {
     color: $orange;
   }
 
   .color-blue,
-  div.home>div.home-inner-div:nth-child(3)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(3)>div.hr,
-  div#newscatborder3,
-  h4#newscatheading3 {
+  a.world,a.World,
+  div.world,div.World,
+  h4.world,h4.World {
     color: $blue;
   }
 
 
 
   .color-red,
-  div.home>div.home-inner-div:nth-child(4)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(4)>div.hr,
-  div#newscatborder4,
-  h4#newscatheading4 {
+  a.business,a.Business, 
+  div.business,div.Business,
+  h4.business,h4.Business {
     color: $red;
   }
 
 
   .color-yello,
-  div.home>div.home-inner-div:nth-child(5)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(5)>div.hr,
-  div#newscatborder5,
-  h4#newscatheading5 {
+  a.sports,a.Sports, 
+  div.sports,div.Sports,
+  h4.sports,h4.Sports {
     color: $yello;
   }
 
 
   .color-cyan,
-  div.home>div.home-inner-div:nth-child(6)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(6)>div.hr,
-  div#newscatborder6,
-  h4#newscatheading6 {
+  a.videos,a.Videos, 
+  div.videos,div.Videos,
+  h4.videos,h4.Videos {
     color: $cyan;
   }
 
   .color-tiger-orange,
-  div.home>div.home-inner-div:nth-child(7)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(7)>div.hr,
-  div#newscatborder7,
-  h4#newscatheading7 {
+  a[class*="ife"],
+  div[class*="ife"],
+  h4[class*="ife"]{
     color: $tigerOrange;
   }
 
   .color-purple,
-  div.home>div.home-inner-div:nth-child(8)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(8)>div.hr,
-  div#newscatborder8,
-  h4#newscatheading8 {
+  a.entertainment,a.Entertainment, 
+  div.entertainment,div.Entertainment,
+  h4.entertainment,h4.Entertainment
+   {
     color: $purple;
   }
 
   .color-green,
-  div.home>div.home-inner-div:nth-child(9)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(9)>div.hr,
-  div#newscatborder9,
-  h4#newscatheading9 {
+  a[class*="azaar Review"],
+  div[class*="azaar Review"],
+  h4[class*="azaar Review"]
+   {
     color: $green;
   }
 
   .color-light-green,
-  div.home>div.home-inner-div:nth-child(10)>h4.home-news-title>a,
-  div.home>div.home-inner-div:nth-child(10)>div.hr,
-  div#newscatborder10,
-  h4#newscatheading10 {
+   a[class*="rime"],
+  div[class*="rime"],
+  h4[class*="rime"] {
     color: $lightGreen;
   }
 
@@ -204,25 +203,22 @@
 
   .news-archive-title {
     margin: 10px 0px;
-    text-transform: uppercase;
-    font-size: 22px;
     overflow: hidden;
     height: 48px;
-    color: #1f1f1f;
-    font-family: $titleFontFamily;
-    font-weight: lighter;
-    line-height: 1.1;
+    text-transform: uppercase;
   }
 
-  .news-archive-title:hover {
-    outline: 0;
-    color: #004fe6 !important;
-    text-decoration: underline;
+  .news-acchive-link {
+    color: #1f1f1f;
+    font-family: inherit;
+    font-weight: lighter;
+    line-height: 1.1;
+    font-size: 22px;
   }
 
   .news-archive-content {
     color: #3d3d3d;
-    font-family: 'Open Sans', sans-serif;
+    font-family: inherit;
     font-size: 16px;
     line-height: 22px;
     font-weight: lighter;
@@ -255,13 +251,14 @@
   }
 
   .singal-news-content {
-
-    font-weight: lighter;
-    white-space: pre-line;
     color: #3d3d3d;
     font-size: 17px;
     line-height: 22px;
+    padding: 0 0 10px 0;
+    font-weight: lighter;
+    white-space: pre-line;
     text-align: justify;
+    font-family: inherit;
   }
 
   .fa-icon {
@@ -307,18 +304,12 @@
     color: #000000;
     font-weight: lighter;
     letter-spacing: -1px;
-        word-spacing: 2px;
-  }
-
-  .home-title-link:hover {
-    outline: 0;
-    color: #004fe6 !important;
-    text-decoration: underline;
+    word-spacing: 2px;
   }
 
   .home-content {
     color: #3d3d3d;
-    font-family: $titleFontFamily;
+    font-family: inherit;
     font-size: 16px;
     line-height: 22px;
     font-weight: lighter;
@@ -334,7 +325,7 @@
   }
 
   .home-news-title {
-    font-family: $titleFontFamily;
+    font-family: inherit;
     font-weight: 550;
     text-transform: uppercase;
     line-height: 1.1;
@@ -343,7 +334,7 @@
   }
 
   .home-news-title::first-letter {
-    font-size: 150%
+    font-size: 180%
   }
 
   .hr {
@@ -524,8 +515,8 @@
     background-color: transparent;
     border: 1px solid transparent;
     padding: 0px;
-    /* font-size: 1rem; */
-    /* line-height: 1.5; */
+   font-size: 1rem; 
+    line-height: 1.5; 
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
@@ -550,13 +541,15 @@
     padding: 0px !important;
   }
 
-  .mt-main-container {
-    margin-top: 200px;
+  .margin-main-container {
+    margin: 200px 0px 100px 0px;
   }
 
   .letest-news-img {
     margin-right: 20px;
-    width: 26%
+    width: 28%;
+    height: 55px;
+    object-fit: cover;
   }
 
   .letest-news-img:hover {
@@ -565,16 +558,10 @@
 
   .letest-news-title {
     color: #000000;
-    font-size: 14px;
-    font-family: $titleFontFamily;
+    font-size: 13px;
+    font-family: inherit;
     font-weight: 550;
     text-transform: uppercase;
-    line-height: 1.1;
-  }
-
-  .letest-news-title:hover {
-    color: blue;
-    text-decoration: underline;
   }
 
   .logo-width {

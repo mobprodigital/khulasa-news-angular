@@ -1,33 +1,37 @@
-<div class="home">
-  <div class="home-inner-div">
-    <h4 class="home-news-title"><a [routerLink]="['/category', categoryId]">{{title}}</a></h4>
-    <div class="hr a"></div>
-    <div class="hr-2"></div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4  padding-lr-5" *ngFor="let nws of newsList">
-          <a [routerLink]="['/news' ,nws.id]">
-            <img class="thumb home-news-image" src="{{nws.featuredImage.small}}" alt="">
-          </a>
-          <div class="home-title-container">
-            <div class="home-title-inner-container">
-              <h6 class="home-title">
-                <a class="home-title-link" [routerLink]="['/news' ,nws.id]">{{nws.title}}</a>
-              </h6>
-              <h4 class="home-date-or-author">
-                 {{nws.createDate | date}}
-              </h4>
-              <h4 class="home-date-or-author">
-                <i class="fa fa-user" aria-hidden="true">
-                  <span class="color-gray font-style-normal">{{nws.author}} </span>
-                </i>
-              </h4>
-              <p class="home-content">{{nws.content}}</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 padding-zero">
+        <div class="home">
+            <div class="home-inner-div">
+              <h4 class="home-news-title "><a class="{{title}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
+              <div class="hr {{title}}"></div>
+              <div class="hr-2"></div>
             </div>
           </div>
+    </div>
+  </div>
+   
+  <div class="row">
+    <div class="col-md-4  padding-lr-5" *ngFor="let nws of newsList">
+      <a [routerLink]="['/news' ,nws.id]">
+        <img class="thumb home-news-image" src="{{nws.featuredImage.small}}" alt="">
+      </a>
+      <div class="home-title-container">
+        <div class="home-title-inner-container">
+          <h6 class="home-title">
+            <a class="home-title-link" [routerLink]="['/news' ,nws.id]">{{nws.title}}</a>
+          </h6>
+          <h4 class="home-date-or-author">
+            {{nws.createDate | date}}
+          </h4>
+          <h4 class="home-date-or-author">
+            <i class="fa fa-user" aria-hidden="true">
+              <span class="color-gray font-style-normal">{{nws.author}} </span>
+            </i>
+          </h4>
+          <p class="home-content">{{nws.content}}</p>
         </div>
       </div>
     </div>
-
   </div>
 </div>
