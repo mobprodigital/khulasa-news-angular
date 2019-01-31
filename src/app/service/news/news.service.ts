@@ -3,8 +3,6 @@ import { NewsModel } from 'src/app/model/news.model';
 import { NewsCategoryModel } from 'src/app/model/news-category.model';
 import { HttpService } from '../http/http.service';
 import { HttpParams } from '@angular/common/http';
-import { promise } from 'protractor';
-import { resolve } from 'path';
 
 @Injectable({
   providedIn: 'root'

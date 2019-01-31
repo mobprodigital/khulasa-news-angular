@@ -3,8 +3,6 @@
 .portal {
 
   $titleFontFamily: 'Open Sans', sans-serif;
-
-
   font-family: 'Open Sans', sans-serif;
 
   .bg-skyBlue,
@@ -245,6 +243,7 @@
     width: 100%;
     object-fit: cover;
     height: 200px;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
   }
 
   .singal-news-title {
@@ -255,14 +254,27 @@
     margin: 0px;
   }
 
+  .singal-news-content {
+
+    font-weight: lighter;
+    white-space: pre-line;
+    color: #3d3d3d;
+    font-size: 17px;
+    line-height: 22px;
+    text-align: justify;
+  }
+
   .fa-icon {
     font-size: 12px;
     margin: 10px 0px;
   }
 
-  .fa-icon-home {
-    font-size: 14px;
+  .home-date-or-author {
+    font-size: 11px;
     margin: 5px 0px;
+    color: #9c9c9c;
+    font-style: normal;
+    font-weight: lighter;
   }
 
   .fa-icon-padding {
@@ -279,21 +291,23 @@
   }
 
   .home-title-inner-container {
-    padding: 15px;
+    padding: 10px;
     background-color: $white;
   }
 
   .home-title {
     margin: 0px 0px;
-    font-size: 22px;
+    font-size: 18px;
     text-transform: uppercase;
     overflow: hidden;
-    height: 60px;
+    height: 45px;
   }
 
   .home-title-link {
     color: #000000;
-    font-weight: 600;
+    font-weight: lighter;
+    letter-spacing: -1px;
+        word-spacing: 2px;
   }
 
   .home-title-link:hover {
@@ -304,12 +318,19 @@
 
   .home-content {
     color: #3d3d3d;
-    font-family: 'Open Sans', sans-serif;
+    font-family: $titleFontFamily;
     font-size: 16px;
     line-height: 22px;
     font-weight: lighter;
     overflow: hidden;
-    height: 110px;
+    height: 90px;
+  }
+
+  .home-news-image {
+    width: 100%;
+    object-fit: cover;
+    height: 130px;
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15)
   }
 
   .home-news-title {
@@ -347,11 +368,7 @@
     padding-top: 20px;
   }
 
-  .news-ById-content {
-    color: #3d3d3d;
-    font-size: 18px;
-    font-weight: lighter;
-  }
+
 
   .margin-bottom-25 {
     margin-bottom: 25px;
