@@ -1,5 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
 @import 'css_vars.scss';
+/* You can add global styles to this file, and also import other style files */
 
 html,
 body {
@@ -9,8 +9,25 @@ body {
 
 .admin {
 
+
+
   font-family: Roboto, "Helvetica Neue", sans-serif;
   height: 100%;
+
+  .overflow-auto {
+    overflow: auto !important;
+  }
+
+
+  .content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content-container {
+      overflow: auto;
+    }
+  }
 
   .w-25 {
     width: 25% !important;
@@ -579,39 +596,47 @@ body {
   }
 
   .bg-primary {
-    background-color: #007bff !important;
+    background-color: $primary !important;
   }
 
   .bg-secondary {
-    background-color: #6c757d !important;
+    background-color: $secondary !important;
   }
 
   .bg-success {
-    background-color: #28a745 !important;
+    background-color: $success !important;
   }
 
   .bg-info {
-    background-color: #17a2b8 !important;
+    background-color: $info !important;
   }
 
   .bg-warning {
-    background-color: #ffc107 !important;
+    background-color: $warning !important;
   }
 
   .bg-danger {
-    background-color: #dc3545 !important;
+    background-color: $danger !important;
+  }
+
+  .bg-gray {
+    background-color: $gray !important;
+  }
+
+  .bg-light-gray {
+    background-color: $light-gray !important;
   }
 
   .bg-light {
-    background-color: #f8f9fa !important;
+    background-color: $light !important;
   }
 
   .bg-dark {
-    background-color: #343a40 !important;
+    background-color: $dark !important;
   }
 
   .bg-white {
-    background-color: #fff !important;
+    background-color: $white !important;
   }
 
   mat-form-field {

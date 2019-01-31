@@ -20,7 +20,9 @@ section.login-wrap>img {
   object-fit: cover;
   height: 100%;
 }
-
+mat-form-field {
+  width: 100%;
+}
 @media all and (max-width : 768px) {
   section.login-wrap>mat-card {
     width: 80%;
