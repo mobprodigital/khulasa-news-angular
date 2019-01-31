@@ -10,6 +10,7 @@ export class ArchiveTemplateComponent implements OnInit {
 
 
   @Input() news: NewsModel[] = [];
+  @Input() title:string;
 
   constructor() { }
 
