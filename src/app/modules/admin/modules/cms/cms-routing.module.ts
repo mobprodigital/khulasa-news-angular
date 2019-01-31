@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: './modules/media/media.module#MediaModule'
       },
       {
+        path: 'user-account',
+        loadChildren: './modules/user-account/user-account.module#UserAccountModule'
+      },
+      {
         path: '',
         redirectTo: 'news',
         pathMatch: 'full'
