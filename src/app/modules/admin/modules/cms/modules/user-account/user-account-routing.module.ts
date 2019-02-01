@@ -9,6 +9,10 @@ const routes: Routes = [
     component: AddNewUserComponent
   },
   {
+    path: 'edit/:id',
+    component: AddNewUserComponent
+  },
+  {
     path: 'all-users',
     component: AllUsersComponent
   },
