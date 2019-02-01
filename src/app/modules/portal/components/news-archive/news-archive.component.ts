@@ -19,7 +19,6 @@ export class NewsArchiveComponent implements OnInit, OnDestroy {
     this.routeSubscription = this.router.events.subscribe(ev => {
       if (ev instanceof NavigationEnd) {
         this.getNewsCategoryId();
-
       }
     })
   }
