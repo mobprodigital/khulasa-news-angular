@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Add new user</mat-card-title>
+    <mat-card-title>{{newUser ? 'Add new user' : 'Edit user'}}</mat-card-title>
     <mat-card-subtitle>* indicates fields are required</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
@@ -72,7 +72,7 @@
         <div class="col-6">
           <mat-form-field>
             <input [(ngModel)]="userModel.password" name="password" #password="ngModel" type="password" placeholder="Password"
-              matInput required aria-required="true" minlength="5" maxlength="15" />
+              matInput [attr.required]="newUser ? true : undefined" aria-required="true" minlength="5" maxlength="15" />
             <mat-error>
               <div *ngIf="password.invalid && (password.touched || password.dirty)">
                 <div *ngIf="password.errors.required">Password is required</div>
@@ -86,7 +86,7 @@
         <div class="col-6">
           <mat-form-field>
             <input [(ngModel)]="userModel.confirmPassword" name="confirmPassword" #confirmPassword="ngModel" type="password"
-              placeholder="Confirm Password" matInput required aria-required="true" minlength="5" maxlength="15" />
+              placeholder="Confirm Password" matInput [attr.required]="newUser ? true : undefined" aria-required="true" minlength="5" maxlength="15" />
             <mat-error>
               <div *ngIf="confirmPassword.invalid && (confirmPassword.touched || confirmPassword.dirty)">
                 <div *ngIf="confirmPassword.errors.required">confirmPassword is required</div>
@@ -101,7 +101,7 @@
       </div>
       <br>
       <div>
-        <button [disabled]="!userForm.form.valid" type="submit" mat-raised-button color="primary">Create User</button>
+        <button [disabled]="!userForm.form.valid" type="submit" mat-raised-button color="primary">{{ newUser ? 'Create user' : 'Update user'}}</button>
       </div>
     </form>
   </mat-card-content>
