@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PortalRoutingModule } from './portal-routing.module';
-import { FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonComponent } from './components/common/common.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,7 +17,20 @@ import { ArchiveTemplateComponent } from './Templates/archive-template/archive-t
 import { SliderTemplateComponent } from './templates/slider-template/slider-template.component';
 import { LetestNewsTemplateComponent } from './templates/letest-news-template/letest-news-template.component';
 @NgModule({
-  declarations: [CommonComponent, HeaderComponent, FooterComponent, HomeComponent, AdComponent, RightSideBarComponent, SingleNewsComponent, NewsArchiveComponent, HomePageTemplateComponent, ArchiveTemplateComponent, SliderTemplateComponent, LetestNewsTemplateComponent],
+  declarations: [
+    CommonComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    AdComponent,
+    RightSideBarComponent,
+    SingleNewsComponent,
+    NewsArchiveComponent,
+    HomePageTemplateComponent,
+    ArchiveTemplateComponent,
+    SliderTemplateComponent,
+    LetestNewsTemplateComponent
+  ],
   imports: [
     CommonModule,
     PortalRoutingModule,

@@ -1,7 +1,7 @@
 <header class="fixed">
-  <div class="container-fluid " style="padding-top:20px">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3 col-sm-6 col-6 site-logo">
+      <div class="col-md-3 col-sm-6 col-6 text-center site-logo">
         <a href="">
           <img class="logo-width" src="assets/images/logo/logo.png" alt="">
         </a>
@@ -21,19 +21,19 @@
             search term</div>
         </form>
         <span class="align-self-end color-gray current-date">
-          {{date}}
+          {{date | date:'fullDate'| uppercase}}
         </span>
       </div>
     </div>
   </div>
   <nav class="w-100">
     <ul class="nav-menu ">
-      <li class="nav-item"> <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
+      <li class="nav-item"> <a  class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
           routerLinkActive="nav-link-active">Home</a></li>
           
       <ng-container *ngIf="categoryList && categoryList.length > 0">
 
-        <li *ngFor="let cat of categoryList" class="nav-item"> <a class="nav-link" [routerLink]="['/category' ,cat.id]"
+        <li *ngFor="let cat of categoryList" class="nav-item"> <a  class="nav-link" [routerLink]="['/category' ,cat.id]"
             [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="nav-link-active">{{cat.name}}</a></li>
 
       </ng-container>

@@ -9,16 +9,15 @@ import { NewsCategoryModel } from 'src/app/model/news-category.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public date: string;
+  public date=new Date();
   public categoryList: NewsCategoryModel[] = [];
   public SearchTerm: string = '';
-
-  d = new Date();
+  
   constructor(private categoryService: NewsService) {
-    this.getDate();
     this.getCategory();
 
   }
+  
   private getCategory() {
     this.categoryService.getMenuCategories().then(cats => {
       let c = cats;
@@ -26,10 +25,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  private getDate() {
-    this.date = this.d.getDate() + '/' + (this.d.getMonth() + 1) + '/' + this.d.getFullYear();
-  }
-
+  
   check() {
     alert(this.SearchTerm);
   }

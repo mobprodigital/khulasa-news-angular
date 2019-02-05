@@ -1,29 +1,16 @@
 <!-- Slider main container -->
-<div class="swiper-container">
+<div *ngIf="newsList && newsList.length > 0" class="swiper-container">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
     <!-- Slides -->
-    <div class="swiper-slide">
-      <img src="assets/images/news/slider1.jpg" alt="" srcset="">
+    <div class="swiper-slide" *ngFor="let nws of newsList">
+      <img class="slider-image" src="{{nws.featuredImage.small}}" alt="" srcset="">
       <div class="carousel-caption ">
         <h3>
-          <a class="slider-link" href="">INDIA EMERGED AS EDUCATIONAL HUB FOR WORLD: EXTERNAL AFFAIRS MINISTER</a>
+          <a class="slider-link"  [routerLink]="['/news', nws.id]">{{nws.title}} </a>
         </h3>
       </div>
     </div>
-    <div class="swiper-slide">
-      <img src="assets/images/news/slider2.jpg" alt="" srcset="">
-      <div class="carousel-caption "><h3>
-          <a class="slider-link" href="">INDIA EMERGED AS EDUCATIONAL HUB FOR WORLD: EXTERNAL AFFAIRS MINISTER</a>
-        </h3></div>
-    </div>
-    <div class="swiper-slide">
-      <img src="assets/images/news/slider3.jpg" alt="" srcset="">
-      <div class="carousel-caption "><h3>
-          <a class="slider-link" href="">INDIA EMERGED AS EDUCATIONAL HUB FOR WORLD: EXTERNAL AFFAIRS MINISTER</a>
-        </h3></div>
-    </div>
-    ...
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>

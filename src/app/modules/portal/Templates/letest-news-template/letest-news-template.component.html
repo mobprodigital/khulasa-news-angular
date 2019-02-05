@@ -1,9 +1,8 @@
-<h4 class="home-news-title {{categoryTitle}}">{{categoryTitle}}</h4>
-<div class="hr {{categoryTitle}}"></div>
-<div class="hr-2"></div>
+<h4 class="home-news-title  under-line"> <a class="{{cssClass}}" (click)="scrollToTop()" [routerLink]="['/category', categoryId]">{{categoryTitle}}</a></h4>
+
 
 <p class="over-flow-auto" *ngFor="let nws of newsList">
-    <a  [routerLink]="['/news', nws.id]"> <img class="float-left letest-news-img" src="{{nws.featuredImage.small}}" alt=""></a>
-      <a class="letest-news-title" [routerLink]="['/news', nws.id]">{{nws.title}} </a>
+    <a [routerLink]="['/news', nws.id]"> <img class="float-left letest-news-img" src="{{nws.featuredImage.small}}" alt=""></a>
+      <a class="letest-news-title"  [routerLink]="['/news', nws.id]">{{nws.title}} </a>
 </p>
 

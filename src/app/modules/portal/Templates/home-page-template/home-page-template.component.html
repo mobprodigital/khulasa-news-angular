@@ -3,9 +3,8 @@
     <div class="col-12 padding-zero">
         <div class="home">
             <div class="home-inner-div">
-              <h4 class="home-news-title "><a class="{{title}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
-              <div class="hr {{title}}"></div>
-              <div class="hr-2"></div>
+              <h4 class="home-news-title  under-line"><a class="{{cssClass}}"  [routerLink]="['/category', categoryId]">{{title}}</a></h4>
+              
             </div>
           </div>
     </div>
@@ -13,13 +12,13 @@
    
   <div class="row">
     <div class="col-md-4  padding-lr-5" *ngFor="let nws of newsList">
-      <a [routerLink]="['/news' ,nws.id]">
+      <a  [routerLink]="['/news' ,nws.id]">
         <img class="thumb home-news-image" src="{{nws.featuredImage.small}}" alt="">
       </a>
       <div class="home-title-container">
         <div class="home-title-inner-container">
           <h6 class="home-title">
-            <a class="home-title-link" [routerLink]="['/news' ,nws.id]">{{nws.title}}</a>
+            <a class="home-title-link"  [routerLink]="['/news' ,nws.id]">{{nws.title}}</a>
           </h6>
           <h4 class="home-date-or-author">
             {{nws.createDate | date}}

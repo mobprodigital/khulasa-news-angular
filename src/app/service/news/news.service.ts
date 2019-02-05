@@ -112,13 +112,13 @@ export class NewsService {
         params = params.set("categoryId", categoryId.toString());
       }
 
-      
-        this.httpService.get('', params).then((news: any[]) => {
-          let newslist = this.parseNews(news);
-          resolve(newslist);
-        }).catch(err => {
-          reject(err);
-        })
+
+      this.httpService.get('', params).then((news: any[]) => {
+        let newslist = this.parseNews(news);
+        resolve(newslist);
+      }).catch(err => {
+        reject(err);
+      })
     })
   }
 

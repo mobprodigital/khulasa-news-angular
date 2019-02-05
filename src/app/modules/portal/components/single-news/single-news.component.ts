@@ -24,9 +24,14 @@ export class SingleNewsComponent implements OnInit {
   }
   private getNews() {
     this.newsservice.getNewsByNewsId(this.newsId).then(newsdata => this.news = newsdata).catch(err => alert('singl news ' + err));
+    window.scroll({
+      top: 0,
+      behavior: "smooth"
+    });
   }
   private getNewsId() {
-    this.activatedRouter.params.subscribe(params => { this.newsId = params['id'] });
+
+    this.newsId = (this.activatedRouter.snapshot.paramMap.get('id'));
     if (this.newsId) {
       this.getNews()
     }

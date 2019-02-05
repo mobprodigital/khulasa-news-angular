@@ -10,13 +10,15 @@ export class HomePageTemplateComponent implements OnInit {
   @Input() title: string;
   @Input() count: number;
   @Input() categoryId: number;
-  public newsList:NewsModel[]=[];
+  @Input() cssClass: string;
+  public newsList: NewsModel[] = [];
 
-  constructor(private newsService:NewsService  ) {
-    
+  constructor(private newsService: NewsService) {
+
   }
+ 
   public getNewsByCategory() {
-    this.newsService.getNews(this.categoryId,this.count).then(newsdata => this.newsList = newsdata).catch(err => alert(err));
+    this.newsService.getNews(this.categoryId, this.count).then(newsdata => this.newsList = newsdata).catch(err => alert(err));
   }
   ngOnInit() {
     this.getNewsByCategory();

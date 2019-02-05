@@ -51,7 +51,6 @@
     background-color: $tigerOrange;
   }
 
-
   .bg-purple,
   .nav-menu>li:nth-child(9)>a.nav-link {
     background-color: $purple;
@@ -71,103 +70,45 @@
     color: $skyBlue;
   }
 
-  .color-pink,
-  a.news,
-  a.News,
-  div.news,
-  div.News,
-  h4.news,
-  h4.News {
+  .color-pink {
     color: $pink;
   }
 
-  .color-orange,
-  a.politics,
-  a.Politics,
-  div.politics,
-  div.Politics,
-  h4.politics,
-  h4.Politics {
+  .color-orange {
     color: $orange;
   }
 
-  .color-blue,
-  a.world,
-  a.World,
-  div.world,
-  div.World,
-  h4.world,
-  h4.World {
+  .color-blue {
     color: $blue;
   }
 
-
-
-  .color-red,
-  a.business,
-  a.Business,
-  div.business,
-  div.Business,
-  h4.business,
-  h4.Business {
+  .color-red {
     color: $red;
   }
 
-
-  .color-yello,
-  a.sports,
-  a.Sports,
-  div.sports,
-  div.Sports,
-  h4.sports,
-  h4.Sports {
+  .color-yello {
     color: $yello;
   }
 
-
-  .color-cyan,
-  a.videos,
-  a.Videos,
-  div.videos,
-  div.Videos,
-  h4.videos,
-  h4.Videos {
+  .color-cyan {
     color: $cyan;
   }
 
-  .color-tiger-orange,
-  a[class*="ife"],
-  div[class*="ife"],
-  h4[class*="ife"] {
+  .color-tiger-orange {
     color: $tigerOrange;
   }
 
-  .color-purple,
-  a.entertainment,
-  a.Entertainment,
-  div.entertainment,
-  div.Entertainment,
-  h4.entertainment,
-  h4.Entertainment {
+  .color-purple {
     color: $purple;
   }
 
-  .color-green,
-  a[class*="azaar Review"],
-  div[class*="azaar Review"],
-  h4[class*="azaar Review"] {
+  .color-green {
     color: $green;
   }
 
-  .color-light-green,
-  a[class*="rime"],
-  div[class*="rime"],
-  h4[class*="rime"] {
+  .color-light-green {
     color: $lightGreen;
   }
-
-  
-
 
   .nav-menu {
     list-style: none;
@@ -223,21 +164,22 @@
     border: solid 2px #e3e3e3;
   }
 
-  
-
   .news-archive-title {
     margin: 10px 0px;
     overflow: hidden;
     height: 48px;
-    text-transform: uppercase;
+    font-size: 20px;
+
   }
 
-  .news-acchive-link {
-    color: #1f1f1f;
-    font-family: inherit;
-    font-weight: lighter;
+  .news-archive-link {
+    color: #080808;
+    font-family: "Oswald", sans-serif !important;
+    font-weight: 550;
+    text-transform: uppercase;
     line-height: 1.1;
-    font-size: 22px;
+    word-spacing: 0px;
+    font-stretch: condensed;
   }
 
   .news-archive-content {
@@ -247,9 +189,8 @@
     line-height: 22px;
     font-weight: lighter;
     overflow: hidden;
-    height: 65px;
+    height: 45px;
     margin: 10px 14px 0px 0px;
-
   }
 
   .news-archive-content:before {
@@ -267,11 +208,14 @@
   }
 
   .singal-news-title {
-    font-size: 27px;
+    font-size: 25px;
     font-weight: 550;
     text-transform: uppercase;
     line-height: 1.1;
     margin: 0px;
+    font-family: "Oswald", sans-serif !important;
+    font-stretch: condensed;
+    color: #4c4949;
   }
 
   .singal-news-content {
@@ -285,9 +229,12 @@
     font-family: inherit;
   }
 
-  .fa-icon {
-    font-size: 12px;
+  .news-archive-date-or-author {
+    font-size: 11px;
     margin: 10px 0px;
+    color: #9c9c9c;
+    font-style: normal;
+    font-weight: lighter;
   }
 
   .home-date-or-author {
@@ -296,10 +243,6 @@
     color: #9c9c9c;
     font-style: normal;
     font-weight: lighter;
-  }
-
-  .fa-icon-padding {
-    padding-left: 15px;
   }
 
   .thumb:hover {
@@ -318,17 +261,21 @@
 
   .home-title {
     margin: 0px 0px;
-    font-size: 18px;
+    font-size: 20px;
     text-transform: uppercase;
     overflow: hidden;
-    height: 45px;
+    height: 70px;
   }
 
   .home-title-link {
-    color: #000000;
-    font-weight: lighter;
-    letter-spacing: -1px;
+
+    color: #080808;
     word-spacing: 2px;
+    font-stretch: condensed;
+    font-family: "Oswald", sans-serif !important;
+    font-weight: 550;
+    text-transform: uppercase;
+    line-height: 1.1;
   }
 
   .home-content {
@@ -353,26 +300,39 @@
     font-weight: 550;
     text-transform: uppercase;
     line-height: 1.1;
-    margin: 5px 0px;
-    font-size: 1.5rem;
+    margin: 5px 0px 20px 0px;
+    font-size: 1.7rem;
+    font-stretch: condensed;
   }
 
   .home-news-title::first-letter {
     font-size: 180%
   }
 
-  .hr {
-    border: 1.8px solid !important;
-    width: 50%;
-    margin-bottom: 20px;
-    display: inline-block;
+  .under-line {
+    position: relative;
   }
 
-  .hr-2 {
-    border: .6px solid #9a9a9a !important;
+  .under-line::before {
+    content: '';
+    background-color: $tigerOrange;
     width: 50%;
-    margin-bottom: 20px;
-    display: inline-block;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    z-index: 1;
+    height: 3px;
+  }
+
+  .under-line::after {
+    content: '';
+    background-color: #9a9a9a;
+    width: 49%;
+    position: absolute;
+    top: 54px;
+    left: 50%;
+    z-index: 1;
+    height: 1px;
   }
 
   .padding-lr-5 {
@@ -382,8 +342,6 @@
   .padding-top-20 {
     padding-top: 20px;
   }
-
-
 
   .margin-bottom-25 {
     margin-bottom: 25px;
@@ -425,14 +383,16 @@
   }
 
   .current-date {
-    font-size: 16px;
-    font-family: fantasy;
+    color: #a68275;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
   }
 
   .mt-30 {
     margin-top: 30px;
   }
-
 
   .float-rigth {
     float: right;
@@ -456,14 +416,13 @@
 
   .carousel-caption {
     position: absolute;
-    right: 5%;
-    bottom: 20px;
-    left: 5%;
+    right: 0%;
+    bottom: 5px;
+    left: 0%;
     z-index: 10;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: $white;
+    color: #fff;
     text-align: center;
+    background-color: #000000a2;
   }
 
   .slider-link {
@@ -475,8 +434,6 @@
     text-decoration: underline;
   }
 
-
-
   .font-style-normal {
     font-style: normal;
   }
@@ -485,13 +442,10 @@
     position: relative;
     display: -ms-flexbox;
     display: flex;
-
     -ms-flex-align: stretch;
     align-items: stretch;
     width: 100%;
   }
-
- 
 
   .form-control {
     display: block;
@@ -573,6 +527,26 @@
     width: 57%;
   }
 
+  .slider-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .btn-view-story {
+    padding: 7px 5px;
+    background-color: #052d79;
+    color: white;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .btn-view-story:hover {
+    background: #004fe6;
+    color: white;
+  }
+
+
   @media screen and (max-width: 576px) {
     .mt-main-container {
       margin-top: 325px;
@@ -580,6 +554,16 @@
 
     .logo-width {
       width: 100%;
+    }
+
+    .slider-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .p0-mob
+    {
+      padding: 0px;
     }
   }
 

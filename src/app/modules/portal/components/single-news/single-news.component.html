@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <div class="row" *ngIf="news">
-    <div class="col-12">
+    <div class="col-12 padding-zero">
       <h1 class="singal-news-title"> {{news.title}}</h1>
-      <h6 class="fa-icon font-style-normal color-gray">
-          <span>{{news.createDate}}</span>
-          <span class="fa-icon-padding ">{{news.author}} </span>
+      <h6 class="news-archive-date-or-author">
+          <span>{{news.createDate | date}}</span>
+          <span class="pl-3 ">{{news.author}} </span>
         </h6>
         <div><img class="w-100" src="{{news.featuredImage.small}}" alt=""></div>
         <pre class="singal-news-content" [innerHTML]="news.content" ></pre>
