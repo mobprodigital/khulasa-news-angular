@@ -14,8 +14,9 @@ import { SingleNewsComponent } from './components/single-news/single-news.compon
 import { NewsArchiveComponent } from './components/news-archive/news-archive.component';
 import { HomePageTemplateComponent } from './Templates/home-page-template/home-page-template.component';
 import { ArchiveTemplateComponent } from './Templates/archive-template/archive-template.component';
-import { SliderTemplateComponent } from './templates/slider-template/slider-template.component';
-import { LetestNewsTemplateComponent } from './templates/letest-news-template/letest-news-template.component';
+import { SliderTemplateComponent } from './Templates/slider-template/slider-template.component';
+import { LetestNewsTemplateComponent } from './Templates/letest-news-template/letest-news-template.component';
+
 @NgModule({
   declarations: [
     CommonComponent,
