@@ -3,6 +3,7 @@ import { NewsModel } from 'src/app/model/news.model';
 import { NewsCategoryModel } from 'src/app/model/news-category.model';
 import { HttpService } from '../http/http.service';
 import { HttpParams } from '@angular/common/http';
+import { PostTypeEnum } from 'src/app/enum/post-type.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -127,15 +128,29 @@ export class NewsService {
    * get news by id
    * @param newsId news Id
    */
-  public getNewsByNewsId(newsId: string): Promise<NewsModel> {
+  public getNewsByNewsId(newsId: number): Promise<NewsModel>;
+  public getNewsByNewsId(newsSlug: string, postType?: PostTypeEnum): Promise<NewsModel>;
+  public getNewsByNewsId(args: string | number, postType: PostTypeEnum = PostTypeEnum.Post): Promise<NewsModel> {
     return new Promise((resolve, reject) => {
-      this.httpService.get('',
-        new HttpParams().set('action', 'get_single_post_by_id').set('postId', newsId.toString())
-      ).then((news: any) => {
-        let n = this.parseNews([news]);
-        resolve(n[0]);
-      })
-
+      let argsType = typeof args;
+      let slugOrId = ''
+      let params = new HttpParams().set('action', 'get_single_post_by_id');
+      if (argsType === 'number') {
+        params = params.set('postId', args.toString());
+      }
+      else if (argsType === 'string') {
+        params = params.set('postSlug', args.toString()).set('postType', postType);
+      }
+      else {
+        throw console.error("argumnet not match");
+      }
+      this.httpService.get('', params)
+        .then((news: any) => {
+          let n = this.parseNews([news]);
+          resolve(n[0]);
+        }).catch(err => {
+          reject(err);
+        })
     });
   }
 
@@ -172,7 +187,9 @@ export class NewsService {
         _newsls.content = n.content;
         _newsls.publishedDate = n.date;
         _newsls.createDate = n.date;
-
+        _newsls.category = n.category;
+        _newsls.slug = n.slug;
+        _newsls.categoryList = this.parseCategories(n.categoryList);
         // _newsls.categories=n.category;
         _newsls.featuredImage.small = n.thumbnail;
         _newsls.featuredImage.original = n.thumbnail;
@@ -183,7 +200,5 @@ export class NewsService {
     }
     return newslist;
   }
-
-
 
 }

@@ -1,3 +1,10 @@
+<div class="d-none-col-sm" *ngIf="newsList && newsList.length > 0">
+  <div class="breaking-news">breaking news</div>
+  <h5 class="breaking-news-title">
+    <a [routerLink]="['/news', newsList[num].slug]"> {{newsList[num].title}}</a>
+  </h5>
+</div>
+
 <!-- Slider main container -->
 <div *ngIf="newsList && newsList.length > 0" class="swiper-container">
   <!-- Additional required wrapper -->
@@ -6,8 +13,8 @@
     <div class="swiper-slide" *ngFor="let nws of newsList">
       <img class="slider-image" src="{{nws.featuredImage.small}}" alt="" srcset="">
       <div class="carousel-caption ">
-        <h3>
-          <a class="slider-link"  [routerLink]="['/news', nws.id]">{{nws.title}} </a>
+        <h3 class="slider-title">
+          <a class="slider-link" [routerLink]="['/news', nws.slug]">{{nws.title}} </a>
         </h3>
       </div>
     </div>

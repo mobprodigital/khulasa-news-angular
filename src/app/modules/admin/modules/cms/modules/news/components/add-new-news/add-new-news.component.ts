@@ -129,8 +129,8 @@ export class AddNewNewsComponent implements OnInit {
   }
 
   private getCategoryControls() {
-    return this.news.categories.map((cat: number) => {
-      let catFound = this.categoriesList.find(c => c.id === cat);
+    return this.news.categoryList.map(cat => {
+      let catFound = this.categoriesList.find(c => c.id === cat.id);
       if (catFound) {
         catFound.selected = true;
       }

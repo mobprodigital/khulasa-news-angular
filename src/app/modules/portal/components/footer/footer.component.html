@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-12">
       <div class="container">
-        <div class="flex flex-wrap-wrap justify-content-center padding-top-20">
-          <a class=" footer-link" href="">About Us</a>
-          <a class=" footer-link" href="">Contact Us</a>
-          <a class=" footer-link" href=""> Privacy Policy</a>
-          <a class=" footer-link" href="">Disclaimer</a>
-          <a class=" footer-link border-solid-right" href="">Terms and Conditions</a>
+        <div class="flex flex-wrap-wrap justify-content-center padding-top-10">
+          <a class=" footer-link" [routerLink]="['/page', 'about-us']">About Us</a>
+          <a class=" footer-link d-none" [routerLink]="['/page', 71]">Contact Us</a>
+          <a class=" footer-link" [routerLink]="['/page', 'privacy-policy']"> Privacy Policy</a>
+          <a class=" footer-link" [routerLink]="['/page', 'disclaimer']">Disclaimer</a>
+          <a class=" footer-link border-solid-right" [routerLink]="['/page', 'terms-and-condition']">Terms and Conditions</a>
         </div>
         <hr class="footer-hr">
         <div class="flex justify-content-center">

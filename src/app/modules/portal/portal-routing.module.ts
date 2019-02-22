@@ -4,6 +4,7 @@ import { CommonComponent } from './components/common/common.component';
 import { HomeComponent } from './components/home/home.component';
 import { NewsArchiveComponent } from './components/news-archive/news-archive.component';
 import { SingleNewsComponent } from './components/single-news/single-news.component';
+import { SingalPageComponent } from './components/singal-page/singal-page.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path:'news/:id',
         component:SingleNewsComponent
+      },
+      {
+        path:'page/:id',
+        component:SingalPageComponent
       }
     ]
   }

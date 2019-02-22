@@ -13,18 +13,20 @@ export class SliderTemplateComponent implements OnInit {
   @Input() count: number;
   public newsList: NewsModel[] = [];
   public errorMsg: string;
+  public num: number = 0;
 
   constructor(private newsService: NewsService) {
+   
+    
+  
+  }
 
-  }
-  scroll() {
-    window.scrollTo(0, 0);
-  }
   getNewsByCategoryId() {
     if (this.categoryId) {
       this.newsService.getNews(this.categoryId, this.count)
         .then(data => {
           this.newsList = data;
+          setInterval(() => { this.countPlus() }, 4000);
           setTimeout(() => {
             var mySwiper = new Swiper('.swiper-container', {
               slidesPerView: 1,
@@ -48,7 +50,21 @@ export class SliderTemplateComponent implements OnInit {
         .catch(err => this.errorMsg = err);
     }
   }
+
+
+  countPlus() {
+   
+    if(this.num<this.count-1)
+    {
+      this.num+= 1;
+    }
+    else{
+      this.num=0;
+    }
+  }
+
   ngOnInit() {
-    this.getNewsByCategoryId()
+    this.getNewsByCategoryId();
+
   }
 }

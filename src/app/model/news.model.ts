@@ -1,13 +1,14 @@
 import { IFeturedImage } from '../interface/featured-image.interface';
+import { NewsCategoryModel } from './news-category.model';
 
 export class NewsModel {
-    id: string = "";
+    id: number = null;
     title: string = "";
     slug: string = "";
     content: string = "";
     published: boolean = false;
-    /** array of ids of selected categories */
-    categories: number[] = [1, 2, 3];
+    category : string = '';
+    categoryList: NewsCategoryModel[] = [];
     tags: string[] = [];
     featuredImage: IFeturedImage = {
         original: '',

@@ -9,15 +9,15 @@ import { NewsCategoryModel } from 'src/app/model/news-category.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public date=new Date();
+  public date = new Date();
   public categoryList: NewsCategoryModel[] = [];
   public SearchTerm: string = '';
-  
+
   constructor(private categoryService: NewsService) {
     this.getCategory();
 
   }
-  
+
   private getCategory() {
     this.categoryService.getMenuCategories().then(cats => {
       let c = cats;
@@ -25,12 +25,14 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  
+
   check() {
     alert(this.SearchTerm);
   }
 
   ngOnInit() {
+
   }
+
 
 }

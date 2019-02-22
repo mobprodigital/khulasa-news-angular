@@ -57,7 +57,7 @@ export class HttpService {
 
       this.http.post(this.baseUrl + apiPath, data).subscribe(
         resp => {
-          this.handleResponse(resp);
+          this.handleResponse(resp).catch(err => err);
         },
         err => {
           this.handleError(err);

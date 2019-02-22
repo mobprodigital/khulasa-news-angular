@@ -2,8 +2,10 @@
 
 .portal {
 
-  $titleFontFamily: 'Open Sans', sans-serif;
-  font-family: $titleFontFamily;
+  color: #3d3d3d;
+  $oswald: 'Oswald', sans-serif;
+  $Open-Sans: 'Open Sans', sans-serif;
+  font-family: $Open-Sans;
 
   a:hover {
     color: $blue;
@@ -118,18 +120,22 @@
     overflow: auto;
     margin-bottom: 0px;
     box-shadow: 0px 2px 15px #888888;
+    font-family: $oswald;
+    text-transform: uppercase;
 
     .nav-item {
       flex-grow: 1;
+      white-space: nowrap;
 
       .nav-link {
         text-decoration: none;
         color: $white;
-        padding: 10px 10px;
+        padding: 8px 10px;
         width: 100%;
         text-align: center;
         display: block;
         border-right: solid 1px $white;
+        font-size: 14px;
       }
 
       .nav-link:hover {
@@ -156,36 +162,41 @@
     }
   }
 
+
+  .search-container {
+    border: solid 2px #ced4da;
+    border-radius: 4px;
+    position: relative;
+  }
+
   .search-input {
-    width: 80%;
-    font-size: 18px;
-    padding: 4px 6px;
-    border-radius: 5px;
-    border: solid 2px #e3e3e3;
+    width: 100%;
+    height: 28px;
+    border-color: transparent;
+    font-size: 17px;
+    font-family: $oswald;
   }
 
   .news-archive-title {
     margin: 10px 0px;
     overflow: hidden;
-    height: 48px;
-    font-size: 20px;
-
+    height: 65px;
+    font-size: 22px;
   }
 
   .news-archive-link {
-    color: #080808;
-    font-family: "Oswald", sans-serif !important;
+    color: #3d3d3d;
+    font-family: $oswald;
     font-weight: 550;
     text-transform: uppercase;
-    line-height: 1.1;
     word-spacing: 0px;
     font-stretch: condensed;
   }
 
   .news-archive-content {
     color: #3d3d3d;
-    font-family: inherit;
-    font-size: 16px;
+    font-family: $Open-Sans;
+    font-size: 14px;
     line-height: 22px;
     font-weight: lighter;
     overflow: hidden;
@@ -193,12 +204,12 @@
     margin: 10px 14px 0px 0px;
   }
 
-  .news-archive-content:before {
-    content: '...';
-    position: absolute;
-    right: 14px;
-    bottom: 0;
-  }
+  // .news-archive-content:before {
+  //   content: '...';
+  //   position: absolute;
+  //   right: 14px;
+  //   bottom: 0;
+  // }
 
   .news-arcive-image {
     width: 100%;
@@ -212,8 +223,8 @@
     font-weight: 550;
     text-transform: uppercase;
     line-height: 1.1;
-    margin: 0px;
-    font-family: "Oswald", sans-serif !important;
+    margin: 0px 0px 15px 0px;
+    font-family: $oswald;
     font-stretch: condensed;
     color: #4c4949;
   }
@@ -221,12 +232,16 @@
   .singal-news-content {
     color: #3d3d3d;
     font-size: 17px;
-    line-height: 22px;
-    padding: 0 0 10px 0;
-    font-weight: lighter;
-    white-space: pre-line;
-    text-align: justify;
-    font-family: inherit;
+    font-family: $Open-Sans;
+    margin-top: 20px;
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .news-archive-date-or-author {
@@ -235,14 +250,17 @@
     color: #9c9c9c;
     font-style: normal;
     font-weight: lighter;
+    font-family: $Open-Sans;
+    text-transform: uppercase;
+
   }
 
   .home-date-or-author {
     font-size: 11px;
     margin: 5px 0px;
     color: #9c9c9c;
-    font-style: normal;
-    font-weight: lighter;
+    font-family: $Open-Sans;
+    text-transform: uppercase;
   }
 
   .thumb:hover {
@@ -261,18 +279,15 @@
 
   .home-title {
     margin: 0px 0px;
-    font-size: 20px;
+    font-size: 22px;
     text-transform: uppercase;
     overflow: hidden;
-    height: 70px;
+    height: 90px;
   }
 
   .home-title-link {
-
-    color: #080808;
-    word-spacing: 2px;
-    font-stretch: condensed;
-    font-family: "Oswald", sans-serif !important;
+    color: #3d3d3d;
+    font-family: $oswald;
     font-weight: 550;
     text-transform: uppercase;
     line-height: 1.1;
@@ -280,8 +295,8 @@
 
   .home-content {
     color: #3d3d3d;
-    font-family: inherit;
-    font-size: 16px;
+    font-family: $Open-Sans;
+    font-size: 14px;
     line-height: 22px;
     font-weight: lighter;
     overflow: hidden;
@@ -296,13 +311,13 @@
   }
 
   .home-news-title {
-    font-family: inherit;
-    font-weight: 550;
+    font-family: $oswald;
+    font-weight: lighter;
     text-transform: uppercase;
     line-height: 1.1;
     margin: 5px 0px 20px 0px;
-    font-size: 1.7rem;
-    font-stretch: condensed;
+    font-size: 28px;
+
   }
 
   .home-news-title::first-letter {
@@ -318,7 +333,7 @@
     background-color: $tigerOrange;
     width: 50%;
     position: absolute;
-    top: 52px;
+    top: 60px;
     left: 0;
     z-index: 1;
     height: 3px;
@@ -327,9 +342,9 @@
   .under-line::after {
     content: '';
     background-color: #9a9a9a;
-    width: 49%;
+    width: 50%;
     position: absolute;
-    top: 54px;
+    top: 62px;
     left: 50%;
     z-index: 1;
     height: 1px;
@@ -339,8 +354,8 @@
     padding: 0px 5px !important;
   }
 
-  .padding-top-20 {
-    padding-top: 20px;
+  .padding-top-10 {
+    padding-top: 10px;
   }
 
   .margin-bottom-25 {
@@ -370,7 +385,7 @@
 
   .copy-right {
     font-size: 14px;
-    margin-bottom: 15px;
+    margin: 0px 0px 10px 0px;
     font-weight: lighter;
   }
 
@@ -387,7 +402,12 @@
     display: inline-block;
     font-size: 12px;
     font-weight: 300;
+    font-family: $oswald;
     letter-spacing: 1px;
+  }
+
+  .display-inline-block {
+    display: inline-block;
   }
 
   .mt-30 {
@@ -428,6 +448,8 @@
   .slider-link {
     font-size: 22px;
     color: $white;
+    font-family: $oswald;
+    font-weight: lighter;
   }
 
   .slider-link:hover {
@@ -447,42 +469,22 @@
     width: 100%;
   }
 
-  .form-control {
-    display: block;
-    width: 100%;
-    height: 26px;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: $white;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
-
-  .input-group-append {
-    display: -ms-flexbox;
-    display: flex;
-    padding-left: 5px;
-  }
-
   .btn-search {
     user-select: none;
-    background-color: transparent;
-    border: 1px solid transparent;
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background-color: #fff;
+    border: 2px solid transparent;
     padding: 0px;
-    font-size: 1rem;
-    line-height: 1.5;
+    height: 32px;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 32px;
   }
 
   .btn-search-outline-dark {
-    color: #343a40;
-    border-color: #343a40;
+    border-color: #ced4da;
   }
 
   .btn-search-outline-dark:hover {
@@ -491,17 +493,12 @@
     border-color: #a1a4a7;
   }
 
-  .input-group-append .btn-search {
-    position: relative;
-    z-index: 2;
-  }
-
   .padding-zero {
     padding: 0px !important;
   }
 
   .margin-main-container {
-    margin: 200px 0px 100px 0px;
+    margin: 150px 0px 100px 0px;
   }
 
   .letest-news-img {
@@ -516,11 +513,16 @@
   }
 
   .letest-news-title {
-    color: #000000;
-    font-size: 13px;
-    font-family: inherit;
+    overflow: hidden;
+    height: 50px;
+  }
+
+  .letest-news-link {
+    color: #3d3d3d;
+    font-size: 16px;
     font-weight: 550;
     text-transform: uppercase;
+    font-family: $oswald;
   }
 
   .logo-width {
@@ -534,18 +536,111 @@
   }
 
   .btn-view-story {
-    padding: 7px 5px;
-    background-color: #052d79;
+    padding: 5px 12px;
+    background-color: #014f7d;
     color: white;
-    font-size: 11px;
+    font-size: 14px;
+    font-family: $oswald;
     text-transform: uppercase;
   }
 
   .btn-view-story:hover {
-    background: #004fe6;
+    background: #0056b3;
     color: white;
   }
 
+  .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: solid 1px #2d7fb1;
+    padding: 5px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-family: "Oswald", sans-serif;
+  }
+
+  .btn:hover {
+    background-color: #fff;
+    color: #066bd6;
+    cursor: pointer;
+  }
+
+  .btn-active {
+    background-color: #fff;
+    color: #066bd6;
+    cursor: pointer;
+  }
+
+  .more-news {
+    background-color: #107110;
+    color: #fff;
+    border: solid 1px #2ba22d;
+    padding: 10px 35px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-family: $oswald
+  }
+
+  .more-news:hover {
+    background-color: #fff;
+    color: #107110;
+  }
+
+  .error-msg-box {
+    color: #131414;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .breaking-news {
+    background-color: #f73838;
+    color: #fff;
+    padding: 7px;
+    position: relative;
+    display: inline-block;
+    margin: 20px 0px;
+    font-size: 12px;
+    text-transform: uppercase;
+
+  }
+
+  .breaking-news::after {
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    content: "";
+    height: 0;
+    margin-top: -3px;
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    width: 0;
+    border-left: 5px solid #f73838;
+  }
+
+  .right-sidebar-title {
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    margin: 10px 0px;
+  }
+
+  .breaking-news-title {
+    display: inline;
+    margin-left: 10px;
+  }
+
+  .ytVideo {
+    width: 100%;
+    height: 420px;
+  }
+
+  .slider-title {
+    margin: 10px 0px;
+  }
 
   @media screen and (max-width: 576px) {
     .mt-main-container {
@@ -561,15 +656,45 @@
       height: 220px;
       object-fit: cover;
     }
-    .p0-mob
-    {
+
+    .slider-link {
+      font-size: 12px;
+    }
+
+    .singal-news-title {
+      font-size: 20px;
+    }
+
+    .p0-mob {
       padding: 0px;
     }
+
+    .home-news-image {
+      height: 200px;
+    }
+
+    .current-date {
+      font-size: 9px;
+    }
+
+    .footer-link {
+      padding: 2px 5px;
+      font-size: 8px;
+    }
+
+    .copy-right {
+      font-size: 8px;
+    }
+
   }
 
   @media screen and (max-width:766px) {
     .d-none-col-sm {
       display: none;
+    }
+
+    .ytVideo {
+      height: 200px;
     }
   }
 }

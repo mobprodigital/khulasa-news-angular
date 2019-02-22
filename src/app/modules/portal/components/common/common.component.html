@@ -2,12 +2,12 @@
   <app-header></app-header>
   <div class="container-fluid margin-main-container">
     <div class="row">
-      <aside class="col-md-1 padding-zero">
+      <aside class="col-md-1 padding-zero d-none-col-sm">
         <app-ad [imgPath]="'assets/images/news/ad1.jpg'"></app-ad>
       </aside>
       <section class="col-md-10">
-        <app-slider-template *ngIf="slider" [categoryId]="42"  [count]="5"></app-slider-template>
-        <div class="container-fluid">
+        <app-slider-template *ngIf="slider" [categoryId]="42" [count]="5"></app-slider-template>
+        <div class="container">
           <div class="row ">
             <main class="col-md-8 p0-mob">
               <router-outlet></router-outlet>
@@ -18,7 +18,7 @@
           </div>
         </div>
       </section>
-      <aside class="col-md-1 padding-zero">
+      <aside class="col-md-1 padding-zero d-none-col-sm">
         <app-ad [imgPath]="'assets/images/news/ad2.jpg'"></app-ad>
       </aside>
     </div>

@@ -1,36 +1,41 @@
 <div class="container-fluid">
-  <div class="row">
+
+  <div class="row" *ngIf="title">
     <div class="col-12 padding-zero">
-        <div class="home">
-            <div class="home-inner-div">
-              <h4 class="home-news-title  under-line"><a class="{{cssClass}}"  [routerLink]="['/category', categoryId]">{{title}}</a></h4>
-              
-            </div>
-          </div>
+      <div class="home">
+        <div class="home-inner-div">
+          <h4 class="home-news-title  under-line"><a class="{{cssClass}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
+        </div>
+      </div>
     </div>
   </div>
-   
-  <div class="row">
-    <div class="col-md-4  padding-lr-5" *ngFor="let nws of newsList">
-      <a  [routerLink]="['/news' ,nws.id]">
-        <img class="thumb home-news-image" src="{{nws.featuredImage.small}}" alt="">
+  <div *ngIf="loader">
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let i of Arr(num)">
+        <app-archive-loader></app-archive-loader>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="newsList && newsList.length > 0  && !loader">
+    <article class="col-md-4  padding-lr-5" *ngFor="let nws of newsList">
+      <a [routerLink]="['/news' ,nws.slug]">
+        <img class="thumb home-news-image" src="{{nws.featuredImage.small ? nws.featuredImage.small : defaultImg}}" alt="">
       </a>
       <div class="home-title-container">
         <div class="home-title-inner-container">
           <h6 class="home-title">
-            <a class="home-title-link"  [routerLink]="['/news' ,nws.id]">{{nws.title}}</a>
+            <a class="home-title-link" [routerLink]="['/news' ,nws.slug]">{{nws.title}}</a>
           </h6>
-          <h4 class="home-date-or-author">
+          <time class="home-date-or-author">
             {{nws.createDate | date}}
-          </h4>
-          <h4 class="home-date-or-author">
-            <i class="fa fa-user" aria-hidden="true">
-              <span class="color-gray font-style-normal">{{nws.author}} </span>
-            </i>
-          </h4>
+          </time>
+          <p class="home-date-or-author">{{nws.author}} </p>
           <p class="home-content">{{nws.content}}</p>
         </div>
       </div>
-    </div>
+    </article>
+  </div>
+  <div class="error-msg-box" *ngIf="errorMsg && !loader">
+    {{errorMsg}}
   </div>
 </div>

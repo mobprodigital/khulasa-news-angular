@@ -14,33 +14,31 @@ export class LetestNewsTemplateComponent implements OnInit {
   @Input() categoryTitle: string;
   @Input() cssClass: string;
   public newsList: NewsModel[] = [];
-  public errorMsg: string;
+  public errorMsg: string = "";
+  public loader: boolean = true;
   constructor(private newsService: NewsService, private router: Router) {
 
   }
-  
-
   getNewsByCategoryId() {
     if (this.categoryId) {
+      this.loader = true;
+      this.errorMsg = '';
+      this.newsList = [];
       this.newsService.getNews(this.categoryId, this.count)
-        .then(data => this.newsList = data)
-        .catch(err => this.errorMsg = err);
+        .then(data => { this.newsList = data; this.loader = false })
+        .catch(err => { this.errorMsg = err; this.loader = false });
     }
   }
 
   ngOnInit() {
     this.getNewsByCategoryId();
-    
-      this.router.events.subscribe(ev => {
-        if (ev instanceof NavigationEnd) {
-          if (this.categoryId == 42) {
-            this.getNewsByCategoryId();
-          }
-         
-
+   /*  this.router.events.subscribe(ev => {
+      if (ev instanceof NavigationEnd) {
+        if (this.categoryId == 42) {
+          this.newsList = [];
+          this.getNewsByCategoryId();
         }
-      })
-    }
- 
-
+      }
+    }) */
+  }
 }
