@@ -9,12 +9,11 @@
       <div class="col-sm-6 d-none-col-sm"></div>
       <div class="col-md-3 col-sm-6 col-6 flex flex-column justify-content-end">
         <form (ngSubmit)="check()" #searchForm="ngForm">
-
           <div class="p-0 search-container mb-1">
             <input [(ngModel)]="SearchTerm" #searchTerm="ngModel" name="searchTerm" required type="text" class="search-input"
               placeholder="Search" />
-            <button [disabled]="searchForm.invalid" class="btn-search btn-search-outline-dark"
-              type="submit"><img class="w-75" src="assets/images/icon/search.png" alt=""></button>
+            <button [disabled]="searchForm.invalid" class="btn-search btn-search-outline-dark" type="submit"><img class="w-75"
+                src="assets/images/icon/search.png" alt=""></button>
           </div>
           <div class="color-red" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">
             Enter search term
@@ -23,15 +22,9 @@
         <span class="align-self-end color-gray current-date">
           {{date | date:'longDate' | uppercase}}
         </span>
-
-
-
       </div>
     </div>
   </div>
-
-
-
   <nav class="w-100">
     <ul class="nav-menu ">
       <li class="nav-item"> <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"

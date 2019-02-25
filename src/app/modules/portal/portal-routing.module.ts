@@ -16,13 +16,14 @@ const routes: Routes = [
         component:HomeComponent
       },
       {
+        path:':id',
+        component:SingleNewsComponent
+      },
+      {
         path:'category/:id',
         component:NewsArchiveComponent
       },
-      {
-        path:'news/:id',
-        component:SingleNewsComponent
-      },
+      
       {
         path:'page/:id',
         component:SingalPageComponent

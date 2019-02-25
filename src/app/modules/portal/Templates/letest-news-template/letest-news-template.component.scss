@@ -1,0 +1,23 @@
+.letest-news-img {
+  margin-right: 20px;
+  width: 28%;
+  height: 55px;
+  object-fit: cover;
+}
+
+.letest-news-img:hover {
+  opacity: 0.70;
+}
+
+.letest-news-title {
+  overflow: hidden;
+  height: 50px;
+}
+
+.letest-news-link {
+  color: #3d3d3d;
+  font-size: 16px;
+  font-weight: 550;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+}

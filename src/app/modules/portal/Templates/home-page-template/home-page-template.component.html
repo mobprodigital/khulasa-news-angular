@@ -4,7 +4,7 @@
     <div class="col-12 padding-zero">
       <div class="home">
         <div class="home-inner-div">
-          <h4 class="home-news-title  under-line"><a class="{{cssClass}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
+          <h4 class="news-title  under-line"><a class="{{cssClass}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
         </div>
       </div>
     </div>
@@ -18,13 +18,13 @@
   </div>
   <div class="row" *ngIf="newsList && newsList.length > 0  && !loader">
     <article class="col-md-4  padding-lr-5" *ngFor="let nws of newsList">
-      <a [routerLink]="['/news' ,nws.slug]">
+      <a [routerLink]="['' ,nws.slug]">
         <img class="thumb home-news-image" src="{{nws.featuredImage.small ? nws.featuredImage.small : defaultImg}}" alt="">
       </a>
       <div class="home-title-container">
         <div class="home-title-inner-container">
           <h6 class="home-title">
-            <a class="home-title-link" [routerLink]="['/news' ,nws.slug]">{{nws.title}}</a>
+            <a class="home-title-link" [routerLink]="['' ,nws.slug]">{{nws.title}}</a>
           </h6>
           <time class="home-date-or-author">
             {{nws.createDate | date}}

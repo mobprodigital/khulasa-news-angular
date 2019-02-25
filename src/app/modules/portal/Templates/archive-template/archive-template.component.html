@@ -10,19 +10,19 @@
     <div>
       <div *ngIf="categoryName">
         <div class="padding-zero">
-          <h4 class="home-news-title under-line color-tiger-orange">{{categoryName}}</h4>
+          <h4 class="news-title under-line color-tiger-orange">{{categoryName}}</h4>
         </div>
       </div>
       <div class="row" *ngIf="news && news.length > 0; else noData">
         <article class="col-md-6 margin-bottom-25" *ngFor="let nws of news">
-          <a [routerLink]="['/news' ,nws.slug]"> <img class="news-arcive-image thumb" src="{{nws.featuredImage.small ? nws.featuredImage.small : defaultImg}}"
+          <a [routerLink]="['' ,nws.slug]"> <img class="news-arcive-image thumb" src="{{nws.featuredImage.small ? nws.featuredImage.small : defaultImg}}"
               alt=""></a>
-          <h5 class="news-archive-title"> <a class="news-archive-link" [routerLink]="['/news' ,nws.slug]">{{nws.title}}</a></h5>
+          <h5 class="news-archive-title"> <a class="news-archive-link" [routerLink]="['' ,nws.slug]">{{nws.title}}</a></h5>
           <time class="news-archive-date-or-author">{{nws.createDate | date}}</time>
           <span class="news-archive-date-or-author pl-3">{{nws.author}} </span>
           <p class="news-archive-content">{{nws.content}}</p>
           <div class="pt-4">
-            <a class="btn-view-story" [routerLink]="['/news' ,nws.slug]">View Story</a>
+            <a class="btn-view-story" [routerLink]="['' ,nws.slug]">View Story</a>
           </div>
         </article>
         <div class="pt-4 ">

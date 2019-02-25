@@ -1,6 +1,6 @@
 <div>
   <div *ngIf="categoryTitle">
-    <h4 class="home-news-title  under-line">
+    <h4 class="news-title  under-line">
       <a class="{{cssClass}}" [routerLink]="['/category', categoryId]">{{categoryTitle}}</a>
     </h4>
   </div>
@@ -9,11 +9,11 @@
   </div>
   <div *ngIf="newsList && newsList.length > 0 && !loader">
     <article class="over-flow-auto mb-3" *ngFor="let nws of newsList">
-      <a [routerLink]="['/news', nws.slug]">
+      <a [routerLink]="['', nws.slug]">
         <img class="float-left letest-news-img" src="{{nws.featuredImage.small}}" alt="">
       </a>
       <div class="letest-news-title">
-        <a class="letest-news-link" [routerLink]="['/news', nws.slug]">{{nws.title}}</a>
+        <a class="letest-news-link" [routerLink]="['', nws.slug]">{{nws.title}}</a>
       </div>
     </article>
   </div>

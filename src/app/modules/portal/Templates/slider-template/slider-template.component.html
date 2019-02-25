@@ -1,7 +1,7 @@
 <div class="d-none-col-sm" *ngIf="newsList && newsList.length > 0">
   <div class="breaking-news">breaking news</div>
   <h5 class="breaking-news-title">
-    <a [routerLink]="['/news', newsList[num].slug]"> {{newsList[num].title}}</a>
+    <a [routerLink]="['', newsList[num].slug]"> {{newsList[num].title}}</a>
   </h5>
 </div>
 
@@ -14,7 +14,7 @@
       <img class="slider-image" src="{{nws.featuredImage.small}}" alt="" srcset="">
       <div class="carousel-caption ">
         <h3 class="slider-title">
-          <a class="slider-link" [routerLink]="['/news', nws.slug]">{{nws.title}} </a>
+          <a class="slider-link" [routerLink]="['', nws.slug]">{{nws.title}} </a>
         </h3>
       </div>
     </div>

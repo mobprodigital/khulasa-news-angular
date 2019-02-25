@@ -4,14 +4,14 @@
   </div>
   <div class="row" *ngIf="news && !loader">
     <div class="col-12 padding-zero">
-      <h1 class="singal-news-title"> {{news.title}}</h1>
-      <h6 class="news-archive-date-or-author">
+      <h1 class="post-title"> {{news.title}}</h1>
+      <h6 class="post-date-or-author">
         <span>{{news.createDate | date}}</span>
         <span class="pl-3 ">{{news.author}} </span>
       </h6>
       <div *ngIf="!ytVideo"><img class="w-100" src="{{news.featuredImage.small ? news.featuredImage.small : defaultImg}}"
           alt=""></div>
-      <div class="singal-news-content" [innerHTML]="news.content"></div>
+      <div class="post-content" [innerHTML]="news.content"></div>
       <iframe class="ytVideo" *ngIf="ytVideo" [src]="youTubeUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
     </div>
