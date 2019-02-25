@@ -21,11 +21,11 @@
           <time class="news-archive-date-or-author">{{nws.createDate | date}}</time>
           <span class="news-archive-date-or-author pl-3">{{nws.author}} </span>
           <p class="news-archive-content">{{nws.content}}</p>
-          <div class="pt-2">
+          <div class="pt-4">
             <a class="btn-view-story" [routerLink]="['/news' ,nws.slug]">View Story</a>
           </div>
         </article>
-        <div class="pt-4">
+        <div class="pt-4 ">
           <button class="more-news" (click)="moreNews()" type="button">more news</button>
         </div>
       </div>

@@ -56,11 +56,11 @@ export class SingleNewsComponent implements OnInit {
       // behavior: "smooth"
     });
   }
-  trustedUrl(url) {
+  private trustedUrl(url) {
     this.youTubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  geturl(iframeString: string): string | null {
+  private geturl(iframeString: string): string | null {
     let tempDiv: HTMLDivElement = document.createElement('div');
     tempDiv.innerHTML = iframeString;
     let ytIframe: HTMLIFrameElement = tempDiv.querySelector('iframe');

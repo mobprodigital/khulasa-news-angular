@@ -19,7 +19,7 @@ export class LetestNewsTemplateComponent implements OnInit {
   constructor(private newsService: NewsService, private router: Router) {
 
   }
-  getNewsByCategoryId() {
+  private getNewsByCategoryId() {
     if (this.categoryId) {
       this.loader = true;
       this.errorMsg = '';

@@ -234,6 +234,8 @@
     font-size: 17px;
     font-family: $Open-Sans;
     margin-top: 20px;
+    text-align: justify;
+    line-height: 25px;
 
     p {
       margin: 0 0 16px;
@@ -354,8 +356,8 @@
     padding: 0px 5px !important;
   }
 
-  .padding-top-10 {
-    padding-top: 10px;
+  .padding-top-15 {
+    padding-top: 15px;
   }
 
   .margin-bottom-25 {
@@ -368,14 +370,14 @@
   }
 
   .footer-link {
-    border-left: solid 1.5px $white;
-    padding: 5px 15px;
+    border-left: solid 1px $white;
+    padding: 0px 15px;
     font-size: 14px;
     color: $white;
   }
 
   .border-solid-right {
-    border-right: solid 1.5px $white;
+    border-right: solid 1px $white;
   }
 
   .footer-hr {
@@ -580,7 +582,8 @@
     font-size: 16px;
     text-transform: uppercase;
     border-radius: 4px;
-    font-family: $oswald
+    font-family: $oswald;
+    margin-left: 15px
   }
 
   .more-news:hover {
@@ -684,6 +687,22 @@
 
     .copy-right {
       font-size: 8px;
+    }
+
+    .more-news {
+      padding: 5px 15px;
+    }
+
+    .nav-link {
+      padding: 5px 10px !important;
+    }
+
+    .singal-news-content {
+      text-align: left;
+    }
+
+    .slider-title {
+      margin: 0px 0px 5px 0px;
     }
 
   }

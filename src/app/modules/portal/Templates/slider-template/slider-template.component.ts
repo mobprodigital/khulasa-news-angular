@@ -16,12 +16,12 @@ export class SliderTemplateComponent implements OnInit {
   public num: number = 0;
 
   constructor(private newsService: NewsService) {
-   
-    
-  
+
+
+
   }
 
-  getNewsByCategoryId() {
+  private getNewsByCategoryId() {
     if (this.categoryId) {
       this.newsService.getNews(this.categoryId, this.count)
         .then(data => {
@@ -52,14 +52,13 @@ export class SliderTemplateComponent implements OnInit {
   }
 
 
-  countPlus() {
-   
-    if(this.num<this.count-1)
-    {
-      this.num+= 1;
+  private countPlus() {
+
+    if (this.num < this.count - 1) {
+      this.num += 1;
     }
-    else{
-      this.num=0;
+    else {
+      this.num = 0;
     }
   }
 

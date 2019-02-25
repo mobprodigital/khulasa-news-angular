@@ -23,7 +23,7 @@ export class HomePageTemplateComponent implements OnInit {
     this.titleService.setTitle('Breaking News, Latest News, Bollywood, Business, Politics, Sports & Entertainment News');
   }
 
-  public getNewsByCategory() {
+  private getNewsByCategory() {
     this.newsService.getNews(this.categoryId, this.count)
       .then(newsdata => { this.newsList = newsdata; this.loader = false; })
       .catch(err => { this.errorMsg = err; this.loader = false; });

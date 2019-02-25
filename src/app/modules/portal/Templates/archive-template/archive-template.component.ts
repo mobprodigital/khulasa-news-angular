@@ -43,7 +43,7 @@ export class ArchiveTemplateComponent implements OnInit {
     return this.newsService.getNewsCategories(this.newsCatId);
   }
 
-  public moreNews() {
+  private moreNews() {
     this.loader = true;
     this.errorMsg = '';
     this.newsService.getNews(this.newsCatId, this.count, (this.news.length + 1))
