@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { TitleService } from 'src/app/service/title/title.service';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { NewsService } from 'src/app/service/news/news.service';
 import { NewsModel } from 'src/app/model/news.model';
-import { PostTypeEnum } from 'src/app/enum/post-type.enum';
 import { Subscription } from 'rxjs';
+import { TitleService } from 'src/app/service/title/title.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { PostTypeEnum } from 'src/app/enum/post-type.enum';
+import { NewsService } from 'src/app/service/news/news.service';
+
 
 @Component({
-  selector: 'app-singal-page',
-  templateUrl: './singal-page.component.html',
-  styleUrls: ['./singal-page.component.scss']
+  selector: 'app-single-page',
+  templateUrl: './single-page.component.html',
+  styleUrls: ['./single-page.component.scss']
 })
-export class SingalPageComponent implements OnInit {
+
+export class SinglePageComponent implements OnInit {
   public newsId: string = "";
   public news: NewsModel;
   public loader: boolean = true;

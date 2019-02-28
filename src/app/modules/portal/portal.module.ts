@@ -19,7 +19,7 @@ import { LetestNewsTemplateComponent } from './templates/letest-news-template/le
 import { LoaderComponent } from './templates/loader/loader.component';
 import { ArchiveLoaderComponent } from './templates/archive-loader/archive-loader.component';
 import { StockMarketComponent } from './templates/stock-market/stock-market.component';
-import { SingalPageComponent } from './components/singal-page/singal-page.component';
+import { SinglePageComponent } from './components/single-page/single-page.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { SingalPageComponent } from './components/singal-page/singal-page.compon
     LoaderComponent,
     ArchiveLoaderComponent,
     StockMarketComponent,
-    SingalPageComponent,
+    
+    SinglePageComponent,
   ],
   imports: [
     CommonModule,

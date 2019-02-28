@@ -14,6 +14,7 @@
 .home-title-inner-container {
   padding: 10px;
   background-color: #FFF;
+  padding-bottom:0px; 
 }
 
 .home-title {
@@ -40,6 +41,7 @@
   font-weight: lighter;
   overflow: hidden;
   height: 90px;
+  margin-bottom: 0px;
 }
 
 .home-news-image {
@@ -52,5 +54,12 @@
 @media screen and (max-width: 576px) {
   .home-news-image {
     height: 200px;
+  }
+
+  .home-title {
+    height: 62px;
+  }
+  .home-content {
+    height: 65px;
   }
 }

@@ -10,7 +10,7 @@
   <div *ngIf="newsList && newsList.length > 0 && !loader">
     <article class="over-flow-auto mb-3" *ngFor="let nws of newsList">
       <a [routerLink]="['', nws.slug]">
-        <img class="float-left letest-news-img" src="{{nws.featuredImage.small}}" alt="">
+        <img class="float-left letest-news-img" src="{{nws.featuredImage.small  ? nws.featuredImage.small : defaultImg}}" alt="">
       </a>
       <div class="letest-news-title">
         <a class="letest-news-link" [routerLink]="['', nws.slug]">{{nws.title}}</a>
