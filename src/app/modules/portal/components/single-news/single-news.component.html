@@ -6,8 +6,8 @@
     <div class="col-12 padding-zero">
       <h1 class="post-title"> {{news.title}}</h1>
       <h6 class="post-date-or-author">
-        <span>{{news.createDate | date}}</span>
-        <span class="pl-3 ">{{news.author}} </span>
+        <span><img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt="" > {{news.createDate |  date:'longDate' | uppercase}}</span>
+        <span class="pl-3 "><img class="date-and-user-icon" src="assets/images/icons/person.png" alt="" > {{news.author}} </span>
       </h6>
       <div *ngIf="!ytVideo"><img class="w-100" src="{{news.featuredImage.small ? news.featuredImage.small : defaultImg}}"
           alt=""></div>
@@ -29,3 +29,5 @@
     </div>
   </div>
 </div>
+
+

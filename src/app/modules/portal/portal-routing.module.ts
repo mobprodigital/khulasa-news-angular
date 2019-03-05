@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NewsArchiveComponent } from './components/news-archive/news-archive.component';
 import { SingleNewsComponent } from './components/single-news/single-news.component';
 import { SinglePageComponent } from './components/single-page/single-page.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 const routes: Routes = [
   {
@@ -13,20 +14,25 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component:HomeComponent
+        component: HomeComponent
       },
       {
-        path:':id',
-        component:SingleNewsComponent
+        path: ':id',
+        component: SingleNewsComponent
       },
       {
-        path:'category/:id',
-        component:NewsArchiveComponent
+        path: 'category/:id',
+        component: NewsArchiveComponent
       },
-      
+
       {
-        path:'page/:id',
-        component:SinglePageComponent
+        path: 'page/:id',
+        component: SinglePageComponent
+      }
+      ,
+      {
+        path: 'search/:id',
+        component: SearchResultsComponent
       }
     ]
   }

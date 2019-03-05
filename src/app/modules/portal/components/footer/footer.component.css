@@ -25,6 +25,12 @@
   font-weight: lighter;
 }
 
+.social-media-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0px 15px;
+}
+
 @media screen and (max-width: 576px) {
 
   .footer-link {

@@ -10,7 +10,7 @@ import { DomSanitizer, SafeResourceUrl, } from '@angular/platform-browser';
 @Component({
   selector: 'app-single-news',
   templateUrl: './single-news.component.html',
-  styleUrls: ['./single-news.component.css']
+  styleUrls: ['./single-news.component.scss']
 })
 export class SingleNewsComponent implements OnInit {
   public newsId: string = '';

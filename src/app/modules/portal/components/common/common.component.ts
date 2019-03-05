@@ -8,9 +8,12 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 })
 export class CommonComponent implements OnInit {
   public slider: boolean = true;
+  public baseurl = "";
+  public lang = '';
   constructor(public actRoute: ActivatedRoute, public router: Router) {
     this.geturl();
   }
+
   geturl() {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationEnd) {
@@ -26,8 +29,27 @@ export class CommonComponent implements OnInit {
     })
   }
 
-
-  ngOnInit() {
+  public baseUrl(btnValue) {
+    if (localStorage.getItem('lang') === btnValue) {
+      return;
+    }
+    else {
+      localStorage.setItem('lang', btnValue);
+      this.router.navigateByUrl('')
+      location.reload();
+    }
   }
 
+
+  ngOnInit() {
+    if(localStorage.getItem('lang')=='hin')
+    {
+      this.lang='eng';
+    }
+    else
+    {
+      this.lang='hin';
+
+    }
+  }
 }

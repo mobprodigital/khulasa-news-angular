@@ -27,9 +27,11 @@
             <a class="home-title-link" [routerLink]="['' ,nws.slug]">{{nws.title}}</a>
           </h6>
           <time class="home-date-or-author">
-            {{nws.createDate | date}}
+            <img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt="" srcset="">
+            {{nws.createDate | date:'longDate' | uppercase}}
           </time>
-          <p class="home-date-or-author">{{nws.author}} </p>
+          <p class="home-date-or-author"><img class="date-and-user-icon" src="assets/images/icons/person.png" alt=""
+              srcset=""> {{nws.author}} </p>
           <p class="home-content">{{nws.content}}</p>
         </div>
       </div>

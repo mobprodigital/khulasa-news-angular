@@ -4,6 +4,9 @@ import { NewsCategoryModel } from 'src/app/model/news-category.model';
 import { HttpService } from '../http/http.service';
 import { HttpParams } from '@angular/common/http';
 import { PostTypeEnum } from 'src/app/enum/post-type.enum';
+import { promise } from 'protractor';
+import { resolve } from 'url';
+import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -152,6 +155,30 @@ export class NewsService {
           reject(err);
         })
     });
+  }
+
+
+  public getSearchResults(searchTerm: string, count?: number, from?: number): Promise<NewsModel[]> {
+    return new Promise((resolve, reject) => {
+      count = typeof count === "undefined" ? 10 : count;
+      from = typeof from === "undefined" ? 1 : from;
+      let params = new HttpParams()
+        .set('action', 'search_posts')
+        .set('search_term', searchTerm)
+        .set('count', count.toString())
+        .set('from', from.toString())
+        .set('content_length', 'short');
+
+      this.httpService.get('', params)
+        .then((news: any[]) => {
+          let newslist = this.parseNews(news);
+          resolve(newslist);
+        })
+        .catch(err => {
+          reject(err);
+        })
+    })
+
   }
 
 

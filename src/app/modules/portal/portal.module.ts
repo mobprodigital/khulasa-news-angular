@@ -20,6 +20,7 @@ import { LoaderComponent } from './templates/loader/loader.component';
 import { ArchiveLoaderComponent } from './templates/archive-loader/archive-loader.component';
 import { StockMarketComponent } from './templates/stock-market/stock-market.component';
 import { SinglePageComponent } from './components/single-page/single-page.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { SinglePageComponent } from './components/single-page/single-page.compon
     StockMarketComponent,
     
     SinglePageComponent,
+    
+    SearchResultsComponent,
   ],
   imports: [
     CommonModule,

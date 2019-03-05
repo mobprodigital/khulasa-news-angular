@@ -10,17 +10,18 @@ export enum HttpDataType {
 }
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  private baseUrl: string = 'http://khulasa-news.com/wp-admin/admin-ajax.php';
+  private baseUrl: string;
+
 
   constructor(
     private http: HttpClient
   ) {
+    this.baseUrl = localStorage.getItem('lang') === 'hin' ? 'http://hindi.khulasa-news.com/wp-admin/admin-ajax.php' : 'http://khulasa-news.com/wp-admin/admin-ajax.php';
   }
 
   /**
@@ -109,11 +110,11 @@ export class HttpService {
       return Promise.resolve(response.data);
     }
     else {
-      return Promise.reject(response.msg);
+      return Promise.reject(response.message);
     }
   }
 
-  private handleError(err: HttpErrorResponse) {
+  private async handleError(err: HttpErrorResponse) {
     if (err.error instanceof ErrorEvent) {
       if (environment.production) {
         console.error(err.error.message);
