@@ -318,7 +318,6 @@
     font-size: 25px;
     font-weight: 550;
     text-transform: uppercase;
-    line-height: 1.1;
     margin: 0px 0px 15px 0px;
     font-family: 'Oswald', sans-serif;
     font-stretch: condensed;
@@ -345,6 +344,7 @@
         max-width: 100%;
         height: auto;
       }
+
     }
 
     img {
@@ -366,9 +366,7 @@
 
   @media screen and (max-width: 576px) {
 
-    .p0-mob {
-      padding: 0px;
-    }
+   
 
     .nav-link {
       padding: 5px 10px !important;
@@ -390,6 +388,9 @@
 
     .ytVideo {
       height: 200px;
+    }
+    .p0-mob {
+      padding: 0px;
     }
   }
 }

@@ -44,7 +44,7 @@ export class SinglePageComponent implements OnInit {
   }
   private getNewsId() {
 
-    this.newsId = (this.activatedRouter.snapshot.paramMap.get('id'));
+    this.newsId = (this.activatedRouter.snapshot.paramMap.get('slug'));
     if (this.newsId) {
       this.getNews();
     }

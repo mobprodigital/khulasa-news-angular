@@ -16,49 +16,59 @@ export class SearchResultsComponent implements OnInit {
   public defaultImg: string = "assets/images/news/default.jpg";
   public Arr: Array<number> = Array(10);
   public count: number = 10;
-
+  public hasMoreNews: boolean = true;
 
   constructor(private newsService: NewsService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.router.events.subscribe(ev => {
       if (ev instanceof NavigationEnd) {
-        this.getId();
+        this.getSearchTerm();
       }
     })
   }
 
-  public getId() {
-    this.searchId = this.activatedRoute.snapshot.paramMap.get('id');
-    if (this.searchId) {
-      this.getSearch();
+  public getSearchTerm() {
+    const searchTerm = this.activatedRoute.snapshot.paramMap.get('searchTerm');
+    if (searchTerm) {
+      this.searchId = searchTerm;
+      this.newsList = [];
+      this.searchPosts();
     }
   }
 
-  private getSearch() {
-    this.newsList = [];
+  private searchPosts(count: number = 10, from: number = 1) {
     this.errorMsg = '';
     this.loader = true;
-    this.newsService.getSearchResults(this.searchId)
-      .then(data => {
-        this.newsList = data;
-        this.loader = false
+    this.newsService.getSearchResults(this.searchId, count, from)
+      .then(searchResults => {
+        if (searchResults && searchResults.length > 0) {
+          this.newsList.push(...searchResults);
+        } else {
+          this.hasMoreNews = false;
+        }
       })
       .catch(err => {
         this.errorMsg = err;
-        this.loader = false
+      })
+      .finally(() => {
+        this.loader = false;
       });
   }
-  private moreNews() {
-    this.loader = true;
-    this.errorMsg = '';
-    this.newsService.getSearchResults(this.searchId, this.count, (this.newsList.length + 1))
-      .then(newsdata => {
-        this.newsList.push(...newsdata);
-        this.loader = false;
-      })
-      .catch(err => {
-        this.errorMsg = err;
-        this.loader = false;
-      });
+
+  public moreNews() {
+
+    this.searchPosts(this.count, (this.newsList.length + 1));
+    /* 
+        this.loader = true;
+        this.errorMsg = '';
+        this.newsService.getSearchResults(this.searchId, this.count, (this.newsList.length + 1))
+          .then(newsdata => {
+            this.newsList.push(...newsdata);
+            this.loader = false;
+          })
+          .catch(err => {
+            this.errorMsg = err;
+            this.loader = false;
+          }); */
   }
 
   ngOnInit() {

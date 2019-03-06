@@ -17,7 +17,7 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: ':id',
+        path: ':slug',
         component: SingleNewsComponent
       },
       {
@@ -26,12 +26,12 @@ const routes: Routes = [
       },
 
       {
-        path: 'page/:id',
+        path: 'page/:slug',
         component: SinglePageComponent
       }
       ,
       {
-        path: 'search/:id',
+        path: 'search/:searchTerm',
         component: SearchResultsComponent
       }
     ]

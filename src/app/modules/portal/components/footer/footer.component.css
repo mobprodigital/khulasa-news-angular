@@ -41,4 +41,10 @@
   .copy-right {
     font-size: 8px;
   }
+
+  .social-media-icon {
+    width: 15px;
+    height: 15px;
+    margin: 0px 10px;
+  }
 }

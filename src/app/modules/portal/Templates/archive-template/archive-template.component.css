@@ -1,7 +1,7 @@
 .news-archive-title {
   margin: 10px 0px;
   overflow: hidden;
-  height: 65px;
+  height: 66px;
   font-size: 22px;
 }
 
@@ -32,12 +32,17 @@
   //   bottom: 0;
   // } */
 
-.news-arcive-image {
-  width: 100%;
-  object-fit: cover;
-  height: 200px;
+  .thum-link
+  {
+    position: relative;
+  overflow: hidden;
+  display: block;
+  padding-top: 60%;
+  background-size: cover;
+  background-position: center center;
   box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
-}
+  }
+
 
 .news-archive-date-or-author {
   font-size: 11px;
@@ -58,7 +63,8 @@
   text-transform: uppercase;
   border-radius: 4px;
   font-family: 'Oswald', sans-serif;
-  margin-left: 15px
+  margin-left: 15px;
+  cursor: pointer;
 }
 
 .more-news:hover {
@@ -84,5 +90,9 @@
 
   .more-news {
     padding: 5px 15px;
+  }
+
+  .news-archive-title {
+    height: 69px;
   }
 }

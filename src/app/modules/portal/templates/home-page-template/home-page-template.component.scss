@@ -14,7 +14,7 @@
 .home-title-inner-container {
   padding: 10px;
   background-color: #FFF;
-  padding-bottom:0px; 
+  padding-bottom: 0px;
 }
 
 .home-title {
@@ -22,7 +22,7 @@
   font-size: 22px;
   text-transform: uppercase;
   overflow: hidden;
-  height: 90px;
+  height: 98px;
 }
 
 .home-title-link {
@@ -30,7 +30,6 @@
   font-family: 'Oswald', sans-serif;
   font-weight: 550;
   text-transform: uppercase;
-  line-height: 1.1;
 }
 
 .home-content {
@@ -44,21 +43,26 @@
   margin-bottom: 0px;
 }
 
-.home-news-image {
-  width: 100%;
-  object-fit: cover;
-  height: 130px;
-  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15)
+a.thum-link {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding-top: 60%;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+
 }
 
+
+
 @media screen and (max-width: 576px) {
-  .home-news-image {
-    height: 200px;
-  }
+ 
 
   .home-title {
-    height: 62px;
+    height: 68px;
   }
+
   .home-content {
     height: 65px;
   }

@@ -218,10 +218,10 @@ export class NewsService {
         _newsls.slug = n.slug;
         _newsls.categoryList = this.parseCategories(n.categoryList);
         // _newsls.categories=n.category;
-        _newsls.featuredImage.small = n.thumbnail;
-        _newsls.featuredImage.original = n.thumbnail;
-        _newsls.featuredImage.medium = n.thumbnail;
-        _newsls.featuredImage.large = n.thumbnail;
+        _newsls.featuredImage.small = n.thumbnail || '/assets/images/news/default.jpg';
+        _newsls.featuredImage.original = n.thumbnail || '/assets/images/news/default.jpg';
+        _newsls.featuredImage.medium = n.thumbnail || '/assets/images/news/default.jpg';
+        _newsls.featuredImage.large = n.thumbnail || '/assets/images/news/default.jpg';
         return _newsls;
       })
     }

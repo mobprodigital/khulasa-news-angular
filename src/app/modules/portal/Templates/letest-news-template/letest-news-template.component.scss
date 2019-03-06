@@ -1,8 +1,11 @@
 .letest-news-img {
-  margin-right: 20px;
-  width: 28%;
-  height: 55px;
-  object-fit: cover;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding-top: 65%;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
 }
 
 .letest-news-img:hover {
@@ -11,7 +14,7 @@
 
 .letest-news-title {
   overflow: hidden;
-  height: 50px;
+  height: 49px;
 }
 
 .letest-news-link {

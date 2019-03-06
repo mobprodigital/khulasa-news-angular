@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NewsModel } from 'src/app/model/news.model';
 import { NewsService } from 'src/app/service/news/news.service';
-import { TitleService } from 'src/app/service/title/title.service';
 import { NewsCategoryModel } from 'src/app/model/news-category.model';
 
 @Component({
@@ -13,6 +12,7 @@ export class ArchiveTemplateComponent implements OnInit {
 
 
   @Input() newsCatId: number;
+
   public news: NewsModel[] = [];
   public count: number = 10;
   public defaultImg: string = "assets/images/news/default.jpg";
@@ -21,7 +21,7 @@ export class ArchiveTemplateComponent implements OnInit {
   public Arr: Array<number> = Array(10);
   public categoryName: string = "";
 
-  constructor(private newsService: NewsService, private titleService: TitleService) { }
+  constructor(private newsService: NewsService) { }
 
   private async getNewsData() {
     const newsData = await Promise.all(
@@ -43,7 +43,7 @@ export class ArchiveTemplateComponent implements OnInit {
     return this.newsService.getNewsCategories(this.newsCatId);
   }
 
-  private moreNews() {
+  public moreNews() {
     this.loader = true;
     this.errorMsg = '';
     this.newsService.getNews(this.newsCatId, this.count, (this.news.length + 1))
@@ -54,7 +54,9 @@ export class ArchiveTemplateComponent implements OnInit {
   ngOnChanges() {
     this.loader = true;
     this.getNewsData();
+    this.Arr.length = this.count;
   }
+
   ngOnInit() {
 
   }

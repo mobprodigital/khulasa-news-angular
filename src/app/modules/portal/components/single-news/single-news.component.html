@@ -1,33 +1,27 @@
-<div class="container-fluid">
+<div>
   <div *ngIf="loader">
     <app-archive-loader></app-archive-loader>
   </div>
-  <div class="row" *ngIf="news && !loader">
-    <div class="col-12 padding-zero">
-      <h1 class="post-title"> {{news.title}}</h1>
-      <h6 class="post-date-or-author">
-        <span><img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt="" > {{news.createDate |  date:'longDate' | uppercase}}</span>
-        <span class="pl-3 "><img class="date-and-user-icon" src="assets/images/icons/person.png" alt="" > {{news.author}} </span>
-      </h6>
-      <div *ngIf="!ytVideo"><img class="w-100" src="{{news.featuredImage.small ? news.featuredImage.small : defaultImg}}"
-          alt=""></div>
-      <div class="post-content" [innerHTML]="news.content"></div>
-      <iframe class="ytVideo" *ngIf="ytVideo" [src]="youTubeUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-  <div class="row" *ngIf="errorMsg && !loader">
-    <div class="col-12 align-items-center col-12 flex justify-content-center error-msg-box">
-      {{errorMsg || json}}
-    </div>
+  <div *ngIf="news && !loader">
+    <h1 class="post-title"> {{news.title}}</h1>
+    <h6 class="post-date-or-author">
+      <span><img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt=""> {{news.createDate |
+        date:'longDate' | uppercase}}</span>
+      <span class="pl-3 "><img class="date-and-user-icon" src="assets/images/icons/person.png" alt=""> {{news.author}}
+      </span>
+    </h6>
+    <div *ngIf="!ytVideo"><img class="w-100" src="{{news.featuredImage.small ? news.featuredImage.small : defaultImg}}"
+        alt=""></div>
+    <div class="post-content" [innerHTML]="news.content"></div>
+    <iframe class="ytVideo" *ngIf="ytVideo" [src]="youTubeUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
   </div>
 
-  <div class="row mt-3">
-    <div class="col-12 padding-zero">
-      <h3 class="related-post">Related Post</h3>
-      <app-home-page-template [categoryId]="42" [count]="3"></app-home-page-template>
-    </div>
+  <div *ngIf="errorMsg && !loader" class="col-12 align-items-center col-12 flex justify-content-center error-msg-box">
+    {{errorMsg}}
+  </div>
+  <div class=" padding-zero mt-3">
+    <h3 class="related-post">Related Posts</h3>
+    <app-home-page-template [categoryId]="42" [count]="3"></app-home-page-template>
   </div>
 </div>
-
-

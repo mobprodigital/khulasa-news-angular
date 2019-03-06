@@ -5,19 +5,19 @@ import { TitleService } from 'src/app/service/title/title.service';
 @Component({
   selector: 'app-home-page-template',
   templateUrl: './home-page-template.component.html',
-  styleUrls: ['./home-page-template.component.css']
+  styleUrls: ['./home-page-template.component.scss']
 })
 export class HomePageTemplateComponent implements OnInit {
   @Input() title: string;
   @Input() count: number;
   @Input() categoryId: number;
   @Input() cssClass: string;
+
   public defaultImg: string = "assets/images/news/default.jpg";
   public newsList: NewsModel[] = [];
   public loader: boolean = true;
   public errorMsg: string = "";
-  public Arr = Array;
-  public num: number = 6;
+  public Arr = Array(6);
 
   constructor(private newsService: NewsService, private titleService: TitleService) {
     this.titleService.setTitle('Breaking News, Latest News, Bollywood, Business, Politics, Sports & Entertainment News');
@@ -33,6 +33,9 @@ export class HomePageTemplateComponent implements OnInit {
   }
   ngOnInit() {
     this.getNewsByCategory();
+    if(this.count){
+      this.Arr.length = this.count;
+    }
   }
 
 }

@@ -1,38 +1,31 @@
-<div class="container-fluid">
 
-  <div class="row" *ngIf="title">
-    <div class="col-12 padding-zero">
-      <div class="home">
-        <div class="home-inner-div">
-          <h4 class="news-title  under-line"><a class="{{cssClass}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div *ngIf="loader">
-    <div class="row">
-      <div class="col-sm-4" *ngFor="let i of Arr(num)">
-        <app-archive-loader></app-archive-loader>
-      </div>
-    </div>
-  </div>
+ <h4 *ngIf="title" class="news-title p-0 under-line"><a class="{{cssClass}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
+ <div *ngIf="loader">
+   <div class="row">
+     <div class="col-lg-4 col-md-6" *ngFor="let i of Arr">
+       <app-archive-loader></app-archive-loader>
+     </div>
+   </div>
+ </div>
+
+<div class="container-fluid">
   <div class="row" *ngIf="newsList && newsList.length > 0  && !loader">
-    <article class="col-md-4  padding-lr-5" *ngFor="let nws of newsList">
-      <a [routerLink]="['' ,nws.slug]">
-        <img class="thumb home-news-image" src="{{nws.featuredImage.small ? nws.featuredImage.small : defaultImg}}" alt="">
-      </a>
-      <div class="home-title-container">
-        <div class="home-title-inner-container">
-          <h6 class="home-title">
-            <a class="home-title-link" [routerLink]="['' ,nws.slug]">{{nws.title}}</a>
-          </h6>
-          <time class="home-date-or-author">
-            <img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt="" srcset="">
-            {{nws.createDate | date:'longDate' | uppercase}}
-          </time>
-          <p class="home-date-or-author"><img class="date-and-user-icon" src="assets/images/icons/person.png" alt=""
-              srcset=""> {{nws.author}} </p>
-          <p class="home-content">{{nws.content}}</p>
+    <article class="col-lg-4 col-md-6 padding-lr-5" *ngFor="let nws of newsList">
+      <div class=" ">
+        <a class="thum-link thumb" [routerLink]="['' ,nws.slug]" [ngStyle]="{'background-image' : 'url(' + nws.featuredImage.small + ')'}"></a>
+        <div class="home-title-container">
+          <div class="home-title-inner-container">
+            <h6 class="home-title">
+              <a class="home-title-link" [routerLink]="['' ,nws.slug]">{{nws.title}}</a>
+            </h6>
+            <time class="home-date-or-author">
+              <img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt="" srcset="">
+              {{nws.createDate | date:'longDate' | uppercase}}
+            </time>
+            <p class="home-date-or-author"><img class="date-and-user-icon" src="assets/images/icons/person.png" alt=""
+                srcset=""> {{nws.author}} </p>
+            <p class="home-content">{{nws.content}}</p>
+          </div>
         </div>
       </div>
     </article>

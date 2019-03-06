@@ -105,8 +105,8 @@ export class HttpService {
   }
 
   private handleResponse(response: any): Promise<any> {
-    const status = parseInt(response.status);
-    if (status === 200) {
+    const status = parseInt(response.status, 10);
+    if (status >= 200 && status < 300) {
       return Promise.resolve(response.data);
     }
     else {
