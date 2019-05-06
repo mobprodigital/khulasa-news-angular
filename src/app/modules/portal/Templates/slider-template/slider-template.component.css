@@ -62,6 +62,26 @@
   border-left: 5px solid #f73838;
 }
 
+.top-headlines {
+  white-space: nowrap;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.top-headlines-text {
+  padding: 10px 0px;
+  color: #fff;
+  background-color: #b3111c;
+  display: flex;
+  align-items: center;
+}
+
+.top-headlines-text span {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 576px) {
 
   .slider-title {
