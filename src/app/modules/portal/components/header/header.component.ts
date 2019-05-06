@@ -13,15 +13,15 @@ export class HeaderComponent implements OnInit {
   public date = new Date();
   public categoryList: NewsCategoryModel[] = [];
   public SearchTerm: string = '';
-  public lang=localStorage.getItem('lang');
+  public lang=localStorage.getItem('lang')
 
-  constructor(private newsService: NewsService, private router: Router) {
+  constructor(private categoryService: NewsService, private router: Router) {
     this.getCategory();
 
   }
 
   private getCategory() {
-    this.newsService.getMenuCategories().then(cats => {
+    this.categoryService.getMenuCategories().then(cats => {
       let c = cats;
       this.categoryList = cats;
     });
