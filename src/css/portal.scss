@@ -123,7 +123,7 @@
     padding: 0px;
     flex-wrap: nowrap;
     overflow: auto;
-    margin-bottom: 0px;
+    margin: 5px 0px 0px 0px;
     box-shadow: 0px 2px 15px #888888;
     font-family: $oswald;
     text-transform: uppercase;
@@ -177,7 +177,7 @@
     font-weight: lighter;
     text-transform: uppercase;
     line-height: 1.1;
-    margin: 5px 0px 20px 0px;
+    margin: 5px 0px 50px 0px;
     font-size: 28px;
 
   }
@@ -366,7 +366,7 @@
 
   @media screen and (max-width: 576px) {
 
-   
+
 
     .nav-link {
       padding: 5px 10px !important;
@@ -379,6 +379,10 @@
     .post-content {
       text-align: left;
     }
+
+    .d-none-col {
+      display: none;
+    }
   }
 
   @media screen and (max-width:766px) {
@@ -389,6 +393,7 @@
     .ytVideo {
       height: 200px;
     }
+
     .p0-mob {
       padding: 0px;
     }
