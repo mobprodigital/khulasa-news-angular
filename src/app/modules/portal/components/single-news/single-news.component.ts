@@ -19,6 +19,7 @@ export class SingleNewsComponent implements OnInit {
   public loader: boolean = true;
   public errorMsg: string = "";
   public ytVideo: boolean = false;
+  public relatedPostList: NewsModel[] = [];
   public youTubeUrl: SafeResourceUrl;
 
 
@@ -28,6 +29,7 @@ export class SingleNewsComponent implements OnInit {
     this.routeSubscription = this.router.events.subscribe(ev => {
       if (ev instanceof NavigationEnd) {
         this.loader = true;
+        this.relatedPostList=[];
         this.getNewsId();
       }
     })
@@ -39,6 +41,7 @@ export class SingleNewsComponent implements OnInit {
         this.news = newsdata;
         this.titleService.setTitle(this.news.title);
         this.loader = false;
+        this.getRelatedPost();
 
         if (this.news.categoryList.some(c => c.id === 47)) {
           let Url = this.geturl(this.news.content);
@@ -50,7 +53,7 @@ export class SingleNewsComponent implements OnInit {
           this.ytVideo = true;
         }
       })
-      .catch(err => { this.errorMsg = err; this.loader = false });
+      .catch(err => { this.errorMsg = err; this.loader = false }).finally(() => { });
     window.scroll({
       top: 0,
       // behavior: "smooth"
@@ -70,7 +73,12 @@ export class SingleNewsComponent implements OnInit {
     else {
       return null;
     }
+  }
 
+
+
+  public getRelatedPost() {
+    this.newsservice.getRelatedPostByNewsId(this.news.id.toString()).then(data => this.relatedPostList = data)
   }
 
   private getNewsId() {

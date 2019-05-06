@@ -4,9 +4,7 @@ import { NewsCategoryModel } from 'src/app/model/news-category.model';
 import { HttpService } from '../http/http.service';
 import { HttpParams } from '@angular/common/http';
 import { PostTypeEnum } from 'src/app/enum/post-type.enum';
-import { promise } from 'protractor';
-import { resolve } from 'url';
-import { reject } from 'q';
+
 
 @Injectable({
   providedIn: 'root'
@@ -158,6 +156,28 @@ export class NewsService {
   }
 
 
+  public getRelatedPostByNewsId(postId: string, thumbnailSize: string = 'xsthumb'): Promise<NewsModel[]> {
+    return new Promise((resolve, reject) => {
+      let params = new HttpParams()
+        .set('action', 'get_related_posts')
+        .set("post_id", postId)
+        .set("thumbnailSize", thumbnailSize);
+      this.httpService.get('', params)
+        .then((data: any[]) => {
+          if (data) {
+            let relatedPostList = this.parseNews(data);
+            resolve(relatedPostList);
+          }
+          else {
+            reject('no data found');
+          }
+        }).catch(err => {
+          reject(err);
+        })
+    })
+  }
+
+
   public getSearchResults(searchTerm: string, count?: number, from?: number): Promise<NewsModel[]> {
     return new Promise((resolve, reject) => {
       count = typeof count === "undefined" ? 10 : count;
@@ -178,7 +198,6 @@ export class NewsService {
           reject(err);
         })
     })
-
   }
 
 
