@@ -31,6 +31,14 @@
   margin: 0px 15px;
 }
 
+.playstore-img-container {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (max-width: 576px) {
 
   .footer-link {
