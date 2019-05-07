@@ -35,12 +35,13 @@
 
   .bg-red,
   .nav-menu>li:nth-child(5)>a.nav-link {
-    background-color: $red
+    background-color: $yello;
+
   }
 
   .bg-yello,
   .nav-menu>li:nth-child(6)>a.nav-link {
-    background-color: $yello;
+    background-color: $red
   }
 
   .bg-cyan,
@@ -133,14 +134,18 @@
       white-space: nowrap;
 
       .nav-link {
-        text-decoration: none;
         color: $white;
-        padding: 8px 10px;
+        border-right: solid 1px $white;
+        font-size: 14px;
+        text-decoration: none;
         width: 100%;
         text-align: center;
         display: block;
-        border-right: solid 1px $white;
         font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.4px;
+        line-height: 40px;
+        padding: 0 30px;
       }
 
       .nav-link:hover {
