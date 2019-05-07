@@ -5,7 +5,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
   {
@@ -13,8 +13,8 @@ const routes: Routes = [
     component: ForgotPasswordComponent
   },
   {
-    path: '',
-    redirectTo : 'login'
+    path: 'login',
+    redirectTo : ''
   },
 ];
 
