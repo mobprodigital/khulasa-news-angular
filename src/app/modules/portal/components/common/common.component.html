@@ -8,23 +8,23 @@
   <app-header></app-header>
   <div class="container-fluid margin-main-container">
     <div class="row">
-      <aside class="col-md-1 col-sm-1 padding-zero d-none-col">
+      <aside class="col-md-1  padding-zero d-none-col">
         <app-ad [imgPath]="'assets/images/news/ad1.jpg'"></app-ad>
       </aside>
-      <section class="col-md-10 col-sm-10">
+      <section class="col-md-10 col-sm-12">
         <app-slider-template *ngIf="slider" [categoryId]="42" [count]="5"></app-slider-template>
-        <div class="container">
+        <div class="">
           <div class="row ">
-            <main class="col-lg-8 p0-mob">
+            <main class="col-lg-8 ">
               <router-outlet></router-outlet>
             </main>
-            <aside class="col-lg-4 p0-mob">
+            <aside class="col-lg-4 ">
               <app-right-side-bar></app-right-side-bar>
             </aside>
           </div>
         </div>
       </section>
-      <aside class="col-md-1 col-sm-1 padding-zero d-none-col">
+      <aside class="col-md-1 padding-zero d-none-col">
         <app-ad [imgPath]="'assets/images/news/ad2.jpg'"></app-ad>
       </aside>
     </div>
