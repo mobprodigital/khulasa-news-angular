@@ -23,7 +23,7 @@ export class NavLeftSideComponent implements OnInit {
    */
   public insertMenuItems(): void {
 
-    let baseFolder = '/admin/cms/';
+    let baseFolder = '/cms/';
 
     this.menuList.push(...[
       new AdminMenu('News', [
