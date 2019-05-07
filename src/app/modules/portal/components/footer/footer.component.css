@@ -55,4 +55,33 @@
     height: 15px;
     margin: 0px 10px;
   }
+
+  .playstore-img-container {
+    top: 32px;
+    right: 0px;
+  }
+
+  .playstore-img-container span {
+    font-size: 8px;
+  }
+
+  .img-playstore {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .playstore-img-container {
+    top: 45px;
+    right: 0px;
+  }
+
+  .playstore-img-container span {
+    font-size: 14px;
+  }
+
+  .img-playstore {
+    width: 65%;
+  }
 }
