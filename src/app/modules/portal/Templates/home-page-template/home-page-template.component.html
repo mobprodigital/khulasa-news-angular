@@ -2,7 +2,7 @@
  <h4 *ngIf="title" class="news-title p-0 under-line"><a class="{{cssClass}}" [routerLink]="['/category', categoryId]">{{title}}</a></h4>
  <div *ngIf="loader">
    <div class="row">
-     <div class="col-lg-4 col-md-6" *ngFor="let i of Arr">
+     <div class="col-lg-6 col-md-6" *ngFor="let i of Arr">
        <app-archive-loader></app-archive-loader>
      </div>
    </div>
@@ -10,7 +10,7 @@
 
 <div class="container-fluid">
   <div class="row" *ngIf="newsList && newsList.length > 0  && !loader">
-    <article class="col-lg-4 col-md-6 padding-lr-5" *ngFor="let nws of newsList">
+    <article class="col-lg-6 col-md-6 col-xl-4 padding-lr-5" *ngFor="let nws of newsList">
       <div class=" ">
         <a class="thum-link thumb" [routerLink]="['' ,nws.slug]" [ngStyle]="{'background-image' : 'url(' + nws.featuredImage.small + ')'}"></a>
         <div class="home-title-container">
