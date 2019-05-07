@@ -78,8 +78,8 @@
   align-items: center;
 }
 
-.top-headlines-text span {
-  cursor: pointer;
+.marqee {
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 576px) {
