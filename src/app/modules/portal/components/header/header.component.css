@@ -45,7 +45,7 @@
 }
 
 .logo-width {
-  width: 57%;
+  width: 58%;
 }
 
 .current-date {
@@ -55,6 +55,10 @@
   font-weight: 300;
   font-family: 'Oswald', sans-serif;
   letter-spacing: 1px;
+}
+
+.site-logo {
+  padding-left: 30px;
 }
 
 @media screen and (max-width: 576px) {
