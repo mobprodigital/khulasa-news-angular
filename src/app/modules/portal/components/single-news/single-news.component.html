@@ -24,7 +24,7 @@
     <h3 class="related-post">Related Posts</h3>
     <div class="container-fluid">
       <div class="row" *ngIf="relatedPostList && relatedPostList.length>0">
-        <article class="col-lg-4 col-md-6 padding-lr-5" *ngFor="let relatedNews of relatedPostList">
+        <article class="col-lg-4 col-md-4 padding-lr-5" *ngFor="let relatedNews of relatedPostList">
           <div class=" ">
             <a class="thum-link thumb" [routerLink]="['' ,relatedNews.slug]"
               [ngStyle]="{'background-image' : 'url(' + relatedNews.featuredImage.small + ')'}"></a>
@@ -37,8 +37,8 @@
                   <img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt="" srcset="">
                   {{relatedNews.createDate | date:'longDate' | uppercase}}
                 </time>
-                <p class="relatedNews-date-or-author"><img class="date-and-user-icon" src="assets/images/icons/person.png"
-                    alt="" srcset=""> {{relatedNews.author}} </p>
+                <p class="relatedNews-date-or-author"><img class="date-and-user-icon"
+                    src="assets/images/icons/person.png" alt="" srcset=""> {{relatedNews.author}} </p>
                 <p class="relatedNews-content">{{relatedNews.content}}</p>
               </div>
             </div>
@@ -47,13 +47,13 @@
       </div>
 
       <div class="row" *ngIf="loader">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4">
           <app-archive-loader></app-archive-loader>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4">
           <app-archive-loader></app-archive-loader>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4">
           <app-archive-loader></app-archive-loader>
         </div>
       </div>

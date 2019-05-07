@@ -67,3 +67,27 @@ a.thum-link {
     height: 65px;
   }
 }
+
+@media screen and (max-width: 768px) {
+
+  .relatedNews-title {
+    font-size: 16px;
+    height: 75px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+
+  .relatedNews-title {
+    font-size: 15px;
+    height: 70px;
+  }
+
+  .relatedNews-date-or-author {
+    font-size: 9px;
+  }
+
+  .post-title {
+    font-size: 20px;
+  }
+}
