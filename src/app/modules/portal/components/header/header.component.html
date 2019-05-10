@@ -1,5 +1,5 @@
 <header class="fixed">
-  <div class="container-fluid pt-2">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-3 col-sm-6 col-6 site-logo">
         <a href="">
@@ -7,26 +7,27 @@
         </a>
       </div>
       <div class="col-md-6 d-none-col-sm"></div>
-      <div class="col-md-3 col-sm-6 col-6 flex flex-column justify-content-end">
+      <div class="col-md-3 col-sm-6 col-6 pr-4 pt-2">
         <form (ngSubmit)="check()" #searchForm="ngForm">
           <div class="p-0 search-container mb-1">
-            <input [(ngModel)]="SearchTerm" #searchTerm="ngModel" name="searchTerm" required type="text" class="search-input"
-              placeholder="Search" />
-            <button [disabled]="searchForm.invalid" class="btn-search btn-search-outline-dark" type="submit"><img class="w-75"
-                src="assets/images/icons/search.png" alt=""></button>
+            <input [(ngModel)]="SearchTerm" #searchTerm="ngModel" name="searchTerm" required type="search"
+              class="search-input" placeholder="Search" />
+            <button [disabled]="searchForm.invalid" class="btn-search btn-search-outline-dark" type="submit"><img
+                class="w-75" src="assets/images/icons/search.png" alt=""></button>
           </div>
           <div class="color-red" *ngIf="searchTerm.invalid  &&  (searchTerm.touched || searchTerm.dirty)">
             Enter search term
           </div>
         </form>
-        <span class="align-self-end color-gray current-date">
+      
+        <time class="current-date">
           {{date | date:'longDate' | uppercase}}
-        </span>
+        </time>
       </div>
     </div>
   </div>
-  <nav class="w-100" >
-    <ul class="nav-menu "  *ngIf="categoryList && categoryList.length > 0">
+  <nav class="w-100">
+    <ul class="nav-menu " *ngIf="categoryList && categoryList.length > 0">
       <li class="nav-item"> <a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{ exact: true }"
           routerLinkActive="nav-link-active">{{lang=='hin'? 'होम':'Home'}}</a></li>
       <ng-container>
