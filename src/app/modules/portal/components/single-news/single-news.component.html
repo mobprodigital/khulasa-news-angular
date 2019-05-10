@@ -5,8 +5,8 @@
   <div *ngIf="news && !loader">
     <h1 class="post-title"> {{news.title}}</h1>
     <h6 class="post-date-or-author">
-      <span><img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt=""> {{news.createDate |
-        date:'longDate' | uppercase}}</span>
+      <time><img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png" alt=""> {{news.createDate |
+        date:'longDate' | uppercase}}</time>
       <span class="pl-3 "><img class="date-and-user-icon" src="assets/images/icons/person.png" alt=""> {{news.author}}
       </span>
     </h6>
