@@ -9,7 +9,7 @@ import { NewsModel } from 'src/app/model/news.model';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  public searchId: string = '';
+  public searchTerm: string = '';
   public newsList: NewsModel[] = [];
   public errorMsg: string = '';
   public loader: boolean = true;
@@ -29,7 +29,7 @@ export class SearchResultsComponent implements OnInit {
   public getSearchTerm() {
     const searchTerm = this.activatedRoute.snapshot.paramMap.get('searchTerm');
     if (searchTerm) {
-      this.searchId = searchTerm;
+      this.searchTerm = searchTerm;
       this.newsList = [];
       this.searchPosts();
     }
@@ -38,7 +38,7 @@ export class SearchResultsComponent implements OnInit {
   private searchPosts(count: number = 10, from: number = 1) {
     this.errorMsg = '';
     this.loader = true;
-    this.newsService.getSearchResults(this.searchId, count, from)
+    this.newsService.getSearchResults(this.searchTerm, count, from)
       .then(searchResults => {
         if (searchResults && searchResults.length > 0) {
           this.newsList.push(...searchResults);
