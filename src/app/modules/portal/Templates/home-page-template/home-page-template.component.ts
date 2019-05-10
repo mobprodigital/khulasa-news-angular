@@ -23,7 +23,7 @@ export class HomePageTemplateComponent implements OnInit {
     this.titleService.setTitle('Breaking News, Latest News, Bollywood, Business, Politics, Sports & Entertainment News');
   }
 
-  private getNewsByCategory() {
+  private getNewsByCategoryId() {
     this.newsService.getNews(this.categoryId, this.count)
       .then(newsdata => { this.newsList = newsdata; this.loader = false; })
       .catch(err => { this.errorMsg = err; this.loader = false; });
@@ -32,7 +32,7 @@ export class HomePageTemplateComponent implements OnInit {
       });
   }
   ngOnInit() {
-    this.getNewsByCategory();
+    this.getNewsByCategoryId();
     if(this.count){
       this.Arr.length = this.count;
     }
