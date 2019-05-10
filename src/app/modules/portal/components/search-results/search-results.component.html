@@ -1,13 +1,15 @@
+<h4 class="search-page-title Fcolor-tiger-orange under-line">SEARCH RESULTS FOR: {{searchTerm}}</h4>
+
 <div>
   <div class="row" *ngIf="newsList && newsList.length > 0">
     <article class="col-md-6 margin-bottom-25" *ngFor="let nws of newsList">
-      <a [routerLink]="['' ,nws.slug]"> <img class="news-arcive-image thumb" src="{{nws.featuredImage.small ? nws.featuredImage.small : defaultImg}}"
-          alt=""></a>
+      <a [routerLink]="['' ,nws.slug]"> <img class="news-arcive-image thumb"
+          src="{{nws.featuredImage.small ? nws.featuredImage.small : defaultImg}}" alt=""></a>
       <h5 class="news-archive-title"> <a class="news-archive-link" [routerLink]="['' ,nws.slug]">{{nws.title}}</a></h5>
-      <time class="news-archive-date-or-author"><img class="date-and-user-icon" src="assets/images/icons/calendar-icon.png"
-          alt="" srcset=""> {{nws.createDate | date}}</time>
-      <span class="news-archive-date-or-author pl-3"><img class="date-and-user-icon" src="assets/images/icons/person.png"
-          alt="" srcset=""> {{nws.author}} </span>
+      <time class="news-archive-date-or-author"><img class="date-and-user-icon"
+          src="assets/images/icons/calendar-icon.png" alt="" srcset=""> {{nws.createDate | date}}</time>
+      <span class="news-archive-date-or-author pl-3"><img class="date-and-user-icon"
+          src="assets/images/icons/person.png" alt="" srcset=""> {{nws.author}} </span>
       <p class="news-archive-content">{{nws.content}}</p>
       <div class="pt-4">
         <a class="btn-view-story" [routerLink]="['' ,nws.slug]">View Story</a>
