@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PortalRoutingModule } from './portal-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { CommonComponent } from './components/common/common.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -39,9 +37,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     LoaderComponent,
     ArchiveLoaderComponent,
     StockMarketComponent,
-    
     SinglePageComponent,
-    
     SearchResultsComponent,
   ],
   imports: [
